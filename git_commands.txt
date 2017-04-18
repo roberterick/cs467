@@ -1,0 +1,8 @@
+git status
+git add .
+git commit -m "a message"
+git pull origin
+git fetch origin
+git merge -m "a message"
+git log
+git push origin master

@@ -1,0 +1,6 @@
+{
+	"name": "elevator",
+	"type": "room",
+	"long_description": "You are in the bridge elevator.",
+	"short_description": "The bridge elevator."
+}

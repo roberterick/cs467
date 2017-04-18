@@ -1,0 +1,54 @@
+(dp0
+Vbridge
+p1
+ccopy_reg
+_reconstructor
+p2
+(c__main__
+GameObj
+p3
+c__builtin__
+object
+p4
+Ntp5
+Rp6
+(dp7
+Vshort_description
+p8
+VThe starship's bridge
+p9
+sVtype
+p10
+Vroom
+p11
+sVname
+p12
+g1
+sVlong_description
+p13
+VYou are in a room on what appear to be a starship...
+p14
+sbsVelevator
+p15
+g2
+(g3
+g4
+Ntp16
+Rp17
+(dp18
+Vshort_description
+p19
+VThe bridge elevator.
+p20
+sVtype
+p21
+Vroom
+p22
+sVname
+p23
+g15
+sVlong_description
+p24
+VYou are in the bridge elevator.
+p25
+sbs.

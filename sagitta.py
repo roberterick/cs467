@@ -13,12 +13,13 @@ import pickle
 ##clutter up this one
 class GameObj(object):
     def __init__(self):
-        self.location=''
+        self.otherObjects=None
         self.long_description=''
         self.short_description=''
         
 class Item(GameObj):
     def __init__(self,**data):
+        self.location=''
         self.seen=False
         self.__dict__.update(data)
     def __str__(self):
@@ -31,6 +32,7 @@ class Item(GameObj):
 class Player(GameObj):
     def __init__(self,**data):
         self.items=[]
+        self.location=''
         self.seen=False
         self.__dict__.update(data)
     def __str__(self):
@@ -79,6 +81,7 @@ class App(object):
                   }
         while(1):
             #print descriptions
+            print "(type 'help' for commands)"
             a1=raw_input(">>>>")#prompt
             a1=a1.lower()
             if a1=='exit':
@@ -123,8 +126,10 @@ class App(object):
             elif data['type']=='item':
                 newobj=Item(**data)
             else:
-                newobj=GameObj(**data)#create the obj with all json keys & data
+                assert False #shouldn't happen
+##                newobj=GameObj(**data)#create the obj with all json keys & data
             self.objs[newobj.name]=newobj#add the object to our dictionary
+            newobj.otherObjects=self.objs#gives all objects access to other objects
 ##        print self.objs
         
     def loadGame(self):

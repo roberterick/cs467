@@ -1,0 +1,8 @@
+1) record a 1.5 minute video discussing research and learning and coding--for progress report
+2) assign 5 rooms to each member for writing?
+3) add functionality to the player so that objects can be picked up and set down in various rooms
+4) research lexers and integrate into the mainloop somehow
+5) give each object a list of valid states
+6) possibly associate certain functions (actions) with each state
+7) verify our program works on osu servers
+8) 

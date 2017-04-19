@@ -9,9 +9,55 @@ import os
 import json
 import pickle
 
+##i think we'll want to move these objects to another file soon so they don't
+##clutter up this one
 class GameObj(object):
+    def __init__(self):
+        self.location=''
+        self.long_description=''
+        self.short_description=''
+        
+class Item(GameObj):
     def __init__(self,**data):
+        self.seen=False
         self.__dict__.update(data)
+    def __str__(self):
+        if self.seen:
+            return self.short_description
+        else:
+            self.seen=True
+            return self.long_description
+    
+class Player(GameObj):
+    def __init__(self,**data):
+        self.items=[]
+        self.seen=False
+        self.__dict__.update(data)
+    def __str__(self):
+        items=[itm.short_description for itm in self.items]
+        youhave='You have in your possession: %s'%','.join(items)
+        if self.seen:
+            return '%s\n%s'%(self.short_description,youhave)
+        else:
+            self.seen=True
+            return '%s\n%s'%(self.long_description,youhave)
+        
+class Room(GameObj):
+    def __init__(self,**data):
+        self.items=[]
+        self.visited=False
+        self.__dict__.update(data)
+    def __str__(self):
+        items=[itm.short_description for itm in self.items]
+        youhave='In this room you see: %s'%','.join(items)
+        if self.visited:
+            return '%s\n%s'%(self.short_description,youhave)
+        else:
+            self.visited=True
+            return '%s\n%s'%(self.long_description,youhave)
+        
+
+
     
 class App(object):
     def __init__(self):
@@ -25,30 +71,29 @@ class App(object):
         self.mainLoop()#begin main loop
 
     def mainLoop(self):
+        commands={'help':self.showHelp,
+                'save game':self.saveGame,
+                'load game':self.loadGame,
+                  'print objects1':self.printObjects1,
+                  'print objects2':self.printObjects2,
+                  }
         while(1):
             #print descriptions
             a1=raw_input(">>>>")#prompt
             a1=a1.lower()
-            if a1=='help':
-                self.showHelp()
-            elif a1=='save game':
-                self.saveGame()
-            elif a1=='load game':
-                self.loadGame()
-            elif a1=='exit':
+            if a1=='exit':
                 #implement exit, temp save if dirty?
                 return
-            elif a1=='print objects':
-                self.printObjects()
+            elif commands.has_key(a1):
+                commands[a1]()
             else:
                 print 'That command is not recognized.'
-                
                 
             #analyze command
             
             
     def askNewGame(self):
-        answer=raw_input('Start a new game?')
+        answer=raw_input('Start a new game (y/n)?')
         return answer.lower()
 
     def showHelp(self):
@@ -56,7 +101,8 @@ class App(object):
         save game: save the current game
         load game: load a saved game    
         exit: exit the game
-        print objects: print known objects
+        print objects1: print known objects
+        print objects2: print known objects
         '''
         print h
 
@@ -70,7 +116,14 @@ class App(object):
         for f in longlist:
             text=open(f,'r').read()#read in the text
             data=json.loads(text)#convert to json
-            newobj=GameObj(**data)#create the obj with all json keys & data
+            if data['type']=='room':
+                newobj=Room(**data)
+            elif data['type']=='player':
+                newobj=Player(**data)
+            elif data['type']=='item':
+                newobj=Item(**data)
+            else:
+                newobj=GameObj(**data)#create the obj with all json keys & data
             self.objs[newobj.name]=newobj#add the object to our dictionary
 ##        print self.objs
         
@@ -109,12 +162,20 @@ class App(object):
         pickle.dump(self.objs,fobj)
         fobj.close()
         
-    def printObjects(self):
+    def printObjects1(self):
         '''helper function to see what is there'''
         for k in self.objs:
             for k2 in dir(self.objs[k]):
                 if not k2.startswith('_'):
                     print k2,':',eval('self.objs[k].%s'%k2)
+            print
+    def printObjects2(self):
+        '''helper function to see what is there'''
+        for k in self.objs:
+            print self.objs[k]
+##            for k2 in dir(self.objs[k]):
+##                if not k2.startswith('_'):
+##                    print k2,':',eval('self.objs[k].%s'%k2)
             print
 
 

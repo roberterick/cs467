@@ -73,11 +73,11 @@ class App(object):
         self.mainLoop()#begin main loop
 
     def mainLoop(self):
-        commands={'help':self.showHelp,
-                'save game':self.saveGame,
-                'load game':self.loadGame,
-                  'print objects1':self.printObjects1,
-                  'print objects2':self.printObjects2,
+        commands={  'help':self.showHelp,
+                    'save game':self.saveGame,
+                    'load game':self.loadGame,
+                    'print objects1':self.printObjects1,
+                    'print objects2':self.printObjects2,
                   }
         while(1):
             #print descriptions
@@ -174,13 +174,11 @@ class App(object):
                 if not k2.startswith('_'):
                     print k2,':',eval('self.objs[k].%s'%k2)
             print
+            
     def printObjects2(self):
         '''helper function to see what is there'''
         for k in self.objs:
             print self.objs[k]
-##            for k2 in dir(self.objs[k]):
-##                if not k2.startswith('_'):
-##                    print k2,':',eval('self.objs[k].%s'%k2)
             print
 
 

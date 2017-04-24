@@ -16,39 +16,46 @@ class App(object):
     def __init__(self):
         print 'initializing'
         self.objs={}#dictionary holds rooms, the player, and items
+        self.player=None
 
-        if self.askNewGame()=='y':
-            self.initializeFromFiles()
-        else:
-            self.loadGame()
+        self.initializeGame()
+        
+        playerkey=filter(lambda x:self.objs[x].type=='player',self.objs.keys())[0]
+        self.player=self.objs[playerkey]
+        
         self.mainLoop()#begin main loop
 
     def mainLoop(self):
-        commands={  'help':self.showHelp,
-                    'save game':self.saveGame,
-                    'load game':self.loadGame,
-                    'print objects1':self.printObjects1,
-                    'print objects2':self.printObjects2,
-                  }
         while(1):
             #print descriptions
-            print "(type 'help' for commands)"
-            a1=raw_input(">>>>")#prompt
-            a1=a1.lower()
-            if a1=='exit':
-                #implement exit, temp save if dirty?
-                return
-            elif commands.has_key(a1):
-                commands[a1]()
-            else:
-                print 'That command is not recognized.'
-                
+            self.printCurrentLocation()
+            if self.processPrompt()==False:return #1 is exit
             #analyze command
             
-            
-    def askNewGame(self):
-        answer=raw_input('Start a new game (y/n)?')
-        return answer.lower()
+    def printCurrentLocation(self):
+        location=self.player.location
+        print self.objs[location]
+##        items=self.
+
+    def processPrompt(self):
+        commands={  'help':self.showHelp,
+            'save game':self.saveGame,
+            'load game':self.loadGame,
+            'print objects1':self.printObjects1,
+            'print objects2':self.printObjects2,
+          }
+        print "(type 'help' for commands)",
+        a1=raw_input(">>>>")#prompt
+        a1=a1.lower()
+        if a1=='exit':
+            #implement exit, temp save if dirty?
+            return False
+        elif commands.has_key(a1):
+            commands[a1]()
+            return True
+        else:
+            print 'That command is not recognized.'    
+            return True
 
     def showHelp(self):
         h='''
@@ -62,6 +69,14 @@ class App(object):
 
     def where(self):
         return os.getcwd()
+
+    def initializeGame(self):
+        answer=raw_input('Start a new game (y/n)?')
+        answer=answer.lower()
+        if answer=='y':
+            self.initializeFromFiles()
+        else:
+            self.loadGame()
 
     def initializeFromFiles(self):
         pth=os.path.join(self.where(),'init')

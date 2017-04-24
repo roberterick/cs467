@@ -43,10 +43,14 @@ class Room(GameObj):
         self.__dict__.update(data)
     def __str__(self):
         items=[itm.short_description for itm in self.items]
-        youhave='In this room you see: %s'%','.join(items)
+        if items:
+            youhave='In this room you see these items: %s'%','.join(items)
+        else:
+            youhave='There are no items in this room.'
         if self.visited:
             return '%s\n%s'%(self.short_description,youhave)
         else:
             self.visited=True
             return '%s\n%s'%(self.long_description,youhave)
+            
         

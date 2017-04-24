@@ -27,10 +27,8 @@ class App(object):
 
     def mainLoop(self):
         while(1):
-            #print descriptions
             self.printCurrentLocation()
-            if self.processPrompt()==False:return #1 is exit
-            #analyze command
+            if self.processPrompt()==False:return
             
     def printCurrentLocation(self):
         location=self.player.location
@@ -54,6 +52,8 @@ class App(object):
             commands[a1]()
             return True
         else:
+            #analyze command or don't recognize it...
+            #probably put lexer here
             print 'That command is not recognized.'    
             return True
 

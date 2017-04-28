@@ -32,7 +32,7 @@ class App(object):
             
     def printCurrentLocation(self):
         location=self.player.location
-        print self.objs[location]
+        print self.objects[location]
 ##        items=self.
 
     def processPrompt(self):
@@ -95,7 +95,7 @@ class App(object):
                 assert False #shouldn't happen
 ##                newobj=GameObj(**data)#create the obj with all json keys & data
             self.objs[newobj.name]=newobj#add the object to our dictionary
-            newobj.otherObjects=self.objs#gives all objects access to other objects
+            newobj.otherObjects=self.objects#gives all objects access to other objects
 ##        print self.objs
         
     def loadGame(self):

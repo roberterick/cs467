@@ -35,6 +35,16 @@ class Player(GameObj):
         else:
             self.seen=True
             return '%s\n%s'%(self.long_description,youhave)
+    def getItem(self,itemName):
+        #verify room has the item
+        if not self.location in self.otherObjects:return False
+        room=self.objects[self.location]
+        if not itemName in room.items:return False
+        #get item
+        if not self.otherObjects[itemName].__class__=='Item':return False
+        self.items+=[itemName]
+        #remove from room
+        room.items.remove(itemName)
         
 class Room(GameObj):
     def __init__(self,**data):

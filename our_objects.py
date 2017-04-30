@@ -24,7 +24,6 @@ class Item(GameObj):
 class Player(GameObj):
     def __init__(self,**data):
         self.items=[]
-        self.adjacentRooms={}
         self.location=''
         self.seen=False
         self.__dict__.update(data)
@@ -64,6 +63,7 @@ class Player(GameObj):
 class Room(GameObj):
     def __init__(self,**data):
         self.items=[]
+        self.adjacentRooms={}
         self.visited=False
         self.__dict__.update(data)
     def __str__(self):

@@ -35,6 +35,7 @@ class Player(GameObj):
         else:
             self.seen=True
             return '%s\n%s'%(self.long_description,youhave)
+
     def getItem(self,itemName):
         #verify room has the item
         if not self.location in self.otherObjects:return False
@@ -45,6 +46,19 @@ class Player(GameObj):
         self.items+=[itemName]
         #remove from room
         room.items.remove(itemName)
+        return True
+    
+    def dropItem(self,itemName):
+        #verify i have the item
+        if not itemName in self.items:return False
+        #find room    
+        if not self.location in self.otherObjects:return False
+        room=self.objects[self.location]
+        #add to room
+        room.items+=[itemName]
+        #remove item from my items
+        self.items.remove(itemName)
+        return True
         
 class Room(GameObj):
     def __init__(self,**data):

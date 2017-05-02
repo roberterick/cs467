@@ -3,5 +3,5 @@
 	"type": "room",
 	"long_description": "You are in the Captain's Room.",
 	"short_description": "The Captain's Room.",
-	"adjacent_room": ["crew_quarters"]
+	"adjacent_rooms": {"east":"crew_quarters"}
 }

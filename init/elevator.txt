@@ -3,5 +3,5 @@
 	"type": "room",
 	"long_description": "You are in the bridge elevator.",
 	"short_description": "The bridge elevator.",
-	"adjacent_room": ["bridge", "crew_quarters", "shuttle_bay"]
+	"adjacent_rooms": {"east":"bridge","west":"crew_quarters","south":"shuttle_bay"}
 }

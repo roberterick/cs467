@@ -59,11 +59,17 @@ class Player(GameObj):
         #remove item from my items
         self.items.remove(itemName)
         return True
+
+    def move(self,direction):
+        room=self.otherObjects[self.location]
+        #use has_key to test for existance of direction in room.adjacent_rooms
+        #if bad, exit false
+        #if good, adjust location, exit true
         
 class Room(GameObj):
     def __init__(self,**data):
         self.items=[]
-        self.adjacentRooms={}
+        self.adjacent_rooms={}
         self.visited=False
         self.__dict__.update(data)
     def __str__(self):

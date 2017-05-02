@@ -15,13 +15,13 @@ from our_objects import *
 class App(object):
     def __init__(self):
         print 'initializing'
-        self.objs={}#dictionary holds rooms, the player, and items
+        self.objects={}#dictionary holds rooms, the player, and items
         self.player=None
 
         self.initializeGame()
         
-        playerkey=filter(lambda x:self.objs[x].type=='player',self.objs.keys())[0]
-        self.player=self.objs[playerkey]
+        playerkey=filter(lambda x:self.objects[x].type=='player',self.objects.keys())[0]
+        self.player=self.objects[playerkey]
         
         self.mainLoop()#begin main loop
 
@@ -94,9 +94,9 @@ class App(object):
             else:
                 assert False #shouldn't happen
 ##                newobj=GameObj(**data)#create the obj with all json keys & data
-            self.objs[newobj.name]=newobj#add the object to our dictionary
+            self.objects[newobj.name]=newobj#add the object to our dictionary
             newobj.otherObjects=self.objects#gives all objects access to other objects
-##        print self.objs
+##        print self.objects
         
     def loadGame(self):
         pth=os.path.join(self.where(),'saved')
@@ -117,7 +117,7 @@ class App(object):
             return
         target=longlist[i]
         fobj=open(target, 'rb')
-        self.objs=pickle.load(fobj)
+        self.objects=pickle.load(fobj)
         fobj.close()
 
     def saveGame(self):
@@ -130,21 +130,21 @@ class App(object):
             a2=a2.lower()
             if a2=='n':return
         fobj=open(pth, 'wb')
-        pickle.dump(self.objs,fobj)
+        pickle.dump(self.objects,fobj)
         fobj.close()
         
     def printObjects1(self):
         '''helper function to see what is there'''
-        for k in self.objs:
-            for k2 in dir(self.objs[k]):
+        for k in self.objects:
+            for k2 in dir(self.objects[k]):
                 if not k2.startswith('_'):
-                    print k2,':',eval('self.objs[k].%s'%k2)
+                    print k2,':',eval('self.objects[k].%s'%k2)
             print
             
     def printObjects2(self):
         '''helper function to see what is there'''
-        for k in self.objs:
-            print self.objs[k]
+        for k in self.objects:
+            print self.objects[k]
             print
 
 

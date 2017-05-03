@@ -1,0 +1,7 @@
+{
+	"name": "crew quarters",
+	"type": "room",
+	"long_description": "You are in the crew quarters.",
+	"short_description": "The crew quarters.",
+	"adjacent_rooms": {"west":"elevator"}
+}

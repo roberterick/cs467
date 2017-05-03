@@ -1,0 +1,7 @@
+{
+	"name": "shuttle bay",
+	"type": "room",
+	"long_description": "You are in the Shuttle Bay.",
+	"short_description": "The Shuttle Bay.",
+	"adjacent_rooms": {"west":"transporter room","east":"armory","south":engineering access tube"}
+}

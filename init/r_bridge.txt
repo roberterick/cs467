@@ -3,5 +3,5 @@
 	"type": "room",
 	"long_description": "You are in a room on what appear to be a starship...",
 	"short_description": "The starship's bridge",
-	"adjacent_rooms": {"east":"Elevator"}
+	"adjacent_rooms": {"south":"elevator"}
 }

@@ -1,0 +1,7 @@
+{
+	"name": "medical bay",
+	"type": "room",
+	"long_description": "You are in medical bay long...",
+	"short_description": "Medical Bay",
+	"adjacent_rooms": {"west":"forward observation","north":"crew quarters"}
+}

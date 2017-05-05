@@ -1,0 +1,7 @@
+{
+	"name": "mess hall",
+	"type": "room",
+	"long_description": "You are in the mess hall long...",
+	"short_description": "Mess Hall",
+	"adjacent_rooms": {"west":"crew quarters","east":"arboretum"}
+}

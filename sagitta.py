@@ -28,12 +28,25 @@ class App(object):
     def mainLoop(self):
         while(1):
             self.printCurrentLocation()
-            if self.processPrompt()==False:return
+            if self.processPrompt()==False:
+                print 'That command was not recognized!'
+                return
             
     def printCurrentLocation(self):
         location=self.player.location
         print self.objects[location]
 ##        items=self.
+
+    def normalizeDirection(self,direction):
+        aMap={'forward':'north',
+                'aft':'south',
+              'starboard':'east',
+              'port':'west',
+              }
+        if aMap.has_key(direction):
+            return aMap[direction]
+        else:
+            return direction
 
     def processPrompt(self):
         commands={  'help':self.showHelp,
@@ -43,14 +56,22 @@ class App(object):
             'print objects2':self.printObjects2,
           }
         print "(type 'help' for commands)",
-        a1=raw_input(">>>>")#prompt
-        a1=a1.lower()
-        if a1=='exit':
+        userInput=raw_input(">>>>")#prompt
+        userInput=userInput.lower()
+        if userInput=='exit':
             #implement exit, temp save if dirty?
             return False
-        elif commands.has_key(a1):
-            commands[a1]()
+        elif commands.has_key(userInput):
+            commands[userInput]()
             return True
+        elif userInput.startswith('move ') or userInput.startswith('go '):
+            splitcommand=userInput.split()
+            if len(splitcommand)==2:
+                cmd,direction=splitcommand
+                direction=self.normalizeDirection(direction)
+                player.move(direction)
+            else:
+                return False
         else:
             #analyze command or don't recognize it...
             #probably put lexer here

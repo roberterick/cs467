@@ -28,9 +28,8 @@ class App(object):
     def mainLoop(self):
         while(1):
             self.printCurrentLocation()
-            if self.processPrompt()==False:
-                print 'That command was not recognized!'
-                return
+            res=self.processPrompt()
+            if res==False:print 'That command was not recognized!'
             
     def printCurrentLocation(self):
         location=self.player.location
@@ -58,25 +57,27 @@ class App(object):
         print "(type 'help' for commands)",
         userInput=raw_input(">>>>")#prompt
         userInput=userInput.lower()
+        splitcommand=userInput.split()
+        
         if userInput=='exit':
             #implement exit, temp save if dirty?
-            return False
+            return True
         elif commands.has_key(userInput):
             commands[userInput]()
             return True
-        elif userInput.startswith('move ') or userInput.startswith('go '):
-            splitcommand=userInput.split()
+        elif splitcommand[0] in ['move','go','walk']:
             if len(splitcommand)==2:
                 cmd,direction=splitcommand
                 direction=self.normalizeDirection(direction)
                 player.move(direction)
+                return True
             else:
                 return False
         else:
             #analyze command or don't recognize it...
             #probably put lexer here
             print 'That command is not recognized.'    
-            return True
+            return False
 
     def showHelp(self):
         h='''

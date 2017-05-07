@@ -29,18 +29,22 @@ class App(object):
         while(1):
             self.printCurrentLocation()
             res=self.processPrompt()
-            if res==False:print 'That command was not recognized!'
+            if res=='exit':
+                return
+            elif res==False:
+                print 'That command was not recognized!'
             
     def printCurrentLocation(self):
         location=self.player.location
-        print self.objects[location]
+        print 'You are in: ',self.objects[location]
 ##        items=self.
 
     def normalizeDirection(self,direction):
-        aMap={'forward':'north',
-                'aft':'south',
-              'starboard':'east',
-              'port':'west',
+        aMap={
+            'forward':'north',
+            'aft':'south',
+            'starboard':'east',
+            'port':'west',
               }
         if aMap.has_key(direction):
             return aMap[direction]
@@ -48,7 +52,13 @@ class App(object):
             return direction
 
     def processPrompt(self):
-        commands={  'help':self.showHelp,
+        '''
+            returns 'exit' if the game is exit
+            returns True if the command succeeded
+            returns False if the command failed
+        '''
+        commands={
+            'help':self.showHelp,
             'save game':self.saveGame,
             'load game':self.loadGame,
             'print objects1':self.printObjects1,
@@ -61,7 +71,7 @@ class App(object):
         
         if userInput=='exit':
             #implement exit, temp save if dirty?
-            return True
+            return 'exit'
         elif commands.has_key(userInput):
             commands[userInput]()
             return True
@@ -76,7 +86,7 @@ class App(object):
         else:
             #analyze command or don't recognize it...
             #probably put lexer here
-            print 'That command is not recognized.'    
+##            print 'That command is not recognized.'    
             return False
 
     def showHelp(self):
@@ -106,7 +116,12 @@ class App(object):
         longlist=[os.path.join(pth,x) for x in shortlist]#file list with path
         for f in longlist:
             text=open(f,'r').read()#read in the text
-            data=json.loads(text)#convert to json
+            try:
+                data=json.loads(text)#convert to json
+            except:
+                print '*'*10,'File %s has incorrect json.  Please correct!'%f
+                continue
+            
             if data['type']=='room':
                 newobj=Room(**data)
             elif data['type']=='player':

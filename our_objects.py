@@ -62,13 +62,14 @@ class Player(GameObj):
 
     def move(self,direction):
         room=self.otherObjects[self.location]
-        #use has_key to test for existance of direction in room.adjacent_rooms
+        #test for existance of direction in room.adjacent_rooms
+        # if found, adjust location, exit true
         if direction in room.adjacent_rooms:
            self.location = room.adjacent_rooms.direction
            return True
         #if bad, exit false
         else: return False
-        #if good, adjust location, exit true
+
         
 class Room(GameObj):
     def __init__(self,**data):

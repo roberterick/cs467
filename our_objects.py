@@ -67,6 +67,9 @@ class Player(GameObj):
         if direction in room.adjacent_rooms:
            self.location = room.adjacent_rooms.direction
            return True
+        elif direction in room.adjacent_rooms.itervalues():
+            self.location = direction
+            return True
         #if bad, exit false
         else: return False
 

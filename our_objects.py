@@ -53,7 +53,7 @@ class Player(GameObj):
         if not itemName in self.items:return False
         #find room    
         if not self.location in self.otherObjects:return False
-        room=self.objects[self.location]
+        room=self.otherObjects[self.location]
         #add to room
         room.items+=[itemName]
         #remove item from my items
@@ -72,6 +72,16 @@ class Player(GameObj):
             return True
         #if bad, exit false
         else: return False
+
+    def examine(self,itemName):
+        if not self.location in self.otherObjects:
+            return False
+        room=self.otherObjects[self.location]
+        if not itemName in room.items:
+            print "This room does not have that item!"
+            return False
+        item=self.otherObjects[itemName]
+        print 'Item %s: %s'%(itemName,item.long_description)
 
         
 class Room(GameObj):

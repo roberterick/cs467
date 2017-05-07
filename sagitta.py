@@ -79,8 +79,15 @@ class App(object):
             if len(splitcommand)==2:
                 cmd,direction=splitcommand
                 direction=self.normalizeDirection(direction)
-                player.move(direction)
+                self.player.move(direction)
                 return True
+            else:
+                return False
+        elif splitcommand[0] in ['examine']:
+            if len(splitcommand)==2:
+                cmd,item=splitcommand
+                self.player.examine(item)
+                True
             else:
                 return False
         else:
@@ -94,6 +101,8 @@ class App(object):
         save game: save the current game
         load game: load a saved game    
         exit: exit the game
+        examine <object>: examines an object
+        move <direction>: moves the player in a direction
         print objects1: print known objects
         print objects2: print known objects
         '''

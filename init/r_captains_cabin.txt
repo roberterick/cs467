@@ -1,0 +1,7 @@
+{
+	"name": "captain's cabin",
+	"type": "room",
+	"long_description": "You are in the Captain's Cabin.",
+	"short_description": "The Captain's Cabin.",
+	"adjacent_rooms": {"south":"crew quarters"}
+}

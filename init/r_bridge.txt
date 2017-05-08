@@ -1,7 +1,7 @@
 {
 	"name": "bridge",
 	"type": "room",
-	"long_description": "You are in a room on what appear to be a starship...",
-	"short_description": "The starship's bridge",
+	"long_description": "You are in a room which appears to be the bridge of a starship.  No one else is present. Large video screens show a spectacular view of a two suns and several planets.  There are numerous consoles with various controls and an empty chair in front of each.  To the south appears to be the entrance to an elevator.",
+	"short_description": "starship's bridge",
 	"adjacent_rooms": {"south":"elevator"}
 }

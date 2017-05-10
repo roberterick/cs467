@@ -15,6 +15,7 @@ from our_objects import *
 class App(object):
     def __init__(self):
         print 'initializing'
+        
         self.objects={}#dictionary holds rooms, the player, and items
         self.player=None
 

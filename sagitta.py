@@ -37,7 +37,8 @@ class App(object):
             
     def printCurrentLocation(self):
         location=self.player.location
-        print 'You are in: ',self.objects[location]
+        print self.objects[location]
+##        print 'You are in: ',self.objects[location]
 ##        items=self.
 
     def normalizeDirection(self,direction):
@@ -65,6 +66,8 @@ class App(object):
             'print objects1':self.printObjects1,
             'print objects2':self.printObjects2,
           }
+
+        print
         print "(type 'help' for commands)",
         userInput=raw_input(">>>>")#prompt
         userInput=userInput.lower()
@@ -122,8 +125,10 @@ class App(object):
 
     def initializeFromFiles(self):
         pth=os.path.join(self.where(),'init')
+        nonjsonpth=os.path.join(self.where(),'init','not_json')
         shortlist=os.listdir(pth)#file list without path
         longlist=[os.path.join(pth,x) for x in shortlist]#file list with path
+        longlist=filter(lambda x:os.path.isfile(x),longlist)
         for f in longlist:
             text=open(f,'r').read()#read in the text
             try:
@@ -132,14 +137,14 @@ class App(object):
                 print '*'*10,'File %s has incorrect json.  Please correct!'%f
                 continue
 
-            #this loads in the long_description from an alternate text file
+            #this loads in values from an alternate text files
             #so that formatting is improved
-            #the file must exist and the name must be in the long_description
-            if data.has_key('long_description'):
-                long_description=data['long_description')
-                fullpath=os.join(pth,long_description)
-                if os.path.exists(fullpath):
-                    data['long_description']=open(fullpath,'r').read()
+            #the file must exist
+            #the name must be the value in the key
+            for k,v in data.items():
+                if str(type(v)) not in ["<type 'unicode'>","<type 'str'>"]:continue
+                fullpath=os.path.join(nonjsonpth,v)
+                if os.path.exists(fullpath):data[k]=open(fullpath,'r').read()
             
             if data['type']=='room':
                 newobj=Room(**data)

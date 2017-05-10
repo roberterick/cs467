@@ -131,6 +131,15 @@ class App(object):
             except:
                 print '*'*10,'File %s has incorrect json.  Please correct!'%f
                 continue
+
+            #this loads in the long_description from an alternate text file
+            #so that formatting is improved
+            #the file must exist and the name must be in the long_description
+            if data.has_key('long_description'):
+                long_description=data['long_description')
+                fullpath=os.join(pth,long_description)
+                if os.path.exists(fullpath):
+                    data['long_description']=open(fullpath,'r').read()
             
             if data['type']=='room':
                 newobj=Room(**data)

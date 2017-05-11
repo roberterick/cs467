@@ -41,18 +41,6 @@ class App(object):
 ##        print 'You are in: ',self.objects[location]
 ##        items=self.
 
-    def normalizeDirection(self,direction):
-        aMap={
-            'forward':'north',
-            'aft':'south',
-            'starboard':'east',
-            'port':'west',
-              }
-        if aMap.has_key(direction):
-            return aMap[direction]
-        else:
-            return direction
-
     def processPrompt(self):
         '''
             returns 'exit' if the game is exit
@@ -193,6 +181,18 @@ class App(object):
         fobj=open(pth, 'wb')
         pickle.dump(self.objects,fobj)
         fobj.close()
+
+    def normalizeDirection(self,direction):
+        aMap={
+            'forward':'north',
+            'aft':'south',
+            'starboard':'east',
+            'port':'west',
+              }
+        if aMap.has_key(direction):
+            return aMap[direction]
+        else:
+            return direction
         
     def printObjects1(self):
         '''helper function to see what is there'''

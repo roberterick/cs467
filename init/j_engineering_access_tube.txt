@@ -1,0 +1,7 @@
+{
+	"name": "engineering_access_tube",
+	"type": "room",
+	"long_description": "engineering_access_tube.txt",
+	"short_description": "engineering_access_tube",
+	"adjacent_rooms": {"north":"shuttle bay"}
+}

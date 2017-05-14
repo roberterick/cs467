@@ -1,0 +1,7 @@
+{
+	"name": "j_transporter_room",
+	"type": "room",
+	"long_description": "j_transporter_room.txt",
+	"short_description": "j_transporter_room",
+	"adjacent_rooms": {"east":"shuttle bay"}
+}

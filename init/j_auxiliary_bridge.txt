@@ -1,0 +1,7 @@
+{
+	"name": "auxiliary_bridge",
+	"type": "room",
+	"long_description": "auxiliary_bridge.txt",
+	"short_description": "auxiliary_bridge",
+	"adjacent_rooms": {"east":"main engineering"}
+}

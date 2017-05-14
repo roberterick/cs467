@@ -1,0 +1,7 @@
+{
+	"name": "engineering_core",
+	"type": "room",
+	"long_description": "engineering_core.txt",
+	"short_description": "engineering_core",
+	"adjacent_rooms": {"west":"main engineering"}
+}

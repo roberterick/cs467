@@ -1,0 +1,7 @@
+{
+	"name": "version",
+	"type": "version",
+	"version":0.0,
+	"long_description": "version",
+	"short_description": "version"
+}

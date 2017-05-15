@@ -8,6 +8,13 @@ class GameObj(object):
         self.otherObjects=None
         self.long_description=''
         self.short_description=''
+        self.name=''
+        self.type=''
+
+class Version(GameObj):
+    def __init__(self,**data):
+        self.version=0.0
+        self.__dict__.update(data)       
         
 class Item(GameObj):
     def __init__(self,**data):
@@ -99,7 +106,18 @@ class Room(GameObj):
         self.visited=False
         self.__dict__.update(data)
     def __str__(self):
-        items=[itm.short_description for itm in self.items]
+        items=[]
+        for itmdesc in self.items:
+            if not self.otherObjects.has_key(itmdesc):
+                print 'Room %s is missing item %s!'%(self.name,itmdesc)
+                continue
+            itemobj=self.otherObjects[itmdesc]
+            if not hasattr(itemobj,'short_description'):
+                print 'Item %s is missing a short description.'%itmdesc
+                continue
+            items+=[itemobj.short_description]
+            
+##        items=[itm.short_description for itm in self.items]
         if items:
             youhave='In this room you see these items: %s'%','.join(items)
         else:

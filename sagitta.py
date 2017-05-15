@@ -11,6 +11,7 @@ import pickle
 import ply
 from our_objects import *
 
+CURRENT_VERSION=1.0
     
 class App(object):
     def __init__(self):
@@ -133,15 +134,29 @@ class App(object):
                 newobj=Player(**data)
             elif data['type']=='item':
                 newobj=Item(**data)
+            elif data['type']=='version':
+                newobj=Version(**data)
             else:
                 assert False #shouldn't happen
 ##                newobj=GameObj(**data)#create the obj with all json keys & data
             self.objects[newobj.name]=newobj#add the object to our dictionary
             newobj.otherObjects=self.objects#gives all objects access to other objects
+
+        self.placeItems()
+        self.objects['version'].version=CURRENT_VERSION
 ##        print self.objects
 
     def placeItems(self):
-        pass
+        for k,v in self.objects.items():
+            if v.type!='item':continue
+            location=v.location
+##            print 'k %s, v %s, location %s'%(k,v,location)
+            if not self.objects.has_key(location) and self.objects[location]['type']=='room':
+                print 'Item %s does not have a valid location!'%k
+            room=self.objects[location]
+            if not k in room.items: room.items+=[k]
+##            print 'room ',room,room.items, dir(room)
+##            self.objects[location].items+=[k]
 
     def loadFormattedText(self,textpath,datadict):
         #this loads in values from an alternate text files
@@ -155,25 +170,55 @@ class App(object):
         
     def loadGame(self):
         pth=os.path.join(self.where(),'saved')
-        shortlist=os.listdir(pth)#file list without path
+        shortlist,longlist=self.returnSanitizedLists(pth)
         if len(shortlist)==0:
             print 'No saved games found!'
             return
-        shortlist.sort()
+
         for i,f in enumerate(shortlist):#display saved games
             print '%02i.'%i,f
         a1=raw_input('Choose game to load (an integer):')
         a1=a1.lower()
-        longlist=[os.path.join(pth,x) for x in shortlist]#file list with path
+        
         try:
             a1=int(a1)
         except:
             print 'Please enter an integer.'
             return
-        target=longlist[i]
-        fobj=open(target, 'rb')
+
+        target=None
+        try:
+            target=longlist[a1]
+        except:
+            print 'Please enter an integer from 0 to %i'%len(longlist)-1
+            return
+        self.loadObjectsDict(target)
+
+    def loadObjectsDict(self,apath):
+        fobj=open(apath, 'rb')
         self.objects=pickle.load(fobj)
-        fobj.close()
+        fobj.close()      
+
+    def returnSanitizedLists(self,apath):
+        shortlist=os.listdir(apath)#file list without path
+        shortlist.sort()
+        longlist=[os.path.join(apath,x) for x in shortlist]#file list with path
+        for i in range(len(longlist)-1,-1,-1):
+            target=longlist[i]
+
+            with open(target, 'rb') as fobj:
+                proposedObjects=None
+                try:
+                    proposedObjects=pickle.load(fobj)
+                except:
+                    shortlist.pop(i)
+                    longlist.pop(i)
+                    continue
+                if proposedObjects['version'].version!=CURRENT_VERSION:
+                    shortlist.pop(i)
+                    longlist.pop(i)
+                    continue
+        return shortlist,longlist
 
     def saveGame(self):
         answer=raw_input('Enter name to save:')

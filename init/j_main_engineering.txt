@@ -1,7 +1,7 @@
 {
-	"name": "main_engineering",
+	"name": "main engineering",
 	"type": "room",
-	"long_description": "main_engineering.txt",
+	"long_description": "This is Main Engineering! Tons of tubes here!",
 	"short_description": "main_engineering",
 	"adjacent_rooms": {"east":"engineering core",
 						"west":"auxiliary bridge",

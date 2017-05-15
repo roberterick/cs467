@@ -1,7 +1,7 @@
 {
-	"name": "auxiliary_bridge",
+	"name": "auxiliary bridge",
 	"type": "room",
-	"long_description": "auxiliary_bridge.txt",
+	"long_description": "Welcome to the Auxiliary Bridge.",
 	"short_description": "auxiliary_bridge",
 	"adjacent_rooms": {"east":"main engineering"}
 }

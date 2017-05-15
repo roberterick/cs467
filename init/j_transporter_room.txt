@@ -1,7 +1,7 @@
 {
-	"name": "j_transporter_room",
+	"name": "transporter room",
 	"type": "room",
-	"long_description": "j_transporter_room.txt",
+	"long_description": "There's a transport pod here! Maybe it'll work?",
 	"short_description": "j_transporter_room",
 	"adjacent_rooms": {"east":"shuttle bay"}
 }

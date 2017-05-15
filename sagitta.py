@@ -11,7 +11,7 @@ import pickle
 import ply
 from our_objects import *
 
-CURRENT_VERSION=1.0
+CURRENT_VERSION=1.1
     
 class App(object):
     def __init__(self):
@@ -60,7 +60,7 @@ class App(object):
         print "(type 'help' for commands)",
         userInput=raw_input(">>>>")#prompt
         userInput=userInput.lower()
-        splitcommand=userInput.split()
+        splitcommand=userInput.split(' ',1)
         
         if userInput=='exit':
             #implement exit, temp save if dirty?
@@ -77,10 +77,10 @@ class App(object):
             else:
                 return False
         elif splitcommand[0] in ['examine']:
-            if len(splitcommand)==2:
+            if len(splitcommand)>=2:
                 cmd,item=splitcommand
                 self.player.examine(item)
-                True
+                return True
             else:
                 return False
         else:
@@ -108,11 +108,11 @@ class App(object):
         answer=raw_input('Start a new game (y/n)?')
         answer=answer.lower()
         if answer=='y':
-            self.initializeFromFiles()
+            self.initializeFromJSONFiles()
         else:
             self.loadGame()
 
-    def initializeFromFiles(self):
+    def initializeFromJSONFiles(self):
         pth=os.path.join(self.where(),'init')
         nonjsonpath=os.path.join(self.where(),'init','not_json')
         shortlist=os.listdir(pth)#file list without path
@@ -142,11 +142,11 @@ class App(object):
             self.objects[newobj.name]=newobj#add the object to our dictionary
             newobj.otherObjects=self.objects#gives all objects access to other objects
 
-        self.placeItems()
+        self.linkItems()
         self.objects['version'].version=CURRENT_VERSION
 ##        print self.objects
 
-    def placeItems(self):
+    def linkItems(self):
         for k,v in self.objects.items():
             if v.type!='item':continue
             location=v.location
@@ -172,7 +172,8 @@ class App(object):
         pth=os.path.join(self.where(),'saved')
         shortlist,longlist=self.returnSanitizedLists(pth)
         if len(shortlist)==0:
-            print 'No saved games found!'
+            print 'No saved games found!  Starting a new game.'
+            self.initializeFromJSONFiles()
             return
 
         for i,f in enumerate(shortlist):#display saved games
@@ -208,12 +209,14 @@ class App(object):
 
             with open(target, 'rb') as fobj:
                 proposedObjects=None
+                #see if a file is capable of loading
                 try:
                     proposedObjects=pickle.load(fobj)
                 except:
                     shortlist.pop(i)
                     longlist.pop(i)
                     continue
+                #show only file containing the correct version
                 if proposedObjects['version'].version!=CURRENT_VERSION:
                     shortlist.pop(i)
                     longlist.pop(i)

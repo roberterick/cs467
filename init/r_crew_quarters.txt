@@ -1,7 +1,7 @@
 {
 	"name": "crew quarters",
 	"type": "room",
-	"long_description": "You are in the Crew Quarters long.\nTo the East there's a Mess Hall.\nTo the South there's a Medical Bay (and goodies).\nTo the West there's the Elevator.",
-	"short_description": "Crew Quarters.\nNorth:Captain's Room\nEast:Mess Hall\nSouth:Medical Bay\nWest: Elevator",
-	"adjacent_rooms": {"west":"elevator"}
+	"long_description": "You are in the Crew Quarters long.\nTo the North there's a Captain's Cabin.\nTo the East there's a Mess Hall.\nTo the South there's a Medical Bay (and goodies).\nTo the West there's the Elevator.",
+	"short_description": "Crew Quarters.\nNorth:Captain's Cabin\nEast:Mess Hall\nSouth:Medical Bay\nWest: Elevator",
+	"adjacent_rooms": {"west":"elevator","east":"mess hall","south":"medical bay","north":"captain's cabin"}
 }

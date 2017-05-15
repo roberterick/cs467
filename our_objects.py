@@ -69,24 +69,24 @@ class Player(GameObj):
 
     def move(self,direction):
         #test for the room
-        if not self.location in self.otherObjects:
-            return False
+##       if not self.location in self.otherObjects:
+##            return False
         #get the room
         room=self.otherObjects[self.location]
         #test for existance of direction in room.adjacent_rooms
-        if not room.adjacent_rooms.has_key(direction):
-            return False
+##        if not room.adjacent_rooms.has_key(direction):
+##            return False
         # if found, adjust location, exit true
-        self.location = room.adjacent_rooms[direction]
-        return True
-##        if direction in room.adjacent_rooms:
-##           self.location = room.adjacent_rooms.direction
-##           return True
-##        elif direction in room.adjacent_rooms.itervalues():
-##            self.location = direction
-##            return True
-##        #if bad, exit false
-##        else: return False
+##        self.location = room.adjacent_rooms[direction]
+##        return True
+        if direction in room.adjacent_rooms:
+           self.location = room.adjacent_rooms[direction]
+           return True
+        elif direction in room.adjacent_rooms.itervalues():
+            self.location = direction
+            return True
+        #if bad, exit false
+        else: return False
 
     def examine(self,itemName):
         if not self.location in self.otherObjects:

@@ -1,7 +1,7 @@
 {
 	"name": "medical bay",
 	"type": "room",
-	"long_description": "You are in medical bay long... Exits: West: Forward Observation, North: Crew Quarters",
-	"short_description": "Medical Bay. Exits: West: Forward Observation, North: Crew Quarters",
+	"long_description": "You are in Medical Bay long...\nTo the North is the Crew Quarters (maybe someone's there?).\nAnd to the West is the Forward Observation.",
+	"short_description": "Medical Bay.\nNorth: Crew Quarters\nWest:Forward Observation,",
 	"adjacent_rooms": {"west":"forward observation","north":"crew quarters"}
 }

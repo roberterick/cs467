@@ -3,5 +3,5 @@
 	"type": "room",
 	"long_description": "r_bridge_ld.txt",
 	"short_description": "Bridge\nSouth:Elevator",
-	"adjacent_rooms": {"south":"elevator"}
+	"adjacent_rooms": {"south":"elevator level 1"}
 }

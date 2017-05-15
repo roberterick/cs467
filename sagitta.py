@@ -113,7 +113,7 @@ class App(object):
 
     def initializeFromFiles(self):
         pth=os.path.join(self.where(),'init')
-        nonjsonpth=os.path.join(self.where(),'init','not_json')
+        nonjsonpath=os.path.join(self.where(),'init','not_json')
         shortlist=os.listdir(pth)#file list without path
         longlist=[os.path.join(pth,x) for x in shortlist]#file list with path
         longlist=filter(lambda x:os.path.isfile(x),longlist)
@@ -125,14 +125,7 @@ class App(object):
                 print '*'*10,'File %s has incorrect json.  Please correct!'%f
                 continue
 
-            #this loads in values from an alternate text files
-            #so that formatting is improved
-            #the file must exist
-            #the name must be the value in the key
-            for k,v in data.items():
-                if str(type(v)) not in ["<type 'unicode'>","<type 'str'>"]:continue
-                fullpath=os.path.join(nonjsonpth,v)
-                if os.path.exists(fullpath):data[k]=open(fullpath,'r').read()
+            self.loadFormattedText(nonjsonpath,data)
             
             if data['type']=='room':
                 newobj=Room(**data)
@@ -146,6 +139,19 @@ class App(object):
             self.objects[newobj.name]=newobj#add the object to our dictionary
             newobj.otherObjects=self.objects#gives all objects access to other objects
 ##        print self.objects
+
+    def placeItems(self):
+        pass
+
+    def loadFormattedText(self,textpath,datadict):
+        #this loads in values from an alternate text files
+        #so that formatting is improved
+        #the file must exist
+        #the name must be the value in the key
+        for k,v in datadict.items():
+            if str(type(v)) not in ["<type 'unicode'>","<type 'str'>"]:continue
+            fullpath=os.path.join(textpath,v)
+            if os.path.exists(fullpath):datadict[k]=open(fullpath,'r').read()       
         
     def loadGame(self):
         pth=os.path.join(self.where(),'saved')

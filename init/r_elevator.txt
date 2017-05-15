@@ -3,5 +3,5 @@
 	"type": "room",
 	"long_description": "You are in the bridge elevator.\nLooking East you see the Crew Quarters\nWhen you look West, you see the Bridge.\nAnd looking South there's a Shuttle Bay.",
 	"short_description": "The bridge elevator.\nEast: Crew Quarters\nSouth:Shuttle Bay\nWest: Bridge",
-	"adjacent_rooms": {"west":"bridge","east":"crew quarters","South":"Shuttle Bay"}
+	"adjacent_rooms": {"west":"bridge","east":"crew quarters","south":"shuttle bay"}
 }

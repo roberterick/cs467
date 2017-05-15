@@ -1,7 +1,7 @@
 {
 	"name": "arboretum",
 	"type": "room",
-	"long_description": "You are in the arboretum room. Exit: West: Mess Hall",
+	"long_description": "You are in the arboretum room. \nTo the West is the Mess Hall",
 	"short_description": "Arboretum\nWest:Mess Hall",
 	"adjacent_rooms": {"west":"mess hall"}
 }

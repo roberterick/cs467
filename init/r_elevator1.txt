@@ -1,0 +1,7 @@
+{
+	"name": "elevator level 1",
+	"type": "room",
+	"long_description": "You are in the bridge elevator.\nThe display says 'level 1'.\nWhen you look north, you see the Bridge.",
+	"short_description": "The bridge elevator.\nDown:Elevator Level 2\nNorth: Bridge",
+	"adjacent_rooms": {"down":"elevator level 2","north":"bridge"}
+}

@@ -1,7 +1,7 @@
 {
 	"name": "main engineering",
 	"type": "room",
-	"long_description": "This is Main Engineering! Tons of tubes here!",
+	"long_description": "This is Main Engineering! Tons of small tubes here!\n To the North is a room with one big tube, Engeering Access Tube.\nTo the West, there's something labeled the auxiliary bridge.\nTo the East, there's the Engineering Core (seems important?)",
 	"short_description": "main_engineering",
 	"adjacent_rooms": {"east":"engineering core",
 						"west":"auxiliary bridge",

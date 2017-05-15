@@ -1,7 +1,7 @@
 {
 	"name": "elevator",
 	"type": "room",
-	"long_description": "You are in the bridge elevator. Exits: West: Bridge, East: Crew Quarters, South:shuttle bay",
-	"short_description": "The bridge elevator. Exits: West: Bridge, East: Crew Quarters, South:shuttle bay",
-	"adjacent_rooms": {"west":"bridge","east":"crew quarters","south":"shuttle bay"}
+	"long_description": "You are in the bridge elevator.\nLooking East you see the Crew Quarters\nWhen you look West, you see the Bridge.\nAnd looking South there's a Shuttle Bay.",
+	"short_description": "The bridge elevator.\nWest: Bridge\nEast: Crew Quarters\nSouth:shuttle bay",
+	"adjacent_rooms": {"west":"bridge","east":"crew quarters","South":"Shuttle Bay"}
 }

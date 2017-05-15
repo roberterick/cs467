@@ -1,7 +1,7 @@
 {
 	"name": "transporter room",
 	"type": "room",
-	"long_description": "There's a transport pod here! Maybe it'll work?",
+	"long_description": "There's a transport pod here! Maybe it'll work?\nTo the East there's the Shuttle bay.",
 	"short_description": "j_transporter_room",
 	"adjacent_rooms": {"east":"shuttle bay"}
 }

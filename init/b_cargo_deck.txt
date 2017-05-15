@@ -1,7 +1,7 @@
 {
 	"name": "cargo deck",
 	"type": "room",
-	"long_description": "You are in the cargo deck long.\nTo the West is the Armory (I wonder what's there...",
+	"long_description": "You are in the cargo deck long.\nTo the West is the Armory (I wonder what's there...)",
 	"short_description": "Cargo Deck\nWest:Armory",
 	"adjacent_rooms": {"west":"armory"}
 }

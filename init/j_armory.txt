@@ -3,5 +3,6 @@
 	"type": "room",
 	"long_description": "armory.txt",
 	"short_description": "armory",
-	"adjacent_rooms": {"east":"cargo deck"}
+	"adjacent_rooms": {"east":"cargo deck", 
+		"west":"shuttle bay"}
 }

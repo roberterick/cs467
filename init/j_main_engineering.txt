@@ -3,5 +3,7 @@
 	"type": "room",
 	"long_description": "main_engineering.txt",
 	"short_description": "main_engineering",
-	"adjacent_rooms": {"east":"engineering core"}
+	"adjacent_rooms": {"east":"engineering core",
+						"west":"auxiliary bridge",
+						"north":"engineering access tube"}
 }

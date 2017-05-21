@@ -159,7 +159,7 @@ class App(object):
         for k,v in self.objects.items():#items here means k,v pairs
             if v.type!='feature':continue
             location=v.location
-            if not self.objects.has_key(location) and self.objects[location]['type']=='room':
+            if not self.objects.has_key(location) and self.objects[location]['type']=='feature':
                 print 'Feature %s does not have a valid location!'%k
             room=self.objects[location]
             if not k in room.items: room.features+=[k]

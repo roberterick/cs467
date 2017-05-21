@@ -1,0 +1,7 @@
+{
+	"name": "window",
+	"type": "feature",
+	"long_description": "You look at the window and see stars and a big void.",
+	"short_description": "You've checked this window out before..",
+	"location":"bridge"
+}

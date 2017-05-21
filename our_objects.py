@@ -131,18 +131,32 @@ class Room(GameObj):
                 continue
             temp+=[itemobj.short_description]
         return temp
+
+    #returns an array of items (or features) that are available in a room
+    def getList(self,alist):
+	temp=[]
+        for itmdesc in alist:
+            if not self.otherObjects.has_key(itmdesc):
+                print 'Room %s is missing item/feature %s!'%(self.name,itmdesc)
+                continue
+            itemobj=self.otherObjects[itmdesc]
+            if not hasattr(itemobj,'name'):
+                print 'The item %s is missing a name.'%itmdesc
+                continue
+            temp+=[itemobj.name]
+        return temp
             
     def __str__(self):
-        items=self.getDescriptions(self.items)
-        features=self.getDescriptions(self.features)
+        items=self.getList(self.items)
+        features=self.getList(self.features)
 
         if items:
-            itemsSee='In this room you see these items: %s'%','.join(items)
+            itemsSee='In this room you see these items: %s'%', '.join(items)
         else:
             itemsSee='There are no items in this room.'
 
         if features:
-            featuresSee='In this room you see these features: %s'%','.join(features)
+            featuresSee='In this room you see these features: %s'%', '.join(features)
         else:
             featuresSee='There are no features in this room.'        
 

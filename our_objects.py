@@ -9,6 +9,7 @@ class GameObj(object):
         self.long_description=''
         self.short_description=''
         self.name=''
+        self.alternate_names=[]
         self.type=''
 
 class Version(GameObj):
@@ -103,13 +104,38 @@ class Player(GameObj):
     def examine(self,itemName):
         if not self.location in self.otherObjects:
             return False
-        room=self.otherObjects[self.location]
-        if not itemName in room.items:
+
+        adict=self.getNameAndAlternates()
+        if not itemName in adict.keys():
             print "This room does not have that item!"
             return False
-        item=self.otherObjects[itemName]
-        print 'Item %s: %s'%(itemName,item.long_description)
+        else:
+            realName=adict[itemName]
+            item=self.otherObjects[realName]
+            t=item.type
+            t.capitalize()
+            print '%s %s: %s'%(t, itemName,item.long_description)
+            return True
+        
+##        room=self.otherObjects[self.location]
+##        if not itemName in room.items:
+##            print "This room does not have that item!"
+##            return False
+##        item=self.otherObjects[itemName]
+##        print 'Item %s: %s'%(itemName,item.long_description)
+##        return True
 
+    def getNameAndAlternates(self):
+        adict={}
+        room=self.otherObjects[self.location]
+        for o in room.items+room.features:
+            print o, self.otherObjects[o].type, dir(self.otherObjects[o])
+            alternateNames=self.otherObjects[o].alternate_names
+            for an in alternateNames:
+                adict[an]=o#make alternate->object
+        for o in room.items+room.features:
+            adict[o]=o#make object->object, for completeness
+        return adict
         
 class Room(GameObj):
     def __init__(self,**data):

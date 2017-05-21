@@ -1,0 +1,7 @@
+{
+	"name": "plastic pass key",
+	"type": "item",
+	"long_description": "This is a plastic pass key. It seems heavily used and like somehow's stepped on it a few times. It might work for a feature somewhere.",
+	"short_description": "This is a plastic pass key.",
+	"location":"mess hall"
+}

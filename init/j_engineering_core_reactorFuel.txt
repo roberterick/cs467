@@ -1,0 +1,7 @@
+{
+	"name": "reactor fuel",
+	"type": "item",
+	"long_description": "This is a container of reactor fuel. This is in very stable form that makes it easy to transport. You can probably use it to power something.",
+	"short_description": "This is a container of reactor fuel.",
+	"location":"engineering core"
+}

@@ -3,3 +3,5 @@ You are in a room which appears to be the bridge of a starship.  No one else is 
 There are numerous consoles with various controls and an empty chair in front of each.  To the south appears to be the entrance to an elevator.  In front of you is a console with a red blinking button labeled "self destruct".
 
 An alarm is going off and a muted voice is counting down...
+
+To the South is an Elevator.

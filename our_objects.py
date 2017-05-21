@@ -136,6 +136,15 @@ class Player(GameObj):
         for o in room.items+room.features:
             adict[o]=o#make object->object, for completeness
         return adict
+##        room=self.otherObjects[self.location]
+##        if (not itemName in room.items and not itemName in room.features):
+##            print "This room does not have that!"
+##            return False
+##        item=self.otherObjects[itemName]
+##        if itemName in room.items:
+##            print 'Item %s: %s'%(itemName,item.long_description)
+##        if itemName in room.features:
+##            print 'Item %s: %s'%(itemName,item.long_description)
         
 class Room(GameObj):
     def __init__(self,**data):
@@ -157,18 +166,32 @@ class Room(GameObj):
                 continue
             temp+=[itemobj.short_description]
         return temp
+
+    #returns an array of items (or features) that are available in a room
+    def getList(self,alist):
+	temp=[]
+        for itmdesc in alist:
+            if not self.otherObjects.has_key(itmdesc):
+                print 'Room %s is missing item/feature %s!'%(self.name,itmdesc)
+                continue
+            itemobj=self.otherObjects[itmdesc]
+            if not hasattr(itemobj,'name'):
+                print 'The item %s is missing a name.'%itmdesc
+                continue
+            temp+=[itemobj.name]
+        return temp
             
     def __str__(self):
-        items=self.getDescriptions(self.items)
-        features=self.getDescriptions(self.features)
+        items=self.getList(self.items)
+        features=self.getList(self.features)
 
         if items:
-            itemsSee='In this room you see these items: %s'%','.join(items)
+            itemsSee='In this room you see these items: %s'%', '.join(items)
         else:
             itemsSee='There are no items in this room.'
 
         if features:
-            featuresSee='In this room you see these features: %s'%','.join(features)
+            featuresSee='In this room you see these features: %s'%', '.join(features)
         else:
             featuresSee='There are no features in this room.'        
 

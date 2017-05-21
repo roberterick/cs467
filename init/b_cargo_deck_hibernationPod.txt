@@ -1,0 +1,7 @@
+{
+	"name": "hibernation pod",
+	"type": "item",
+	"long_description": "This is a hibernation pod. There's tinting covered the window, so you can't really see what's inside. But it seems like it's fully operational.",
+	"short_description": "This is a hibernation pod.",
+	"location":"cargo deck"
+}

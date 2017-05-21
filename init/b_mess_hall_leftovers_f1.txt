@@ -1,0 +1,7 @@
+{
+	"name": "leftovers",
+	"type": "feature",
+	"long_description": "You take a whiff of the leftovers and almost faint. They were really bad.",
+	"short_description": "These leftovers really smell.",
+	"location":"mess hall"
+}

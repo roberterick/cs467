@@ -1,0 +1,7 @@
+{
+	"name": "turtle",
+	"type": "feature",
+	"long_description": "This turtle is really old, but it seems like it's dying. What happened here?",
+	"short_description": "Poor dying turtle...",
+	"location":"arboretum"
+}

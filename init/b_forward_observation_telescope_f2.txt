@@ -1,0 +1,7 @@
+{
+	"name": "telescope",
+	"type": "feature",
+	"long_description": "This telescope seems like it has been used.",
+	"short_description": "Who used that telescope?",
+	"location":"forward observation"
+}

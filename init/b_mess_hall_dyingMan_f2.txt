@@ -1,0 +1,7 @@
+{
+	"name": "dying man",
+	"type": "feature",
+	"long_description": "You approach the dying man and hand gestures to you that HINT TO SOLVING",
+	"short_description": "The HINT TO SOLVING was",
+	"location":"mess hall"
+}

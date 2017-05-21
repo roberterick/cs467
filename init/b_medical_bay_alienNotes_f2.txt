@@ -1,0 +1,7 @@
+{
+	"name": "alien notes",
+	"type": "feature",
+	"long_description": "You look at the alien notes and realize you cannot read alien.",
+	"short_description": "Useless alien notes...",
+	"location":"medical bay"
+}

@@ -119,7 +119,7 @@ class Room(GameObj):
         self.visited=False
         self.__dict__.update(data)
 
-    def getDesriptions(self,alist):
+    def getDescriptions(self,alist):
         temp=[]
         for itmdesc in alist:
             if not self.otherObjects.has_key(itmdesc):
@@ -148,9 +148,9 @@ class Room(GameObj):
 
             
         if self.visited:
-            return '%s\n%s'%(self.short_description,itemsSee)
+            return '%s\n%s\n%s'%(self.short_description,itemsSee,featuresSee)
         else:
             self.visited=True
-            return '%s\n%s'%(self.long_description,youhave)
+            return '%s\n%s\n%s'%(self.long_description,itemsSee,featuresSee)
             
         

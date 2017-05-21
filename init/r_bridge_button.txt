@@ -1,5 +1,6 @@
 {
 	"name": "bridge button",
+	"alternate_names":["button"],
 	"type": "item",
 	"long_description": "This is a red button labeled 'self destruct' which appears to be the cause of the alarm going off in the room.",
 	"short_description": "This is a red button labeled 'self destruct'.",

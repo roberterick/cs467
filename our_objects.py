@@ -21,6 +21,7 @@ class Item(GameObj):
     def __init__(self,**data):
         self.location=''
         self.seen=False
+        self.alternate_names=[]
         self.__dict__.update(data)
     def __str__(self):
         if self.seen:
@@ -33,6 +34,7 @@ class Feature(GameObj):
     def __init__(self,**data):
         self.location=''
         self.seen=False
+        self.alternate_names=[]
         self.__dict__.update(data)
     def __str__(self):
         if self.seen:
@@ -128,23 +130,14 @@ class Player(GameObj):
     def getNameAndAlternates(self):
         adict={}
         room=self.otherObjects[self.location]
-        for o in room.items+room.features:
-            print o, self.otherObjects[o].type, dir(self.otherObjects[o])
-            alternateNames=self.otherObjects[o].alternate_names
+        for name in room.items+room.features:
+            obj=self.otherObjects[name]
+            alternateNames=obj.alternate_names
             for an in alternateNames:
-                adict[an]=o#make alternate->object
-        for o in room.items+room.features:
-            adict[o]=o#make object->object, for completeness
+                adict[an]=name#make alternate->object
+        for name in room.items+room.features:
+            adict[name]=name#make object->object, for completeness
         return adict
-##        room=self.otherObjects[self.location]
-##        if (not itemName in room.items and not itemName in room.features):
-##            print "This room does not have that!"
-##            return False
-##        item=self.otherObjects[itemName]
-##        if itemName in room.items:
-##            print 'Item %s: %s'%(itemName,item.long_description)
-##        if itemName in room.features:
-##            print 'Item %s: %s'%(itemName,item.long_description)
         
 class Room(GameObj):
     def __init__(self,**data):
@@ -169,7 +162,7 @@ class Room(GameObj):
 
     #returns an array of items (or features) that are available in a room
     def getList(self,alist):
-	temp=[]
+        temp=[]
         for itmdesc in alist:
             if not self.otherObjects.has_key(itmdesc):
                 print 'Room %s is missing item/feature %s!'%(self.name,itmdesc)

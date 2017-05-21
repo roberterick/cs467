@@ -11,14 +11,14 @@ import pickle
 import ply
 from our_objects import *
 
-CURRENT_VERSION=1.1
+CURRENT_VERSION=1.2
     
 class App(object):
     def __init__(self):
         print 'initializing'
-        
         self.objects={}#dictionary holds rooms, the player, and items
         self.player=None
+        
 
         self.initializeGame()
         
@@ -94,7 +94,8 @@ class App(object):
         save game: save the current game
         load game: load a saved game    
         exit: exit the game
-        examine <object>: examines an object
+        examine <feature>: examines a feature
+        examine <item>: examines an item
         move <direction>: moves the player in a direction
         print objects1: print known objects
         print objects2: print known objects
@@ -132,6 +133,8 @@ class App(object):
                 newobj=Room(**data)
             elif data['type']=='player':
                 newobj=Player(**data)
+            elif data['type']=='feature':
+                newobj=Feature(**data)
             elif data['type']=='item':
                 newobj=Item(**data)
             elif data['type']=='version':
@@ -142,21 +145,28 @@ class App(object):
             self.objects[newobj.name]=newobj#add the object to our dictionary
             newobj.otherObjects=self.objects#gives all objects access to other objects
 
+        self.linkFeatures()
         self.linkItems()
         self.objects['version'].version=CURRENT_VERSION
 ##        print self.objects
 
     def linkItems(self):
-        for k,v in self.objects.items():
+        for k,v in self.objects.items():#items here means k,v pairs
             if v.type!='item':continue
             location=v.location
-##            print 'k %s, v %s, location %s'%(k,v,location)
             if not self.objects.has_key(location) and self.objects[location]['type']=='room':
                 print 'Item %s does not have a valid location!'%k
             room=self.objects[location]
             if not k in room.items: room.items+=[k]
-##            print 'room ',room,room.items, dir(room)
-##            self.objects[location].items+=[k]
+
+    def linkFeatures(self):
+        for k,v in self.objects.items():#items here means k,v pairs
+            if v.type!='feature':continue
+            location=v.location
+            if not self.objects.has_key(location) and self.objects[location]['type']=='room':
+                print 'Feature %s does not have a valid location!'%k
+            room=self.objects[location]
+            if not k in room.items: room.features+=[k]
 
     def loadFormattedText(self,textpath,datadict):
         #this loads in values from an alternate text files

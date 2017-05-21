@@ -1,0 +1,7 @@
+{
+	"name": "directory2",
+	"type": "feature",
+	"long_description": "You look at the map and it says: Elevator 1 - Bridge, Elevator 2 - Crew Quarters: Elevator 3 - Shuttle Bay.",
+	"short_description": "Elevator 1 - Bridge, Elevator 2 - Crew Quarters: Elevator 3 - Shuttle Bay",
+	"location":"elevator level 2"
+}

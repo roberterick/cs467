@@ -1,0 +1,7 @@
+{
+	"name": "diary",
+	"type": "feature",
+	"long_description": "You read the diary and, it contains a person's lifelong secrets.",
+	"short_description": "You shouldn't look at this person's secrets...",
+	"location":"crew quarters"
+}

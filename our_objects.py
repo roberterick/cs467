@@ -104,12 +104,14 @@ class Player(GameObj):
         if not self.location in self.otherObjects:
             return False
         room=self.otherObjects[self.location]
-        if not itemName in room.items:
-            print "This room does not have that item!"
+        if (not itemName in room.items and not itemName in room.features):
+            print "This room does not have that!"
             return False
         item=self.otherObjects[itemName]
-        print 'Item %s: %s'%(itemName,item.long_description)
-
+        if itemName in room.items:
+            print 'Item %s: %s'%(itemName,item.long_description)
+        if itemName in room.features:
+            print 'Item %s: %s'%(itemName,item.long_description)
         
 class Room(GameObj):
     def __init__(self,**data):

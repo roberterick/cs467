@@ -1,7 +1,7 @@
 {
 	"name": "mess hall",
 	"type": "room",
-	"long_description": "You are in the mess hall long...\nTo the East is an Arboretum (this is a hi-tech ship).\nTo the West is Crew Quarters.",
+	"long_description": "b_mess_hall_ld.txt",
 	"short_description": "Mess Hall\nEast:Arobertum\nWest:Crew Quarters",
 	"adjacent_rooms": {"west":"crew quarters","east":"arboretum"}
 }

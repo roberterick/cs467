@@ -1,7 +1,7 @@
 {
 	"name": "medical bay",
 	"type": "room",
-	"long_description": "You are in Medical Bay long...\nTo the North is the Crew Quarters (maybe someone's there?).\nAnd to the West is the Forward Observation.",
+	"long_description": "b_medical_bay_ld.txt",
 	"short_description": "Medical Bay.\nNorth: Crew Quarters\nWest:Forward Observation,",
 	"adjacent_rooms": {"west":"forward observation","north":"crew quarters"}
 }

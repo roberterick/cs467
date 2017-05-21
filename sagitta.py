@@ -18,13 +18,9 @@ class App(object):
         print 'initializing'
         self.objects={}#dictionary holds rooms, the player, and items
         self.player=None
-        
-
         self.initializeGame()
-        
         playerkey=filter(lambda x:self.objects[x].type=='player',self.objects.keys())[0]
         self.player=self.objects[playerkey]
-        
         self.mainLoop()#begin main loop
 
     def mainLoop(self):

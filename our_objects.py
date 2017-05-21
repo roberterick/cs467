@@ -27,6 +27,18 @@ class Item(GameObj):
         else:
             self.seen=True
             return self.long_description
+
+class Feature(GameObj):
+    def __init__(self,**data):
+        self.location=''
+        self.seen=False
+        self.__dict__.update(data)
+    def __str__(self):
+        if self.seen:
+            return self.short_description
+        else:
+            self.seen=True
+            return self.long_description
     
 class Player(GameObj):
     def __init__(self,**data):
@@ -102,30 +114,43 @@ class Player(GameObj):
 class Room(GameObj):
     def __init__(self,**data):
         self.items=[]
+        self.features=[]
         self.adjacent_rooms={}
         self.visited=False
         self.__dict__.update(data)
-    def __str__(self):
-        items=[]
-        for itmdesc in self.items:
+
+    def getDescriptions(self,alist):
+        temp=[]
+        for itmdesc in alist:
             if not self.otherObjects.has_key(itmdesc):
-                print 'Room %s is missing item %s!'%(self.name,itmdesc)
+                print 'Room %s is missing item/feature %s!'%(self.name,itmdesc)
                 continue
             itemobj=self.otherObjects[itmdesc]
             if not hasattr(itemobj,'short_description'):
-                print 'Item %s is missing a short description.'%itmdesc
+                print 'The item %s is missing a short description.'%itmdesc
                 continue
-            items+=[itemobj.short_description]
+            temp+=[itemobj.short_description]
+        return temp
             
-##        items=[itm.short_description for itm in self.items]
+    def __str__(self):
+        items=self.getDescriptions(self.items)
+        features=self.getDescriptions(self.features)
+
         if items:
-            youhave='In this room you see these items: %s'%','.join(items)
+            itemsSee='In this room you see these items: %s'%','.join(items)
         else:
-            youhave='There are no items in this room.'
+            itemsSee='There are no items in this room.'
+
+        if features:
+            featuresSee='In this room you see these features: %s'%','.join(features)
+        else:
+            featuresSee='There are no features in this room.'        
+
+            
         if self.visited:
-            return '%s\n%s'%(self.short_description,youhave)
+            return '%s\n%s\n%s'%(self.short_description,itemsSee,featuresSee)
         else:
             self.visited=True
-            return '%s\n%s'%(self.long_description,youhave)
+            return '%s\n%s\n%s'%(self.long_description,itemsSee,featuresSee)
             
         

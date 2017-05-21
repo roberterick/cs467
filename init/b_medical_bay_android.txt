@@ -1,0 +1,7 @@
+{
+	"name": "android",
+	"type": "item",
+	"long_description": "This a really small android. It doesn't seem like it's working, but it seems like it worked just awhile ago. It reminds you of a person named Lyanna.",
+	"short_description": "This is small android from the Medical Bay.",
+	"location":"medical bay"
+}

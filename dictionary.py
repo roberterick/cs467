@@ -19,7 +19,6 @@ def sagParser(userInput):
 	inputList = userInput.split(' ')
 	#sagParser hopefully returns a list that will list at 
 	# [0] - action, then [1] - direction/object
-	print inputList
 	parserReturn = []
 	foundVerb = verbFinder(inputList)
 	if foundVerb == 'move':

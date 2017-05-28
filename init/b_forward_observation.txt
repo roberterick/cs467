@@ -1,7 +1,7 @@
 {
-	"name": "forward observation",
+	"name": "forward observation lounge",
 	"type": "room",
-	"long_description": "You are in forward observation long...\nTo the East is the Medical Bay.",
+	"long_description": "You are in forward observation lounge...\nTo the East is the Medical Bay.",
 	"short_description": "Forward Observation.\nEast:Medical Bay",
 	"adjacent_rooms": {"east":"medical bay"}
 }

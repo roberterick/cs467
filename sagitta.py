@@ -69,15 +69,25 @@ class App(object):
             if len(splitcommand)==2:
                 cmd,direction=splitcommand
                 direction=self.normalizeDirection(direction)
-                self.player.move(direction)
-                return True
+                return self.player.move(direction)
+            else:
+                return False
+        elif splitcommand[0] in ['get','take']:
+            if len(splitcommand)==2:
+                cmd,theitem=splitcommand
+                return self.player.getItem(theitem)
+            else:
+                return False
+        elif splitcommand[0] in ['drop','throw']:
+            if len(splitcommand)==2:
+                cmd,theitem=splitcommand
+                return self.player.dropItem(theitem)
             else:
                 return False
         elif splitcommand[0] in ['examine']:
             if len(splitcommand)>=2:
                 cmd,item=splitcommand
-                self.player.examine(item)
-                return True
+                return self.player.examine(item)
             else:
                 return False
         else:
@@ -142,8 +152,11 @@ class App(object):
                 newobj=Version(**data)
             else:
                 assert False #shouldn't happen
-##                newobj=GameObj(**data)#create the obj with all json keys & data
-            self.objects[newobj.name]=newobj#add the object to our dictionary
+            name=newobj.name.lower()#insure that all names should be lower
+            if hasattr(newobj,'adjacent_rooms'):
+                for k,v in newobj.adjacent_rooms.items():
+                    if not k==k.lower():print 'problem with adjacent roomf for %s'%name
+            self.objects[name]=newobj#add the object to our dictionary
             newobj.otherObjects=self.objects#gives all objects access to other objects
 
         self.linkFeatures()

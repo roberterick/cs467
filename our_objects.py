@@ -48,39 +48,44 @@ class Player(GameObj):
         self.items=[]
         self.location=''
         self.seen=False
+        self.status='you are trying to win.'
         self.__dict__.update(data)
     def __str__(self):
         items=[itm.short_description for itm in self.items]
         youhave='You have in your possession: %s'%','.join(items)
+        status='Status: %s'%self.status
         if self.seen:
-            return '%s\n%s'%(self.short_description,youhave)
+            return '%s\n%s\n%s'%(self.short_description,youhave,status)
         else:
             self.seen=True
-            return '%s\n%s'%(self.long_description,youhave)
+            return '%s\n%s\n%s'%(self.long_description,youhave,status)
 
     def getItem(self,itemName):
-        #verify room has the item
-        if not self.location in self.otherObjects:return False
-        room=self.objects[self.location]
-        if not itemName in room.items:return False
-        #get item
-        if not self.otherObjects[itemName].__class__=='Item':return False
-        self.items+=[itemName]
-        #remove from room
-        room.items.remove(itemName)
+        if not self.location in self.otherObjects:return False #location is bad
+        room=self.otherObjects[self.location]
+        if not itemName in room.items:return False #it isn't in the room
+        if not self.otherObjects.has_key(itemName):return False #itemName not valid
+        if not isinstance(self.otherObjects[itemName],Item):return False #not an item
+        self.items+=[itemName]#add to our items
+        room.items.remove(itemName)#remove from the room
         return True
     
     def dropItem(self,itemName):
-        #verify i have the item
-        if not itemName in self.items:return False
-        #find room    
-        if not self.location in self.otherObjects:return False
+        if not itemName in self.items:return False #we don't have the item
+        if not self.location in self.otherObjects:return False #room is bad
         room=self.otherObjects[self.location]
-        #add to room
         room.items+=[itemName]
-        #remove item from my items
         self.items.remove(itemName)
         return True
+
+    def checkWin(self):
+        '''checks to see if the game has been won'''
+        if self.location=='engineering core' \
+        and 'gold medallion' in self.items \
+        and 'silver medallion' in self.items \
+        and 'bronze medallion' in self.items:
+            self.status='you have won the game!'
+            print 'You have arrived at the engineering core with all the medallions.  You have won the game!'
 
     def move(self,direction):
         #test for the room
@@ -88,20 +93,21 @@ class Player(GameObj):
 ##            return False
         #get the room
         room=self.otherObjects[self.location]
-        #test for existance of direction in room.adjacent_rooms
-##        if not room.adjacent_rooms.has_key(direction):
-##            return False
-        # if found, adjust location, exit true
-##        self.location = room.adjacent_rooms[direction]
-##        return True
+        #test for existence of direction in room.adjacent_rooms
+        if not room.adjacent_rooms.has_key(direction):#is room in adjacent rooms?
+            return False
         if direction in room.adjacent_rooms:
-           self.location = room.adjacent_rooms[direction]
-           return True
+            self.location = room.adjacent_rooms[direction]
+            self.checkWin()
+            return True
         elif direction in room.adjacent_rooms.itervalues():
             self.location = direction
+            self.checkWin()
             return True
         #if bad, exit false
-        else: return False
+        else:
+            self.checkWin()
+            return False
 
     def examine(self,itemName):
         if not self.location in self.otherObjects:

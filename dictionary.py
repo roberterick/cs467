@@ -1,4 +1,11 @@
+#list of our primary verbs
 possibleVerbs = ['move', 'examine']
+
+#possible variants of the word move
+moveVariants = ['moving', 'moved', 'go', 'walk']
+for b in moveVariants:
+	possibleVerbs.append(b)
+
 possibleDirections = ['north','south', 'east', 'west']
 possiblePrepositions = []
 
@@ -30,6 +37,10 @@ def verbFinder(inputList):
 	if verbCounter < 1: 
 		print 'There are not enough verbs.'
 	if verbCounter == 1:
+		#checking if the found verb is a variant of the word 'move'
+		for z in moveVariants:
+			if foundVerb == z:
+				foundVerb = 'move'
 		return foundVerb
 
 #checks if there's a possible direction in the command from the possibleDirections array			

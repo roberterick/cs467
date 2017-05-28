@@ -8,7 +8,7 @@ possibleVerbs = ['move', 'examine']
 
 # --MOVE--
 #possible variants of the word move
-moveVariants = ['moving', 'moved', 'go', 'walk']
+moveVariants = ['moving', 'moved', 'go', 'walk', 'going', 'walk', 'walking', 'walked']
 for b in moveVariants:
 	possibleVerbs.append(b)
 

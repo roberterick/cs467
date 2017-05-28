@@ -91,14 +91,18 @@ class App(object):
             else:
                 return False
         else:
+            inputParseReturn = []
             inputParseReturn = sagParser(userInput)
-            #returned list should have verb at [0], object/direction at [1]
-            #I'm (jimmy) not sure how to translate that to actually moving.
-            print inputParseReturn
+            #parsing trouble shoot
+            if inputParseReturn == None:
+                return False
+            if inputParseReturn[0] == 'move':
+                direction = inputParseReturn[1]
+                direction = self.normalizeDirection(direction)
+                return self.player.move(direction)
             #analyze command or don't recognize it...
             #probably put lexer here
 ##            print 'That command is not recognized.'    
-            return False
 
     def showHelp(self):
         h='''

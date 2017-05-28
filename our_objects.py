@@ -50,6 +50,7 @@ class Player(GameObj):
         self.seen=False
         self.status='you are trying to win.'
         self.__dict__.update(data)
+
     def __str__(self):
         items=[itm.short_description for itm in self.items]
         youhave='You have in your possession: %s'%','.join(items)

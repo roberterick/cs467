@@ -7,6 +7,12 @@ for b in moveVariants:
 	possibleVerbs.append(b)
 
 possibleDirections = ['north','south', 'east', 'west']
+#possible variants of the different directions
+northVariants = ['up']
+eastVariants = ['right']
+southVariants = ['down']
+westVariants = ['left']
+
 possiblePrepositions = []
 
 def sagParser(userInput):

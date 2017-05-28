@@ -14,11 +14,22 @@ for b in moveVariants:
 
 # --DIRECTIONS--
 possibleDirections = ['north','south', 'east', 'west']
+
 #possible variants of the different directions
-northVariants = ['up']
-eastVariants = ['right']
-southVariants = ['down']
-westVariants = ['left']
+northVariants = ['up', 'N']
+eastVariants = ['right', 'E']
+southVariants = ['down', 'S']
+westVariants = ['left', 'W']
+
+#appending direction variants to possible directions
+for b in northVariants:
+	possibleDirections.append(b)
+for b in eastVariants:
+	possibleDirections.append(b)
+for b in southVariants:
+	possibleDirections.append(b)
+for b in westVariants:
+	possibleDirections.append(b)
 
 # --PREPOSITIONS--
 possiblePrepositions = []
@@ -70,7 +81,7 @@ def verbFinder(inputList):
 	if verbCounter > 1:
 		print 'Your input has too many verbs.'
 	if verbCounter < 1: 
-		print 'There are not enough verbs.'
+		print 'Your input does not have a verb (think move, go, etc.).'
 	if verbCounter == 1:
 		#checking if the found verb is a variant of the word 'move'
 		for z in moveVariants:
@@ -90,6 +101,18 @@ def directionFinder(inputList):
 	if directionCounter > 1:
 		print 'Your input has too many directions.'
 	if directionCounter < 1: 
-		print 'There are not enough directions.'
+		print 'Your input does not have a direction (think up, down, north, south).'
 	if directionCounter == 1:
+		for z in northVariants:
+			if 	foundDirection == z:
+				foundDirection = 'north'
+		for z in eastVariants:
+			if 	foundDirection == z:
+				foundDirection = 'east'
+		for z in southVariants:
+			if 	foundDirection == z:
+				foundDirection = 'south'
+		for z in westVariants:
+			if 	foundDirection == z:
+				foundDirection = 'west'
 		return foundDirection

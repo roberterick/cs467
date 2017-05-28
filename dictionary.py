@@ -31,9 +31,10 @@ possibleSpecialChars = " ?.!/;:,"
 #sagParser hopefully returns a list that will list at 
 # [0] - action, then [1] - direction/object
 def sagParser(userInput):
+	#separating the user input by space
 	inputList = userInput.split(' ')
 	
-	#remove special characters from strings in userInputArray
+	#remove special characters from strings in inputList
 	#based off of: 
 	#https://stackoverflow.com/questions/3939361/remove-specific-characters-from-a-string-in-python
 	for line in inputList:
@@ -45,7 +46,11 @@ def sagParser(userInput):
 
 	#list of returned strings
 	parserReturn = []
+
+	#looking for verb in the inputList
 	foundVerb = verbFinder(inputList)
+
+	#if the found verb is move
 	if foundVerb == 'move':
 		foundDirection = directionFinder(inputList)
 		if foundDirection != '':

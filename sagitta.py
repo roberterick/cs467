@@ -10,6 +10,7 @@ import json
 import pickle
 import ply
 from our_objects import *
+from dictionary import *
 
 CURRENT_VERSION=1.2
     
@@ -80,6 +81,10 @@ class App(object):
             else:
                 return False
         else:
+            inputParseReturn = sagParser(userInput)
+            #returned list should have verb at [0], object/direction at [1]
+            #I'm (jimmy) not sure how to translate that to actually moving.
+            print inputParseReturn
             #analyze command or don't recognize it...
             #probably put lexer here
 ##            print 'That command is not recognized.'    

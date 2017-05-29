@@ -1,8 +1,10 @@
-1) record a 1.5 minute video discussing research and learning and coding--for progress report
-2) assign 5 rooms to each member for writing?
-3) add functionality to the player so that objects can be picked up and set down in various rooms
-4) research lexers and integrate into the mainloop somehow
-5) give each object a list of valid states
-6) possibly associate certain functions (actions) with each state
+Updated by Jimmy 5/29/2017
+
+1) Clean up init files (how things are presented as the user navigates through rooms)
+2) Have a function/verb that lists the items that the player has
+3) Update parser as new verbs are added
+4) Check what we're missing from the project requirements.
+5) (optional) have the command line "clear" as the user moves/does an action
+6) (optional) have a verb that lets the user see the path they've taken
 7) verify our program works on osu servers
-8) 
+ 

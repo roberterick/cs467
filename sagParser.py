@@ -1,58 +1,22 @@
 ##class: CS467
-##group: Sagitta - Parser/Dictionary
+##group: Sagitta - Parser
 ##members: Robert Erick, James Wong, Brent Nolan
-##date: 4/17/2017
+##date: 5/29/2017
 
-#list of our primary verbs
-possibleVerbs = ['move', 'examine']
+##things to do: 
+##1. update parser so it works with other verbs: 1) drop
+##2. make 'move' work with room names
 
-# --MOVE--
-#possible variants of the word move
-moveVariants = ['moving', 'moved', 'go', 'walk', 'going', 'walk', 'walking', 'walked']
-for b in moveVariants:
-	possibleVerbs.append(b)
+##when adding new verb, things to update:
+## (here) def sagParser
+## (here) def verbFinder
+## (in sagDictionary.py) - possibleVerbs, [verb]Variants
+## (in sagitta.py) - def processPrompt
 
-# --MOVE--
-#possible variants of the word move
-examineVariants = ['look', 'inspect', 'looked', 'looking' ]
-for b in examineVariants:
-	possibleVerbs.append(b)
-
-# --DIRECTIONS--
-possibleDirections = ['north','south', 'east', 'west']
-
-#possible variants of the different directions
-northVariants = ['up', 'N']
-eastVariants = ['right', 'E']
-southVariants = ['down', 'S']
-westVariants = ['left', 'W']
-
-#appending direction variants to possible directions
-for b in northVariants:
-	possibleDirections.append(b)
-for b in eastVariants:
-	possibleDirections.append(b)
-for b in southVariants:
-	possibleDirections.append(b)
-for b in westVariants:
-	possibleDirections.append(b)
-
-# list of features that are longer than one word
-specialFeatures = ['table of notes', 'alien notes', 'dying alien', 'dying man', 'pistol instructions']
-
-# list of objects that are longer than one word
-specialItems = ['bronze medallion', 'bridge button', 'blue rose', 'hibernation pod', 'plastic pass key', 'blaster pistol', 'reactor fuel', 'model ship', 'gold medallion', 'silver medallion']
-
-# --PREPOSITIONS--
-possiblePrepositions = []
-
-# --SPECIAL CHARACTERS--
-#possible special characters that should be removed from words in 
-#userinput
-possibleSpecialChars = " ?.!/;:,"
+from sagDictionary import *
 
 #sagParser hopefully returns a list that will list at 
-# [0] - action, then [1] - direction/object
+# [0] - action, then [1] - direction/item
 def sagParser(userInput, roomObject):
 	#separating the user input by space
 	inputList = userInput.split(' ')
@@ -107,6 +71,28 @@ def sagParser(userInput, roomObject):
 		parserReturn.append(foundIandF)
 		return parserReturn
 
+	if foundVerb == 'get':
+		roomItems = []
+		specialWordsList = []
+
+		#getting list of items in the room and appending to roomFeaturesAndItems List
+		for a in roomObject.items:
+			roomItems.append(a)
+
+		##appending the specicalWordsList with both special items
+		for c in specialItems:
+			specialWordsList.append(c)
+
+		#checking whether the user input has and special words
+		#if so, appending to the userinputList
+		specialWordFinder(userInput,specialWordsList,inputList)
+
+		#checking whether there is feature or item in the inputlist
+		foundItems = itemsAndFeaturesFinder(inputList,roomItems)
+		parserReturn.append(foundVerb)
+		parserReturn.append(foundItems)
+		return parserReturn
+
 #checks if there's a possible verb in the command from the possibleVerbs array
 #returns it if found			
 def verbFinder(inputList):
@@ -129,6 +115,9 @@ def verbFinder(inputList):
 		for z in examineVariants:
 			if foundVerb == z:
 				foundVerb = 'examine'
+		for z in getVariants:
+			if foundVerb == z:
+				foundVerb = 'get'
 		return foundVerb
 
 #checks if there's a possible direction in the command from the possibleDirections array

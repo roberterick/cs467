@@ -10,10 +10,10 @@ import json
 import pickle
 import ply
 from our_objects import *
-from dictionary import *
+from sagParser import *
 
 CURRENT_VERSION=1.2
-    
+
 class App(object):
     def __init__(self):
         print 'initializing'
@@ -102,6 +102,8 @@ class App(object):
                 return self.player.move(direction)
             if inputParseReturn[0] == 'examine':
                 return self.player.examine(inputParseReturn[1])
+            if inputParseReturn[0] == 'get':
+                return self.player.getItem(inputParseReturn[1])
                 #objectItem = inputParseReturn[1]
                 #return self.player.examine(direction)    
 

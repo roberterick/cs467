@@ -7,7 +7,7 @@
 ##1. continually updated specialFeaturse and specialItems 
 
 #list of our primary verbs
-possibleVerbs = ['move', 'examine', 'get']
+possibleVerbs = ['move', 'examine', 'get', 'drop']
 
 # --MOVE--
 #possible variants of the word 'move'
@@ -44,6 +44,12 @@ for b in examineVariants:
 #possible variants of the word 'get'
 getVariants = ['take', 'touch', 'hold', 'receive', 'took']
 for b in getVariants:
+	possibleVerbs.append(b)
+
+# --DROP--
+#possible variants of the word 'drop'
+dropVariants = ['throw', 'dropped', 'dropping', 'remove']
+for b in dropVariants:
 	possibleVerbs.append(b)
 
 # list of features that are longer than one word

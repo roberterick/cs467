@@ -7,4 +7,3 @@ Updated by Jimmy 5/29/2017
 5) (optional) have the command line "clear" as the user moves/does an action
 6) (optional) have a verb that lets the user see the path they've taken
 7) verify our program works on osu servers
- 

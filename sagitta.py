@@ -3,8 +3,6 @@
 ##members: Robert Erick, James Wong, Brent Nolan
 ##date: 4/17/2017
 
-
-
 import os
 import json
 import pickle
@@ -296,10 +294,6 @@ class App(object):
             print self.objects[k]
             print
 
-
-
-
 if __name__ == "__main__":
     app=App()
     print app.where()
-

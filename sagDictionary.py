@@ -36,13 +36,13 @@ for b in westVariants:
 
 # --EXAMINE--
 #possible variants of the word 'examine'
-examineVariants = ['look', 'inspect', 'looked', 'looking', 'see', 'check', 'touch' ]
+examineVariants = ['look', 'inspect', 'looked', 'looking', 'see', 'check', 'touch']
 for b in examineVariants:
 	possibleVerbs.append(b)
 
 # --GET--
 #possible variants of the word 'get'
-getVariants = ['take', 'hold', 'receive', 'took']
+getVariants = ['take', 'hold', 'receive', 'took', 'pick']
 for b in getVariants:
 	possibleVerbs.append(b)
 

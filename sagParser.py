@@ -5,7 +5,7 @@
 
 ##things to do: 
 ##1. update parser so it works with other verbs: [ADD?]
-##2. make 'move' work with room names
+##2. make 'move' work with room names - done 05/29/2017
 
 ##when adding new verb, things to update:
 ## (here) def sagParser

@@ -39,12 +39,45 @@ def sagParser(userInput, roomObject, playerItems):
 
 	#if the found verb is move
 	if foundVerb == 'move':
-		foundDirection = directionFinder(inputList)
-		if foundDirection != '':
-			parserReturn.append(foundVerb)
-			parserReturn.append(foundDirection)
-			return parserReturn
+		##creating a list of the possible rooms that the user can go into
+		possibleRooms = []
+		adjacentRooms = roomObject.adjacent_rooms
+		if 'north' in adjacentRooms:
+			possibleRooms.append(adjacentRooms['north'])
+		if 'east' in adjacentRooms:
+			possibleRooms.append(adjacentRooms['east'])
+		if 'south' in adjacentRooms:
+			possibleRooms.append(adjacentRooms['south'])
+		if 'west' in adjacentRooms:
+			possibleRooms.append(adjacentRooms['west'])
 
+
+		##checking if the userInput has any of the possible rooms in the input
+		possibleRoomsCounter = 0
+		foundRoom = ''
+		for a in possibleRooms:
+			if userInput.find(a) != -1:
+				possibleRoomsCounter += 1
+				foundRoom = a
+
+		if possibleRoomsCounter == 1:
+			##finding key by value room name()
+			for k, v in adjacentRooms.items():
+			    if foundRoom in v:
+			    	parserReturn.append(foundVerb)
+			    	parserReturn.append(k)
+			    	return parserReturn
+
+		elif possibleRoomsCounter > 1:
+			print "You tried going to two places at once!"
+		
+		else:
+			foundDirection = directionFinder(inputList)
+			if foundDirection != '':
+				parserReturn.append(foundVerb)
+				parserReturn.append(foundDirection)
+				return parserReturn
+	
 	if foundVerb == 'examine':
 		roomFeaturesAndItems = []
 		specialWordsList = []

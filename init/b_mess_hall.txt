@@ -2,6 +2,6 @@
 	"name": "mess hall",
 	"type": "room",
 	"long_description": "b_mess_hall_ld.txt",
-	"short_description": "Mess Hall\nEast:Arobertum\nWest:Crew Quarters",
+	"short_description": "Mess Hall\nEast: Arobertum\nWest: Crew Quarters",
 	"adjacent_rooms": {"west":"crew quarters","east":"arboretum"}
 }

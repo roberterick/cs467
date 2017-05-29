@@ -12,6 +12,12 @@ moveVariants = ['moving', 'moved', 'go', 'walk', 'going', 'walk', 'walking', 'wa
 for b in moveVariants:
 	possibleVerbs.append(b)
 
+# --MOVE--
+#possible variants of the word move
+examineVariants = ['look', 'inspect', 'looked', 'looking' ]
+for b in examineVariants:
+	possibleVerbs.append(b)
+
 # --DIRECTIONS--
 possibleDirections = ['north','south', 'east', 'west']
 
@@ -31,6 +37,12 @@ for b in southVariants:
 for b in westVariants:
 	possibleDirections.append(b)
 
+# list of features that are longer than one word
+specialFeatures = ['table of notes', 'alien notes', 'dying alien', 'dying man', 'pistol instructions']
+
+# list of objects that are longer than one word
+specialItems = ['bronze medallion', 'bridge button', 'blue rose', 'hibernation pod', 'plastic pass key', 'blaster pistol', 'reactor fuel', 'model ship', 'gold medallion', 'silver medallion']
+
 # --PREPOSITIONS--
 possiblePrepositions = []
 
@@ -41,7 +53,7 @@ possibleSpecialChars = " ?.!/;:,"
 
 #sagParser hopefully returns a list that will list at 
 # [0] - action, then [1] - direction/object
-def sagParser(userInput):
+def sagParser(userInput, roomObject):
 	#separating the user input by space
 	inputList = userInput.split(' ')
 	
@@ -69,7 +81,34 @@ def sagParser(userInput):
 			parserReturn.append(foundDirection)
 			return parserReturn
 
-#checks if there's a possible verb in the command from the possibleVerbs array			
+	if foundVerb == 'examine':
+		roomFeaturesAndItems = []
+		specialWordsList = []
+
+		#getting list of items AND features in the room and appending to roomFeaturesAndItems List
+		for a in roomObject.items:
+			roomFeaturesAndItems.append(a)
+		for b in roomObject.features:
+			roomFeaturesAndItems.append(b)
+
+		##appending the specicalWordsList with both special items AND features
+		for c in specialItems:
+			specialWordsList.append(c)
+		for d in specialFeatures:
+			specialWordsList.append(d)
+
+		#checking whether the user input has and special words
+		#if so, appending to the userinputList
+		specialWordFinder(userInput,specialWordsList,inputList)
+
+		#checking whether there is feature or item in the inputlist
+		foundIandF = itemsAndFeaturesFinder(inputList,roomFeaturesAndItems)
+		parserReturn.append(foundVerb)
+		parserReturn.append(foundIandF)
+		return parserReturn
+
+#checks if there's a possible verb in the command from the possibleVerbs array
+#returns it if found			
 def verbFinder(inputList):
 	verbCounter = 0
 	foundVerb = ''
@@ -87,9 +126,13 @@ def verbFinder(inputList):
 		for z in moveVariants:
 			if foundVerb == z:
 				foundVerb = 'move'
+		for z in examineVariants:
+			if foundVerb == z:
+				foundVerb = 'examine'
 		return foundVerb
 
-#checks if there's a possible direction in the command from the possibleDirections array			
+#checks if there's a possible direction in the command from the possibleDirections array
+#returns it if found						
 def directionFinder(inputList):
 	directionCounter = 0
 	foundDirection = ''
@@ -116,3 +159,28 @@ def directionFinder(inputList):
 			if 	foundDirection == z:
 				foundDirection = 'west'
 		return foundDirection
+
+#checks if there's a possible direction in the command from the possibleDirections array	
+#returns it if found					
+def itemsAndFeaturesFinder(inputList,oAndFList):
+	iAndFCounter = 0
+	foundIandF = ''
+	for n in inputList:
+		for k in oAndFList:
+				if n == k:
+					iAndFCounter += 1
+					foundIandF = n
+	if iAndFCounter > 1:
+		print 'Your input has too many items/features.'
+	if iAndFCounter < 1: 
+		print 'Your input does not have an items or feature (look around you!).'
+	if iAndFCounter == 1:
+		return foundIandF
+
+##checks whether a word from specialWordsList is present in the inputList
+##if so, appends the specialWord to an argument (listToAppend) List
+## source: https://www.tutorialspoint.com/python/string_find.htm
+def specialWordFinder (inputList, specialWordsList, listToAppend):
+	for a in specialWordsList:
+		if inputList.find(a) != -1:
+				listToAppend.append(a)

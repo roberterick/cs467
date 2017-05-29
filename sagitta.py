@@ -92,13 +92,18 @@ class App(object):
                 return False
         else:
             # --PARSER --
-            inputParseReturn = sagParser(userInput)
+            currentRoom=self.player.otherObjects[self.player.location]
+            inputParseReturn = sagParser(userInput,currentRoom)
             if inputParseReturn == None:
                 return False
             if inputParseReturn[0] == 'move':
                 direction = inputParseReturn[1]
                 direction = self.normalizeDirection(direction)
-                return self.player.move(direction)  
+                return self.player.move(direction)
+            if inputParseReturn[0] == 'examine':
+                return self.player.examine(inputParseReturn[1])
+                #objectItem = inputParseReturn[1]
+                #return self.player.examine(direction)    
 
     def showHelp(self):
         h='''

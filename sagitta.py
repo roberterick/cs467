@@ -93,8 +93,7 @@ class App(object):
         else:
             # --PARSER --
             currentRoom=self.player.otherObjects[self.player.location]
-            currentItems = self.player.items
-            inputParseReturn = sagParser(userInput,currentRoom, currentItems)
+            inputParseReturn = sagParser(userInput,currentRoom)
             if inputParseReturn == None:
                 return False
             if inputParseReturn[0] == 'move':
@@ -105,8 +104,6 @@ class App(object):
                 return self.player.examine(inputParseReturn[1])
             if inputParseReturn[0] == 'get':
                 return self.player.getItem(inputParseReturn[1])
-            if inputParseReturn[0] == 'drop':
-                return self.player.dropItem(inputParseReturn[1])
                 #objectItem = inputParseReturn[1]
                 #return self.player.examine(direction)    
 

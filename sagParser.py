@@ -4,7 +4,7 @@
 ##date: 5/29/2017
 
 ##things to do: 
-##1. update parser so it works with other verbs: [ADD?]
+##1. update parser so it works with other verbs: 1) drop
 ##2. make 'move' work with room names
 
 ##when adding new verb, things to update:
@@ -17,7 +17,7 @@ from sagDictionary import *
 
 #sagParser hopefully returns a list that will list at 
 # [0] - action, then [1] - direction/item
-def sagParser(userInput, roomObject, playerItems):
+def sagParser(userInput, roomObject):
 	#separating the user input by space
 	inputList = userInput.split(' ')
 	
@@ -79,49 +79,19 @@ def sagParser(userInput, roomObject, playerItems):
 		for a in roomObject.items:
 			roomItems.append(a)
 
-		##appending the specicalWordsList with  special items
+		##appending the specicalWordsList with both special items
 		for c in specialItems:
 			specialWordsList.append(c)
 
-		#checking whether the user input has a special words
+		#checking whether the user input has and special words
 		#if so, appending to the userinputList
 		specialWordFinder(userInput,specialWordsList,inputList)
 
-		#checking whether there is item in the inputlist
+		#checking whether there is feature or item in the inputlist
 		foundItems = itemsAndFeaturesFinder(inputList,roomItems)
 		parserReturn.append(foundVerb)
 		parserReturn.append(foundItems)
 		return parserReturn
-
-	if foundVerb == 'drop':
-		specialWordsList = []
-		##appending the specicalWordsList with special items
-		for c in specialItems:
-			specialWordsList.append(c)
-
-		#checking whether the user input has a special word
-		#if so, appending to the userinputList
-		specialWordFinder(userInput,specialWordsList,inputList)
-
-		#checking whether there is item in the inputlist (command broken down)
-		# and if the player has that item
-		playerItemCounter = False
-		playerItemToPass =[]
-		for i in inputList:
-			for j in playerItems:
-				if i == j: 
-					playerItemCounter = True
-					playerItemToPass = i
-
-		#if player has that item and he wants to drop it, passing up
-		if playerItemCounter == True:
-			parserReturn.append(foundVerb)
-			parserReturn.append(playerItemToPass)
-			return parserReturn
-
-		#else kicking out an error
-		if playerItemCounter == False:
-			print 'Are you sure you have that item?'
 
 #checks if there's a possible verb in the command from the possibleVerbs array
 #returns it if found			
@@ -148,9 +118,6 @@ def verbFinder(inputList):
 		for z in getVariants:
 			if foundVerb == z:
 				foundVerb = 'get'
-		for z in dropVariants:
-			if foundVerb == z:
-				foundVerb = 'drop'
 		return foundVerb
 
 #checks if there's a possible direction in the command from the possibleDirections array

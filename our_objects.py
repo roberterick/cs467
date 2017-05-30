@@ -221,24 +221,42 @@ class Room(GameObj):
         return temp
             
     def __str__(self):
-        items=self.getList(self.items)
-        features=self.getList(self.features)
+        items=', '.join(self.getList(self.items))
+        if items=='':items='nothing'
+        features=', '.join(self.getList(self.features))
+        if features=='':features='nothing'
+        exits=sorted(self.adjacent_rooms.keys())
+        exits=', '.join(exits)
 
-        if items:
-            itemsSee='In this room you see these items: %s'%', '.join(items)
-        else:
-            itemsSee='There are no items in this room.'
-
-        if features:
-            featuresSee='In this room you see these features: %s'%', '.join(features)
-        else:
-            featuresSee='There are no features in this room.'        
+##        if items:
+##            itemsSee='In this room you see these items: %s'%', '.join(items)
+##        else:
+##            itemsSee='There are no items in this room.'
+##
+##        if features:
+##            featuresSee='In this room you see these features: %s'%', '.join(features)
+##        else:
+##            featuresSee='There are no features in this room.'        
 
             
         if self.visited:
-            return '%s\n%s\n%s'%(self.short_description,itemsSee,featuresSee)
+            desc=self.short_description
+##            return '%s\n%s\n%s'%(self.short_description,itemsSee,featuresSee)
         else:
+            desc=self.long_description
             self.visited=True
-            return '%s\n%s\n%s'%(self.long_description,itemsSee,featuresSee)
-            
+##            return '%s\n%s\n%s'%(self.long_description,itemsSee,featuresSee)
+
+        h='>'*75
+        thereturn='''
+%s
+Room name: %s
+Room description: %s
+Room features: %s
+Room items: %s
+Room exits: %s
+%s
+        '''%(h,self.name,desc,features,items,exits,h)
+        return thereturn
+                    
         

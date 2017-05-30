@@ -3,5 +3,5 @@
 	"type": "room",
 	"long_description": "You are in the bridge elevator.\nThe display says 'level 1'.\nWhen you look North, you see the Bridge.\nYou can also move Down to Elevator Level 2.",
 	"short_description": "The bridge elevator, level 1.\nDown: Elevator Level 2\nNorth: Bridge",
-	"adjacent_rooms": {"south":"elevator level 2","north":"bridge"}
+	"adjacent_rooms": {"down":"elevator level 2","north":"bridge"}
 }

@@ -90,6 +90,9 @@ class App(object):
                 return False
         elif splitcommand[0] in ['teleport']:
             return self.player.teleport()
+        elif splitcommand[0] in ['status']:
+            print self.player
+            return True
         else:
             # --PARSER --
             currentRoom=self.player.otherObjects[self.player.location]
@@ -120,6 +123,7 @@ class App(object):
         examine <feature>: examines a feature
         examine <item>: examines an item
         move <direction>: moves the player in a direction
+        status
         teleport
         '''
         print h

@@ -54,13 +54,26 @@ class Player(GameObj):
 
     def __str__(self):
         items=[itm.short_description for itm in self.items]
-        youhave='You have in your possession: %s'%','.join(items)
+        inventory=','.join(items)
+        if inventory=='':inventory="nothing"
         status='Status: %s'%self.status
         if self.seen:
-            return '%s\n%s\n%s'%(self.short_description,youhave,status)
+            desc=self.short_description
+##            return '%s\n%s\n%s'%(self.short_description,youhave,status)
         else:
+            desc=self.long_description
             self.seen=True
-            return '%s\n%s\n%s'%(self.long_description,youhave,status)
+##            return '%s\n%s\n%s'%(self.long_description,youhave,status)
+
+        thereturn='''
+>>>>>>>>>>>>>>>>>STATUS<<<<<<<<<<<<<<
+%s
+Your location: %s
+Your inventory: %s
+Your status: %s
+>>>>>>>>>>>>>END STATUS<<<<<<<<<<<<<<
+        '''%(desc,self.location,inventory,self.status)
+        return thereturn
 
     def getItem(self,itemName):
         if not self.location in self.otherObjects:return False #location is bad

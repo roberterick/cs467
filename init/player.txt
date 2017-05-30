@@ -1,7 +1,7 @@
 {
-	"name": "name here",
+	"name": "Tobias",
 	"type": "player",
-	"long_description": "Your name is . You are a ruggedly handsome adventurer with a rucksack.  You are wearing khaki clothing.",
-	"short_description": "Your name is. You are the player.",
+	"long_description": "Your name is Tobias. You are a ruggedly handsome adventurer with a rucksack.  You are wearing khaki clothing.",
+	"short_description": "Your name is Tobias. You are the player.",
 	"location":"bridge"
 }

@@ -75,6 +75,18 @@ Your status: %s
         '''%(desc,self.location,inventory,self.status)
         return thereturn
 
+    def printInventory(self):
+        items=[itm.short_description for itm in self.items]
+        inventory='\n'.join(items)
+        if inventory=='':inventory="nothing"
+        message='''
+>>>>>>>>>>>>>>>>>INVENTORY<<<<<<<<<<<<<<
+%s
+>>>>>>>>>>>>>END INVENTORY<<<<<<<<<<<<<<
+        '''%(inventory)
+        print message
+        return True
+
     def getItem(self,itemName):
         if not self.location in self.otherObjects:return False #location is bad
         room=self.otherObjects[self.location]

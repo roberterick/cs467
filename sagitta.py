@@ -93,6 +93,8 @@ class App(object):
         elif splitcommand[0] in ['status']:
             print self.player
             return True
+        elif splitcommand[0] in ['inventory']:
+            return self.player.printInventory()
         else:
             # --PARSER --
             currentRoom=self.player.otherObjects[self.player.location]
@@ -120,11 +122,13 @@ class App(object):
         save game: save the current game
         load game: load a saved game    
         exit: exit the game
+        
         examine <feature>: examines a feature
         examine <item>: examines an item
+        inventory: shows your items
         move <direction>: moves the player in a direction
-        status
-        teleport
+        status: shows your status
+        teleport: teleports to (possibly another) room
         '''
         print h
 ##        print objects1: print known objects

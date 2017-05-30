@@ -20,4 +20,6 @@ Current verbs (need 10):
 3) get/take
 4) drop 
 5) help (needs to be fixe by jimmy) 
-6) teleport (jimmy will implement) randomly transports player
+6) teleport (robert will implement) randomly transports player
+7) talk (jimmy will implement) allows user to use interact with certain "features" when they have a certain "items"
+8) "put" (maybe for a key in the elevator or something)

@@ -105,6 +105,8 @@ class App(object):
                 return self.player.getItem(inputParseReturn[1])
             if inputParseReturn[0] == 'drop':
                 return self.player.dropItem(inputParseReturn[1])
+            if inputParseReturn[0] == 'help':
+                self.showHelp()
                 #objectItem = inputParseReturn[1]
                 #return self.player.examine(direction)    
 

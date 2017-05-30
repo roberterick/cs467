@@ -156,6 +156,10 @@ def sagParser(userInput, roomObject, playerItems):
 		if playerItemCounter == False:
 			print 'Are you sure you have that item?'
 
+	if foundVerb == 'help':
+		parserReturn.append(foundVerb)
+		return parserReturn
+
 #checks if there's a possible verb in the command from the possibleVerbs array
 #returns it if found			
 def verbFinder(inputList):
@@ -184,6 +188,9 @@ def verbFinder(inputList):
 		for z in dropVariants:
 			if foundVerb == z:
 				foundVerb = 'drop'
+		for z in helpVariants:
+			if foundVerb == z:
+				foundVerb = 'help'
 		return foundVerb
 
 #checks if there's a possible direction in the command from the possibleDirections array

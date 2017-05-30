@@ -2,6 +2,7 @@
 ##group: Sagitta
 ##members: Robert Erick, James Wong, Brent Nolan
 ##date: 4/17/2017
+import random
 
 class GameObj(object):
     def __init__(self):
@@ -145,6 +146,19 @@ class Player(GameObj):
         for name in room.items+room.features:
             adict[name]=name#make object->object, for completeness
         return adict
+
+    def teleport(self):
+        rooms=[]
+        for s in self.otherObjects:
+            if self.otherObjects[s].type=='room':rooms+=[s]
+        theroom=random.choice(rooms)
+        phrases=["It feels as if you are swimming in a deep pool of warm water."]
+        phrases+=["There are swirling lights and you are disoriented.  The bile is rising in your throat."]
+        phrases+=["Your body feels as if it is being torn apart."]
+        thephrase='You are teleporting to room %s!  %s\n'%(theroom,random.choice(phrases))
+        self.location=theroom
+        print thephrase
+        return True        
         
 class Room(GameObj):
     def __init__(self,**data):

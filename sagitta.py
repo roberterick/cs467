@@ -47,8 +47,8 @@ class App(object):
             'help':self.showHelp,
             'save game':self.saveGame,
             'load game':self.loadGame,
-            'print objects1':self.printObjects1,
-            'print objects2':self.printObjects2,
+##            'print objects1':self.printObjects1,
+##            'print objects2':self.printObjects2,
           }
 
         print
@@ -88,6 +88,8 @@ class App(object):
                 return self.player.examine(item)
             else:
                 return False
+        elif splitcommand[0] in ['teleport']:
+            return self.player.teleport()
         else:
             # --PARSER --
             currentRoom=self.player.otherObjects[self.player.location]
@@ -118,10 +120,11 @@ class App(object):
         examine <feature>: examines a feature
         examine <item>: examines an item
         move <direction>: moves the player in a direction
-        print objects1: print known objects
-        print objects2: print known objects
+        teleport
         '''
         print h
+##        print objects1: print known objects
+##        print objects2: print known objects
 
     def where(self):
         return os.getcwd()

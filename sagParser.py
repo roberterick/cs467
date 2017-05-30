@@ -37,7 +37,7 @@ def sagParser(userInput, roomObject, playerItems):
 	#looking for verb in the inputList
 	foundVerb = verbFinder(inputList)
 
-	#if the found verb is move
+	#conditionals that execute depending on the string in the foundVerb
 	if foundVerb == 'move':
 		##creating a list of the possible rooms that the user can go into
 		possibleRooms = []
@@ -51,7 +51,6 @@ def sagParser(userInput, roomObject, playerItems):
 		if 'west' in adjacentRooms:
 			possibleRooms.append(adjacentRooms['west'])
 
-
 		##checking if the userInput has any of the possible rooms in the input
 		possibleRoomsCounter = 0
 		foundRoom = ''
@@ -62,6 +61,7 @@ def sagParser(userInput, roomObject, playerItems):
 
 		if possibleRoomsCounter == 1:
 			##finding key by value room name()
+			##source: https://stackoverflow.com/questions/23295315/get-key-by-value-dict-python
 			for k, v in adjacentRooms.items():
 			    if foundRoom in v:
 			    	parserReturn.append(foundVerb)

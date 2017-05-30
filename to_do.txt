@@ -1,9 +1,23 @@
-Updated by Jimmy 5/29/2017
+Updated by Jimmy 5/30/2017
 
 1) Clean up init files (how things are presented as the user navigates through rooms)
-2) Have a function/verb that lists the items that the player has
-3) Update parser as new verbs are added
-4) Check what we're missing from the project requirements.
-5) (optional) have the command line "clear" as the user moves/does an action
-6) (optional) have a verb that lets the user see the path they've taken
-7) verify our program works on osu servers
+2) (required by assignment) 'inventory' phrase = Have a function that lists the items that the player has
+3) (required by assignment) interaction of items on game (maybe unlock elevator or something)
+3) (required by assignment) 'look' v 'look at' difference - parser update - need to let player 
+  'look' (causing long form description) v 'look at' at things in inventory - Jimmy will work on
+4) (assignment says is optional) 'combine' verb - maybe allow the user to combine certain items
+4) 'teleport' verb = allows the user to randomly transport to a space - Jimmy can try implementing
+5) 'help' verb (not phrase) = can let the user know what they can in the room - Jimmy can try implementing
+5) Update parser as new verbs are added
+6) Check what we're missing from the project requirements.
+7) (optional) have the command line "clear" as the user moves/does an action
+8) (optional) have a verb that lets the user see the path they've taken
+9) verify our program works on osu servers
+
+Current verbs (need 10): 
+1) move/go
+2) examine/look
+3) get/take
+4) drop 
+5) help (needs to be fixe by jimmy) 
+6) teleport (jimmy will implement) randomly transports player

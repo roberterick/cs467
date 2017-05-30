@@ -17,6 +17,7 @@ Updated by Jimmy 5/30/2017
 12) clean up room displays
 13) at load time, verify that each rooms destination agrees to another rooms source
 14) any other design changes--add cool features (possibly whiteboards,etc)
+15) start the 8 page report-------------------
 
 
 Current verbs (need 10): 

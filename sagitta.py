@@ -97,14 +97,25 @@ class App(object):
             return self.player.printInventory()
         else:
             # --PARSER --
-            currentRoom=self.player.otherObjects[self.player.location]
+            currentRoom = self.player.otherObjects[self.player.location]
             currentItems = self.player.items
             inputParseReturn = sagParser(userInput,currentRoom, currentItems)
             if inputParseReturn == None:
                 return False
             if inputParseReturn[0] == 'move':
                 direction = inputParseReturn[1]
-                direction = self.normalizeDirection(direction)
+                #FIX FOR ELEVATOR DIRECTIONS "UP" AND "DOWN"
+                if self.player.location == 'elevator level 1': 
+                    if direction == 'south':
+                        direction = 'down'
+                if self.player.location == 'elevator level 2':
+                    if direction == 'south':
+                        direction = 'down'
+                    if direction == 'north':
+                        direction = 'up'
+                if self.player.location == 'elevator level 3':
+                    if direction == 'north':
+                        direction = 'up'
                 return self.player.move(direction)
             if inputParseReturn[0] == 'examine':
                 return self.player.examine(inputParseReturn[1])

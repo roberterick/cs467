@@ -50,6 +50,10 @@ def sagParser(userInput, roomObject, playerItems):
 			possibleRooms.append(adjacentRooms['south'])
 		if 'west' in adjacentRooms:
 			possibleRooms.append(adjacentRooms['west'])
+		if 'up' in adjacentRooms:
+			possibleRooms.append(adjacentRooms['up'])
+		if 'down' in adjacentRooms:
+			possibleRooms.append(adjacentRooms['down'])
 
 		##checking if the userInput has any of the possible rooms in the input
 		possibleRoomsCounter = 0
@@ -65,7 +69,12 @@ def sagParser(userInput, roomObject, playerItems):
 			for k, v in adjacentRooms.items():
 			    if foundRoom in v:
 			    	parserReturn.append(foundVerb)
-			    	parserReturn.append(k)
+			    	if k == 'up':
+			    		parserReturn.append('north')
+			    	elif k == 'down':
+			    		parserReturn.append('south')
+			    	else:
+			    		parserReturn.append(k)
 			    	return parserReturn
 
 		elif possibleRoomsCounter > 1:
@@ -221,6 +230,12 @@ def directionFinder(inputList):
 			if 	foundDirection == z:
 				foundDirection = 'west'
 		return foundDirection
+
+def elevatorMoveFix(inputString):
+    if inputString == 'south':
+        return 'down'
+    if inputString == 'north':
+        return 'up'
 
 #checks if there's a possible direction in the command from the possibleDirections array	
 #returns it if found					

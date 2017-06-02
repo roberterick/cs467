@@ -169,6 +169,10 @@ def sagParser(userInput, roomObject, playerItems):
 		parserReturn.append(foundVerb)
 		return parserReturn
 
+	if foundVerb == 'teleport':
+		parserReturn.append(foundVerb)
+		return parserReturn
+
 #checks if there's a possible verb in the command from the possibleVerbs array
 #returns it if found			
 def verbFinder(inputList):
@@ -184,7 +188,7 @@ def verbFinder(inputList):
 	if verbCounter < 1: 
 		print 'Your input does not have a verb (think move, go, etc.).'
 	if verbCounter == 1:
-		#checking if the found verb is a variant of the word 'move'
+		#checking if the found verb is a variant of one of our primary verbs
 		for z in moveVariants:
 			if foundVerb == z:
 				foundVerb = 'move'
@@ -200,6 +204,9 @@ def verbFinder(inputList):
 		for z in helpVariants:
 			if foundVerb == z:
 				foundVerb = 'help'
+		for z in teleportVariants:
+			if foundVerb == z:
+				foundVerb = 'teleport'
 		return foundVerb
 
 #checks if there's a possible direction in the command from the possibleDirections array

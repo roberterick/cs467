@@ -124,7 +124,10 @@ class App(object):
             if inputParseReturn[0] == 'drop':
                 return self.player.dropItem(inputParseReturn[1])
             if inputParseReturn[0] == 'help':
+                print "Are you asking for help? If so, here's what the 'help' command brings up:"
                 self.showHelp()
+            if inputParseReturn[0] == 'teleport':
+                self.player.teleport()
                 #objectItem = inputParseReturn[1]
                 #return self.player.examine(direction)    
 

@@ -7,7 +7,7 @@
 ##1. continually updated specialFeaturse and specialItems 
 
 #list of our primary verbs
-possibleVerbs = ['move', 'examine', 'get', 'drop', 'help', 'teleport']
+possibleVerbs = ['move', 'examine', 'get', 'drop', 'help', 'teleport', 'use']
 
 #list of specialphrases
 # [save game, load game, exit, look (long form), inventory, status]
@@ -91,6 +91,16 @@ for b in teleportVariants:
 #insert multi word phrases of TELEPORT
 specialTeleportVariants = []
 for b in specialTeleportVariants:
+	specialVerbs.append(b)
+
+# --USE--
+#possible variants of the verb 'use'
+useVariants = ['feed', 'open', 'repair', 'screw', 'unscrew']
+for b in useVariants:
+	possibleVerbs.append(b)
+#insert multi word phrases of USE
+specialUseVariants = []
+for b in specialUseVariants:
 	specialVerbs.append(b)
 
 # list of features that are longer than one word

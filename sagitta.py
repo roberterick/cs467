@@ -63,13 +63,6 @@ class App(object):
         elif commands.has_key(userInput):
             commands[userInput]()
             return True
-        elif splitcommand[0] in ['move','go','walk']:
-            if len(splitcommand)==2:
-                cmd,direction=splitcommand
-                direction=self.normalizeDirection(direction)
-                return self.player.move(direction)
-            else:
-                return False
         elif splitcommand[0] in ['get','take']:
             if len(splitcommand)==2:
                 cmd,theitem=splitcommand

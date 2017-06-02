@@ -40,6 +40,7 @@ def specialSagParser(userInput, roomObject):
 		if 'down' in adjacentRooms:
 			directionAsVerb.append('down')
 			adjRoomAsVerb.append(adjacentRooms['down'])
+		
 		index = -1;
 		for a in adjRoomAsVerb:
 			index += 1;
@@ -47,6 +48,7 @@ def specialSagParser(userInput, roomObject):
 				parserReturn.append('move')
 				parserReturn.append(directionAsVerb[index])
 				return parserReturn
+		
 		index = -1;
 		for a in directionAsVerb:
 			index += 1
@@ -54,7 +56,6 @@ def specialSagParser(userInput, roomObject):
 				parserReturn.append('move')
 				parserReturn.append(directionAsVerb[index])
 				return parserReturn
-		return None
 
 #sagParser hopefully returns a list that will list at 
 # [0] - action, then [1] - direction/item

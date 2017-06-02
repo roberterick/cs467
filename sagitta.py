@@ -82,6 +82,9 @@ class App(object):
                 return self.player.dropItem(theitem)
             else:
                 return False
+        ## 'look command per the requirements of the project'
+        elif splitcommand[0] in ['look'] and len(splitcommand)==1:
+            print self.player.otherObjects[self.player.location].long_description
         elif splitcommand[0] in ['examine']:
             if len(splitcommand)>=2:
                 cmd,item=splitcommand
@@ -137,6 +140,7 @@ class App(object):
         load game: load a saved game    
         exit: exit the game
         
+        look: repeats the long form explanation of the room
         examine <feature>: examines a feature
         examine <item>: examines an item
         inventory: shows your items

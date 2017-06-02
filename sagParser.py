@@ -37,6 +37,25 @@ def sagParser(userInput, roomObject, playerItems):
 	#looking for verb in the inputList
 	foundVerb = verbFinder(inputList)
 
+	#special hard coded verb synonyms
+	if foundVerb == None:
+		print "HM?"
+		print specialVerbs
+		possibleSpecialWordsCounter = 0
+		for a in specialVerbs:
+			if userInput.find(a) != -1:
+				print a
+				possibleSpecialWordsCounter += 1
+				foundVerb = a
+		print foundVerb
+		if possibleSpecialWordsCounter == 1:
+			if foundVerb in specialMoveVariants: foundVerb = 'move'
+			if foundVerb in specialExamineVariants: foundVerb = 'examine'
+			if foundVerb in specialGetVariants: foundVerb = 'get'
+			if foundVerb in specialDropVariants: foundVerb = 'drop'
+			if foundVerb in specialHelpvariants: foundVerb = 'help'
+			if foundVerb in specialTeleportVariants: foundVerb = 'teleport'
+
 	#conditionals that execute depending on the string in the foundVerb
 	if foundVerb == 'move':
 		##creating a list of the possible rooms that the user can go into

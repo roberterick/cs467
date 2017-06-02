@@ -3,8 +3,6 @@ Updated by Jimmy 6/1/2017
 ### THINGS TO DO ###
 1) Clean up init files (how things are presented as the user navigates through rooms)
 3) (required by assignment) interaction of items on game (maybe unlock elevator or something)
-3) (required by assignment) 'look' v 'look at' difference - parser update - need to let player 
-  'look' (causing long form description) v 'look at' at things in inventory - Jimmy will work on
 4) (assignment says is optional) 'combine' verb - maybe allow the user to combine certain items
 5) 'help' verb (not phrase) = can let the user know what they can in the room - Jimmy can try implementing
 5) Update parser as new verbs are added
@@ -21,7 +19,9 @@ Updated by Jimmy 6/1/2017
 
 ### DONE ###
 1) teleport has been implemented + parser
-
+2) (required by assignment) 'look' v 'look at' difference - parser update - need to let player 
+  'look' (causing long form description) v 'look at' at things in inventory - Jimmy will work on
+  
 ### CURRENT VERBS (need 10) ###
 1) move/go
 2) examine/look

@@ -231,12 +231,6 @@ def directionFinder(inputList):
 				foundDirection = 'west'
 		return foundDirection
 
-def elevatorMoveFix(inputString):
-    if inputString == 'south':
-        return 'down'
-    if inputString == 'north':
-        return 'up'
-
 #checks if there's a possible direction in the command from the possibleDirections array	
 #returns it if found					
 def itemsAndFeaturesFinder(inputList,oAndFList):

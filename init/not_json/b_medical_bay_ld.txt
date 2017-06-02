@@ -2,4 +2,4 @@ You are in the Medical Bay.  This area has all of the ship's medical apparatus a
 
 To the North is the Crew Quarters 
 
-To the West is the Forward Observation.
+To the West is the Forward Observation Lounge.

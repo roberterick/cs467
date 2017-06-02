@@ -21,6 +21,7 @@ Updated by Jimmy 6/1/2017
 1) teleport has been implemented + parser
 2) (required by assignment) 'look' v 'look at' difference - parser update - need to let player 
   'look' (causing long form description) v 'look at' at things in inventory - Jimmy will work on
+3) fix move per the requirements of the assignment
   
 ### CURRENT VERBS (need 10) ###
 1) move/go

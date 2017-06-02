@@ -102,9 +102,14 @@ class App(object):
             # --PARSER --
             currentRoom = self.player.otherObjects[self.player.location]
             currentItems = self.player.items
-            inputParseReturn = sagParser(userInput,currentRoom, currentItems)
+
+            inputParseReturn = specialSagParser(userInput,currentRoom)
+            if inputParseReturn == None:
+                inputParseReturn = sagParser(userInput,currentRoom, currentItems)
+            
             if inputParseReturn == None:
                 return False
+
             if inputParseReturn[0] == 'move':
                 direction = inputParseReturn[1]
                 #FIX FOR ELEVATOR DIRECTIONS "UP" AND "DOWN"

@@ -15,6 +15,47 @@
 
 from sagDictionary import *
 
+#special parser that checks whether user input is single string of either
+## [1] direction (north, east, etc) or [2] adjacent room nap
+def specialSagParser(userInput, roomObject):
+		parserReturn = []
+		adjacentRooms = roomObject.adjacent_rooms
+		adjRoomAsVerb = []
+		directionAsVerb = []
+		if 'north' in adjacentRooms:
+			directionAsVerb.append('north')
+			adjRoomAsVerb.append(adjacentRooms['north'])
+		if 'east' in adjacentRooms:
+			directionAsVerb.append('east')
+			adjRoomAsVerb.append(adjacentRooms['east'])
+		if 'south' in adjacentRooms:
+			directionAsVerb.append('south')
+			adjRoomAsVerb.append(adjacentRooms['south'])
+		if 'west' in adjacentRooms:
+			directionAsVerb.append('west')
+			adjRoomAsVerb.append(adjacentRooms['west'])
+		if 'up' in adjacentRooms:
+			directionAsVerb.append('up')
+			adjRoomAsVerb.append(adjacentRooms['up'])
+		if 'down' in adjacentRooms:
+			directionAsVerb.append('down')
+			adjRoomAsVerb.append(adjacentRooms['down'])
+		index = -1;
+		for a in adjRoomAsVerb:
+			index += 1;
+			if userInput == a:
+				parserReturn.append('move')
+				parserReturn.append(directionAsVerb[index])
+				return parserReturn
+		index = -1;
+		for a in directionAsVerb:
+			index += 1
+			if userInput == a:
+				parserReturn.append('move')
+				parserReturn.append(directionAsVerb[index])
+				return parserReturn
+		return None
+
 #sagParser hopefully returns a list that will list at 
 # [0] - action, then [1] - direction/item
 def sagParser(userInput, roomObject, playerItems):
@@ -37,17 +78,16 @@ def sagParser(userInput, roomObject, playerItems):
 	#looking for verb in the inputList
 	foundVerb = verbFinder(inputList)
 
+	if foundVerb == None:
+		roomVerbChecker(userInput, roomObject)
+
 	#special hard coded verb synonyms
 	if foundVerb == None:
-		print "HM?"
-		print specialVerbs
 		possibleSpecialWordsCounter = 0
 		for a in specialVerbs:
 			if userInput.find(a) != -1:
-				print a
 				possibleSpecialWordsCounter += 1
 				foundVerb = a
-		print foundVerb
 		if possibleSpecialWordsCounter == 1:
 			if foundVerb in specialMoveVariants: foundVerb = 'move'
 			if foundVerb in specialExamineVariants: foundVerb = 'examine'

@@ -2,7 +2,7 @@
 	"name": "turtle",
 	"type": "feature",
 	"long_description": "This is the captain's favorite turtle, Tiziano.  You see a security chip attached to the inside of his shell.  But the turtle is hungry so you can't get to it without it snapping at you.",
-	"short_description": "Tiziano, the Captain's favorite turtle",
+	"short_description": "Tiziano, the turtle",
 	"location":"arboretum",
 	"item_use":"lettuce",
 	"verb_use":["use","feed"],

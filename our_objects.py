@@ -163,12 +163,13 @@ Your status: %s
     def getNameAndAlternates(self):
         adict={}
         room=self.otherObjects[self.location]
-        for name in room.items+room.features:
+        #jimmy - added player items to adict
+        for name in room.items+room.features+self.items:
             obj=self.otherObjects[name]
             alternateNames=obj.alternate_names
             for an in alternateNames:
                 adict[an]=name#make alternate->object
-        for name in room.items+room.features:
+        for name in room.items+room.features+self.items:
             adict[name]=name#make object->object, for completeness
         return adict
 

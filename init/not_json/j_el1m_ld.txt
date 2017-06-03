@@ -1,0 +1,4 @@
+You look at the directory and it says: 
+	Elevator 1 - Bridge 
+	Elevator 2 - Crew Quarters 
+	Elevator 3 - Shuttle Bay

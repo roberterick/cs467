@@ -1,7 +1,7 @@
 {
-	"name": "speaker1",
+	"name": "keyhole1",
 	"type": "feature",
-	"long_description": "The Speaker says WELCOME!",
+	"long_description": "This is a keyhole1 that might work with a certain elevatorkey?",
 	"short_description": "No noise comes out of the Speaker.",
 	"location":"elevator level 1"
 }

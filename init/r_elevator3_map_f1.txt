@@ -1,7 +1,7 @@
 {
 	"name": "directory3",
 	"type": "feature",
-	"long_description": "You look at the map and it says: Elevator 1 - Bridge, Elevator 2 - Crew Quarters: Elevator 3 - Shuttle Bay.",
-	"short_description": "Elevator 1 - Bridge, Elevator 2 - Crew Quarters: Elevator 3 - Shuttle Bay",
+	"long_description": "j_el1m_ld.txt",
+	"short_description": "j_el1m_sd.txt",
 	"location":"elevator level 3"
 }

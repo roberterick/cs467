@@ -220,6 +220,7 @@ Your status: %s
         for s in self.otherObjects:
             if self.otherObjects[s].type=='room':rooms+=[s]
         theroom=random.choice(rooms)
+        clearScreen()
         phrases=["It feels as if you are swimming in a deep pool of warm water."]
         phrases+=["There are swirling lights and you are disoriented.  The bile is rising in your throat."]
         phrases+=["Your body feels as if it is being torn apart."]

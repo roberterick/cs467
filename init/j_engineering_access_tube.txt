@@ -4,6 +4,5 @@
 	"long_description": "Your are in the Engineering Access Tube. It's a really long tube.\nTo the North is the Shuttle Bay.\nto The South is a room called Main Engineering.\nTo the West, there's an entrance to the Elevator.\nLot's of choices!",
 	"short_description": "engineering_access_tube",
 	"adjacent_rooms": {"north":"shuttle bay",
-					"south":"main engineering",
-					"west":"elevator"}
+					"south":"main engineering"}
 }

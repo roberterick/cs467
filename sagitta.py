@@ -23,12 +23,16 @@ class App(object):
         self.mainLoop()#begin main loop
 
     def mainLoop(self):
+        enteringRoomTracker = [True]
         while(1):
-            self.printCurrentLocation()
-            res=self.processPrompt()
+            if enteringRoomTracker == [True]:
+                self.printCurrentLocation()
+            res=self.processPrompt(enteringRoomTracker)
             if res=='exit':
                 return
             elif res==False:
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(False)
                 print 'That command was not recognized!'
             
     def printCurrentLocation(self):
@@ -37,7 +41,7 @@ class App(object):
 ##        print 'You are in: ',self.objects[location]
 ##        items=self.
 
-    def processPrompt(self):
+    def processPrompt(self,enteringRoomTracker):
         '''
             returns 'exit' if the game is exit
             returns True if the command succeeded
@@ -66,30 +70,46 @@ class App(object):
         elif splitcommand[0] in ['get','take']:
             if len(splitcommand)==2:
                 cmd,theitem=splitcommand
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(False)
                 return self.player.getItem(theitem)
             else:
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(False)
                 return False
         elif splitcommand[0] in ['drop','throw']:
             if len(splitcommand)==2:
                 cmd,theitem=splitcommand
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(False)
                 return self.player.dropItem(theitem)
             else:
                 return False
         ## 'look command per the requirements of the project'
         elif splitcommand[0] in ['look'] and len(splitcommand)==1:
+            enteringRoomTracker.pop(0)
+            enteringRoomTracker.append(False)
             print self.player.otherObjects[self.player.location].long_description
         elif splitcommand[0] in ['examine']:
             if len(splitcommand)>=2:
                 cmd,item=splitcommand
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(False)
                 return self.player.examine(item)
             else:
                 return False
         elif splitcommand[0] in ['teleport']:
+            enteringRoomTracker.pop(0)
+            enteringRoomTracker.append(True)
             return self.player.teleport()
         elif splitcommand[0] in ['status']:
+            enteringRoomTracker.pop(0)
+            enteringRoomTracker.append(False)
             print self.player
             return True
         elif splitcommand[0] in ['inventory']:
+            enteringRoomTracker.pop(0)
+            enteringRoomTracker.append(False)
             return self.player.printInventory()
         else:
             # --PARSER --
@@ -117,19 +137,33 @@ class App(object):
                 if self.player.location == 'elevator level 3':
                     if direction == 'north':
                         direction = 'up'
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(True)
                 return self.player.move(direction)
             if inputParseReturn[0] == 'examine':
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(False)
                 return self.player.examine(inputParseReturn[1])
             if inputParseReturn[0] == 'get':
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(False)
                 return self.player.getItem(inputParseReturn[1])
             if inputParseReturn[0] == 'drop':
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(False)
                 return self.player.dropItem(inputParseReturn[1])
             if inputParseReturn[0] == 'help':
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(False)
                 print "Are you asking for help? If so, here's what the 'help' command brings up:"
                 self.showHelp()
             if inputParseReturn[0] == 'teleport':
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(True)
                 self.player.teleport()
             if inputParseReturn[0] == 'use':
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(False)
                 return self.player.use(inputParseReturn[1],inputParseReturn[2], inputParseReturn[3])
                 #objectItem = inputParseReturn[1]
                 #return self.player.examine(direction)    

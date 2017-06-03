@@ -22,6 +22,7 @@ class Item(GameObj):
     def __init__(self,**data):
         self.location=''
         self.seen=False
+        self.hidden=False
         self.alternate_names=[]
         self.__dict__.update(data)
     def __str__(self):
@@ -36,6 +37,8 @@ class Feature(GameObj):
         self.location=''
         self.seen=False
         self.alternate_names=[]
+        self.canUnlock=False
+        self.canUnhide=False
         self.__dict__.update(data)
     def __str__(self):
         if self.seen:
@@ -77,6 +80,11 @@ Your status: %s
 
     def printInventory(self):
         items=[itm.short_description for itm in self.items]
+        #eliminate hidden items
+        for item in item:
+            obj=self.otherObjects[item]
+            if obj.hidden=True:items.remove[item]
+        #make the inventory
         inventory='\n'.join(items)
         if inventory=='':inventory="nothing"
         message='''
@@ -123,11 +131,11 @@ Your status: %s
         #test for existence of direction in room.adjacent_rooms
         if not room.adjacent_rooms.has_key(direction):#is room in adjacent rooms?
             return False
-        if direction in room.adjacent_rooms:
+        if direction in room.adjacent_rooms and direction not in room.lockedDirections:
             self.location = room.adjacent_rooms[direction]
             self.checkWin()
             return True
-        elif direction in room.adjacent_rooms.itervalues():
+        elif direction in room.adjacent_rooms.itervalues() and direction not in room.lockedDirections:
             self.location = direction
             self.checkWin()
             return True
@@ -135,6 +143,17 @@ Your status: %s
         else:
             self.checkWin()
             return False
+
+    def unlockDirection(self,direction):
+        #get the room
+        room=self.otherObjects[self.location]
+        #remove the lock
+        room.lockedDirections.remove(direction)
+
+    def unlockAllDirections(self):
+        #get the room
+        room=self.otherObjects[self.location]
+        room.lockedDirections=[]
 
     def examine(self,itemName):
         if not self.location in self.otherObjects:
@@ -144,31 +163,38 @@ Your status: %s
         if not itemName in adict.keys():
             print "This room does not have that item!"
             return False
-        else:
-            realName=adict[itemName]
-            item=self.otherObjects[realName]
-            t=item.type
-            t.capitalize()
-            print '%s %s: %s'%(t, itemName,item.long_description)
-            return True
+
+        realName=adict[itemName]
+        item=self.otherObjects[realName]
+        if not isinstance(item,Item):
+            print "That is not an item!"
+            return False
+
+        if item.canUnlock==True:
+            self.unlockAllDirections()
+            
         
-##        room=self.otherObjects[self.location]
-##        if not itemName in room.items:
-##            print "This room does not have that item!"
-##            return False
-##        item=self.otherObjects[itemName]
-##        print 'Item %s: %s'%(itemName,item.long_description)
-##        return True
+        t=item.type
+        t.capitalize()
+        print '%s %s: %s'%(t, itemName,item.long_description)
+        return True
+
+    #need to implement use feature similar to examine object
+    #or morph examine to handle use as well
+    #if feature.canUnhide=True, must unhide all hidden items in the room
+    #if item.canUnlock=True, must unlock all locked directions in the room
+
 
     def getNameAndAlternates(self):
         adict={}
         room=self.otherObjects[self.location]
-        for name in room.items+room.features:
+        #jimmy - added player items to adict
+        for name in room.items+room.features+self.items:
             obj=self.otherObjects[name]
             alternateNames=obj.alternate_names
             for an in alternateNames:
                 adict[an]=name#make alternate->object
-        for name in room.items+room.features:
+        for name in room.items+room.features+self.items:
             adict[name]=name#make object->object, for completeness
         return adict
 
@@ -215,6 +241,7 @@ class Room(GameObj):
         self.features=[]
         self.adjacent_rooms={}
         self.visited=False
+        self.lockedDirections=[]
         self.__dict__.update(data)
 
     def getDescriptions(self,alist):

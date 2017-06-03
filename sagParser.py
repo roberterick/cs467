@@ -81,10 +81,7 @@ def sagParser(userInput, roomObject, playerItems):
 
     #looking for verb in the inputList
     foundVerb = verbFinder(inputList)
-
-    if foundVerb == None:
-        roomVerbChecker(userInput, roomObject)
-
+    
     #special hard coded verb synonyms
     if foundVerb == None:
         possibleSpecialWordsCounter = 0
@@ -159,6 +156,9 @@ def sagParser(userInput, roomObject, playerItems):
             roomFeaturesAndItems.append(a)
         for b in roomObject.features:
             roomFeaturesAndItems.append(b)
+        ##appending items from playerItems (inventory)
+        for c in playerItems:
+            roomFeaturesAndItems.append(c)
 
         ##appending the specicalWordsList with both special items AND features
         for c in specialItems:

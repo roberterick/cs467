@@ -1,0 +1,8 @@
+{
+	"name": "security chip",
+	"type": "item",
+	"long_description": "This is a security chip that allows you to unlock the safe in the Captain's Cabin.",
+	"short_description": "This is a security chip.",
+	"location":"arboretum",
+	"hidden":"true"
+}

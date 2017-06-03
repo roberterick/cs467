@@ -83,11 +83,7 @@ Your status: %s
         #eliminate hidden items
         for item in items:
             obj=self.otherObjects[item]
-<<<<<<< HEAD
             if obj.hidden==True:items.remove[item]
-=======
-            if obj.hidden == True:items.remove[item]
->>>>>>> 7eccb1450afb58df875f44237b4a0a8a32808bfe
         #make the inventory
         inventory='\n'.join(items)
         if inventory=='':inventory="nothing"

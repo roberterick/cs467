@@ -1,0 +1,3 @@
+The elevator plummets to Elevator Level 3! You really felt vertigo as you got here. The control panel flashes and notes that you're on 'level 3'. On this level of the elevator, you notice a Directory3 and a Speaker. When you look out of the elevator door, everything seems so dim. 
+
+You can go Up back to Elevator Level 2. Also, when you look South a light glimmers in the Shuttle Bay.

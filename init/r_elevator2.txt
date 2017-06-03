@@ -1,7 +1,7 @@
 {
 	"name": "elevator level 2",
 	"type": "room",
-	"long_description": "You are in the bridge elevator.\nThe display says 'level 2'.\nTo the East appears to be the Crew Quarters.\nYou can also go up or down a level.",
-	"short_description": "The bridge elevator, level 2.\nUp: Elevator Level 1\nDown: Elevator Level 3\nEast: Crew Quarters",
+	"long_description": "j_el2_ld.txt",
+	"short_description": "j_el2_sd.txt",
 	"adjacent_rooms": {"up":"elevator level 1","down":"elevator level 3","east":"crew quarters"}
 }

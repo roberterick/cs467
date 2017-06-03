@@ -1,7 +1,7 @@
 {
 	"name": "elevator level 3",
 	"type": "room",
-	"long_description": "You are in the bridge elevator.\nThe display says 'level 3'.\nLooking South appears to be a Shuttle Bay.\nYou can also go up a level.",
-	"short_description": "The bridge elevator, level 3.\nUp: Elevator Level 2\nSouth:Shuttle Bay",
+	"long_description": "j_el3_ld.txt",
+	"short_description": "j_el3_sd.txt",
 	"adjacent_rooms": {"up":"elevator level 2","south":"shuttle bay"}
 }

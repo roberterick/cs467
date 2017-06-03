@@ -192,7 +192,8 @@ Your status: %s
         
         t=item.type
         t.capitalize()
-        print '%s %s: %s'%(t, itemName,item.long_description)
+        print item.long_description
+        #print '%s %s: %s'%(t, itemName,item.long_description)
         return True
 
     #need to implement use feature similar to examine object

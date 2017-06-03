@@ -83,7 +83,7 @@ Your status: %s
         #eliminate hidden items
         for item in item:
             obj=self.otherObjects[item]
-            if obj.hidden=True:items.remove[item]
+            if obj.hidden==True:items.remove[item]
         #make the inventory
         inventory='\n'.join(items)
         if inventory=='':inventory="nothing"
@@ -155,6 +155,13 @@ Your status: %s
         room=self.otherObjects[self.location]
         room.lockedDirections=[]
 
+    def unhideAll(self):
+        #get the room
+        room=self.otherObjects[self.location]
+        for item in room.items:
+            obj=self.otherObjects[item]
+            obj.hidden=False     
+
     def examine(self,itemName):
         if not self.location in self.otherObjects:
             return False
@@ -166,12 +173,14 @@ Your status: %s
 
         realName=adict[itemName]
         item=self.otherObjects[realName]
-        if not isinstance(item,Item):
-            print "That is not an item!"
-            return False
+##        if not isinstance(item,Item):
+##            print "That is not an item!"
+##            return False
 
         if item.canUnlock==True:
             self.unlockAllDirections()
+        if item.canUnhide==True:
+            self.unhideAll()
             
         
         t=item.type

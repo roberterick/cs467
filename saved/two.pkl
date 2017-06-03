@@ -81,7 +81,7 @@ sVlong_description
 p37
 VWelcome to the Auxiliary Bridge. This bridge is a lot smaller than that other one...\u000aTo the East there's Main Engineering.
 p38
-sbsVcaptain's cabin
+sbsVcargo deck
 p39
 g2
 (g3
@@ -96,15 +96,15 @@ sg9
 (lp44
 sg12
 (dp45
-Vsouth
+Vwest
 p46
-Vcrew quarters
+Varmory
 p47
 ssg16
 g0
 sVshort_description
 p48
-VThe Captain's Cabin.\u000aSouth:Crew Quarters
+VCargo Deck\u000aWest:Armory
 p49
 sg19
 I00
@@ -114,9 +114,9 @@ Vroom
 p51
 sVlong_description
 p52
-VYou are in the Captain's Cabin. I wonder where that guy is...\u000aTo the South is the Crew Quarters (and maybe bunkbeds?)
+VYou are in the cargo deck long.\u000aTo the West is the Armory (I wonder what's there...
 p53
-sbsVcargo deck
+sbsVforward observation
 p54
 g2
 (g3
@@ -131,15 +131,15 @@ sg9
 (lp59
 sg12
 (dp60
-Vwest
+Veast
 p61
-Varmory
+Vmedical bay
 p62
 ssg16
 g0
 sVshort_description
 p63
-VCargo Deck\u000aWest:Armory
+VForward Observation. Exit: East: Medical Bay
 p64
 sg19
 I00
@@ -149,7 +149,7 @@ Vroom
 p66
 sVlong_description
 p67
-VYou are in the cargo deck long.\u000aTo the West is the Armory (I wonder what's there...
+VYou are in forward observation long... Exit: East: Medical Bay
 p68
 sbsVshuttle bay
 p69
@@ -343,253 +343,253 @@ sVlong_description
 p151
 VIt's really hot here in the Engineering Core.\u000aIf you want to escape the heat, the only place you can go is West to Main Engineering.
 p152
-sbsg11
-g2
-(cour_objects
-Item
+sbsVarmory
 p153
+g2
+(g3
 g4
 Ntp154
 Rp155
 (dp156
-g129
-Vbridge
+Vname
 p157
-sg16
+g153
+sg9
+(lp158
+sg12
+(dp159
+Vwest
+p160
+Vshuttle bay
+p161
+sVeast
+p162
+Vcargo deck
+p163
+ssg16
 g0
 sVshort_description
-p158
-VThis is a red button labeled 'self destruct'.
-p159
-sg133
+p164
+VArmory\u000aEast:Cargo Deck\u000aWest:Shuttle Bay
+p165
+sg19
 I00
 sVtype
-p160
-Vitem
-p161
+p166
+Vroom
+p167
 sVlong_description
-p162
-VThis is a red button labeled 'self destruct' which appears to be the cause of the alarm going off in the room.
-p163
-sVname
-p164
-g11
+p168
+VThis is the Armory. There don't seem be a lot of weapons left! \u000aTo the East is the Cargo Deck. \u000aTo the West there's the Shuttle Bay.
+p169
 sbsVversion
-p165
+p170
 g2
 (cour_objects
 Version
-p166
+p171
 g4
-Ntp167
-Rp168
-(dp169
+Ntp172
+Rp173
+(dp174
 S'version'
-p170
+p175
 F1.0
 sVname
-p171
-g165
+p176
+g170
 sg16
 g0
 sVshort_description
-p172
-Vversion
-p173
-sVtype
-p174
-Vversion
-p175
-sVlong_description
-p176
-Vversion
 p177
-sbsVarboretum
+Vversion
 p178
-g2
-(g3
-g4
-Ntp179
-Rp180
-(dp181
-Vname
+sVtype
+p179
+Vversion
+p180
+sVlong_description
+p181
+Vversion
 p182
-g178
-sg9
-(lp183
-sg12
-(dp184
-Vwest
-p185
-Vmess hall
-p186
-ssg16
-g0
-sVshort_description
+sbsVarboretum
+p183
+g2
+(g3
+g4
+Ntp184
+Rp185
+(dp186
+Vname
 p187
-VArboretum\u000aWest:Mess Hall
-p188
-sg19
-I00
-sVtype
-p189
-Vroom
+g183
+sg9
+(lp188
+sg12
+(dp189
+Vwest
 p190
-sVlong_description
+Vmess hall
 p191
-VYou are in the arboretum room. Exit: West: Mess Hall
+ssg16
+g0
+sVshort_description
 p192
-sbsVelevator
+VArboretum\u000aWest:Mess Hall
 p193
-g2
-(g3
-g4
-Ntp194
-Rp195
-(dp196
-Vname
+sg19
+I00
+sVtype
+p194
+Vroom
+p195
+sVlong_description
+p196
+VYou are in the arboretum room. Exit: West: Mess Hall
 p197
-g193
-sg9
-(lp198
-sg12
-(dp199
-Vwest
-p200
-Vbridge
-p201
-sVeast
+sbsVelevator
+p198
+g2
+(g3
+g4
+Ntp199
+Rp200
+(dp201
+Vname
 p202
-Vcrew quarters
-p203
-sVSouth
-p204
-VShuttle Bay
+g198
+sg9
+(lp203
+sg12
+(dp204
+Vwest
 p205
-ssg16
-g0
-sVshort_description
+Vbridge
 p206
-VThe bridge elevator.\u000aWest: Bridge\u000aEast: Crew Quarters\u000aSouth:shuttle bay
-p207
-sg19
-I00
-sVtype
-p208
-Vroom
-p209
-sVlong_description
-p210
-VYou are in the bridge elevator.\u000aLooking East you see the Crew Quarters\u000aWhen you look West, you see the Bridge.\u000aAnd looking South there's a Shuttle Bay.
-p211
-sbsVforward observation
-p212
-g2
-(g3
-g4
-Ntp213
-Rp214
-(dp215
-Vname
-p216
-g212
-sg9
-(lp217
-sg12
-(dp218
-Veast
-p219
-Vmedical bay
-p220
-ssg16
-g0
-sVshort_description
-p221
-VForward Observation. Exit: East: Medical Bay
-p222
-sg19
-I00
-sVtype
-p223
-Vroom
-p224
-sVlong_description
-p225
-VYou are in forward observation long... Exit: East: Medical Bay
-p226
-sbsVcrew quarters
-p227
-g2
-(g3
-g4
-Ntp228
-Rp229
-(dp230
-Vname
-p231
-g227
-sg9
-(lp232
-sg12
-(dp233
-Vwest
-p234
-Velevator
-p235
-ssg16
-g0
-sVshort_description
-p236
-VCrew Quarters.\u000aNorth:Captain's Room\u000aEast:Mess Hall\u000aSouth:Medical Bay\u000aWest: Elevator
-p237
-sg19
-I00
-sVtype
-p238
-Vroom
-p239
-sVlong_description
-p240
-VYou are in the Crew Quarters long.\u000aTo the East there's a Mess Hall.\u000aTo the South there's a Medical Bay (and goodies).\u000aTo the West there's the Elevator.
-p241
-sbsVarmory
-p242
-g2
-(g3
-g4
-Ntp243
-Rp244
-(dp245
-Vname
-p246
-g242
-sg9
-(lp247
-sg12
-(dp248
-Vwest
-p249
-Vshuttle bay
-p250
 sVeast
-p251
-Vcargo deck
-p252
+p207
+Vcrew quarters
+p208
+sVSouth
+p209
+VShuttle Bay
+p210
 ssg16
 g0
 sVshort_description
-p253
-VArmory\u000aEast:Cargo Deck\u000aWest:Shuttle Bay
-p254
+p211
+VThe bridge elevator.\u000aWest: Bridge\u000aEast: Crew Quarters\u000aSouth:shuttle bay
+p212
 sg19
 I00
 sVtype
-p255
+p213
 Vroom
-p256
+p214
 sVlong_description
+p215
+VYou are in the bridge elevator.\u000aLooking East you see the Crew Quarters\u000aWhen you look West, you see the Bridge.\u000aAnd looking South there's a Shuttle Bay.
+p216
+sbsVcaptain's cabin
+p217
+g2
+(g3
+g4
+Ntp218
+Rp219
+(dp220
+Vname
+p221
+g217
+sg9
+(lp222
+sg12
+(dp223
+Vsouth
+p224
+Vcrew quarters
+p225
+ssg16
+g0
+sVshort_description
+p226
+VThe Captain's Cabin.\u000aSouth:Crew Quarters
+p227
+sg19
+I00
+sVtype
+p228
+Vroom
+p229
+sVlong_description
+p230
+VYou are in the Captain's Cabin. I wonder where that guy is...\u000aTo the South is the Crew Quarters (and maybe bunkbeds?)
+p231
+sbsVcrew quarters
+p232
+g2
+(g3
+g4
+Ntp233
+Rp234
+(dp235
+Vname
+p236
+g232
+sg9
+(lp237
+sg12
+(dp238
+Vwest
+p239
+Velevator
+p240
+ssg16
+g0
+sVshort_description
+p241
+VCrew Quarters.\u000aNorth:Captain's Room\u000aEast:Mess Hall\u000aSouth:Medical Bay\u000aWest: Elevator
+p242
+sg19
+I00
+sVtype
+p243
+Vroom
+p244
+sVlong_description
+p245
+VYou are in the Crew Quarters long.\u000aTo the East there's a Mess Hall.\u000aTo the South there's a Medical Bay (and goodies).\u000aTo the West there's the Elevator.
+p246
+sbsg11
+g2
+(cour_objects
+Item
+p247
+g4
+Ntp248
+Rp249
+(dp250
+Vname
+p251
+g11
+sg16
+g0
+sVshort_description
+p252
+VThis is a red button labeled 'self destruct'.
+p253
+sg133
+I00
+sVtype
+p254
+Vitem
+p255
+sVlong_description
+p256
+VThis is a red button labeled 'self destruct' which appears to be the cause of the alarm going off in the room.
 p257
-VThis is the Armory. There don't seem be a lot of weapons left! \u000aTo the East is the Cargo Deck. \u000aTo the West there's the Shuttle Bay.
+sg129
+Vbridge
 p258
 sbsVmain engineering
 p259

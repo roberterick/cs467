@@ -1,0 +1,38 @@
+Updated by Jimmy 6/1/2017
+
+### THINGS TO DO ###
+1) Clean up init files (how things are presented as the user navigates through rooms)
+3) (required by assignment) interaction of items on game (maybe unlock elevator or something)
+4) (assignment says is optional) 'combine' verb - maybe allow the user to combine certain items
+5) 'help' verb (not phrase) = can let the user know what they can in the room - Jimmy can try implementing
+5) Update parser as new verbs are added
+6) Check what we're missing from the project requirements.
+7) (optional) have the command line "clear" as the user moves/does an action
+8) (optional) have a verb that lets the user see the path they've taken
+9) verify our program works on osu servers
+10) test for errors by playing the game
+11) fix the exits displays for the rooms to work off of adjacent_rooms rather than hand coded
+12) clean up room displays
+13) at load time, verify that each rooms destination agrees to another rooms source
+14) any other design changes--add cool features (possibly whiteboards,etc)
+15) start the 8 page report-------------------
+
+### DONE ###
+1) teleport has been implemented + parser
+2) (required by assignment) 'look' v 'look at' difference - parser update - need to let player 
+  'look' (causing long form description) v 'look at' at things in inventory - Jimmy will work on
+3) fix move per the requirements of the assignment
+  
+### CURRENT VERBS (need 10) ###
+1) move/go
+2) examine/look
+3) get/take
+4) drop 
+5) help (needs to be fixe by jimmy) 
+6) teleport (robert will implement) randomly transports player (DONE: Jimmy incorporated into parser)
+7) talk (jimmy will implement) allows user to use interact with certain "features" when they have a certain "items" (brent might help?)
+8) "put" (maybe for a key in the elevator or something)
+
+### CURRENT PHRASES ###
+1) look
+2) help

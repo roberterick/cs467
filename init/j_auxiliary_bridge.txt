@@ -1,0 +1,7 @@
+{
+	"name": "auxiliary bridge",
+	"type": "room",
+	"long_description": "Welcome to the Auxiliary Bridge. This bridge is a lot smaller than that other one...\nTo the East there's Main Engineering.",
+	"short_description": "Auxiliary Bride\nEast:Main Engineering",
+	"adjacent_rooms": {"east":"main engineering"}
+}

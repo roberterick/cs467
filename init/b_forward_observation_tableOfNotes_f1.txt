@@ -1,0 +1,7 @@
+{
+	"name": "table of notes",
+	"type": "feature",
+	"long_description": "When you look at the table of notes, you realize that it's in a different language. How did these get here?",
+	"short_description": "Those notes in another language...man, that is weird.",
+	"location":"forward observation lounge"
+}

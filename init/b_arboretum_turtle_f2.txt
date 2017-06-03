@@ -1,0 +1,12 @@
+{
+	"name": "turtle",
+	"type": "feature",
+	"long_description": "This is the captain's favorite turtle, Tiziano.  You see a security chip attached to the inside of his shell.  But the turtle is hungry so you can't get to it without it snapping at you.",
+	"short_description": "Tiziano, the turtle",
+	"location":"arboretum",
+	"item_use":"lettuce",
+	"verb_use":["use","feed"],
+	"result_text":"You feed the turtle, and it is no longer hungry, you take the security chip from inside his shell.  Now you can open the safe in the Captain's Quarters!",
+	"result_item":"security chip"
+	"description_change": "This is the captain's favorite turtle, Tiziano. He is no longer hungry"
+}

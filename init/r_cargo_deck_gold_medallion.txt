@@ -1,0 +1,8 @@
+{
+	"name": "gold medallion",
+	"alternate_names":[],
+	"type": "item",
+	"long_description": "This is a gold medallion.  It has the inscription: 'haec vincere debes'",
+	"short_description":  "Gold medallion.",
+	"location":"cargo deck"
+}

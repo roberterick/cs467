@@ -1,0 +1,7 @@
+{
+	"name": "manifest",
+	"type": "feature",
+	"long_description": "The manifest says INCLUDE HINT TO CAME HERE",
+	"short_description": "The hint was to...",
+	"location":"cargo deck"
+}

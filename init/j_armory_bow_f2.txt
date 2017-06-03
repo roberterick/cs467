@@ -1,0 +1,7 @@
+{
+	"name": "bow",
+	"type": "feature",
+	"long_description": "You check out the bow and think of videogame you used to play...TUROK",
+	"short_description": "This game is not TUROK.",
+	"location":"armory"
+}

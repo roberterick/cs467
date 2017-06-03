@@ -1,0 +1,7 @@
+{
+	"name": "speaker1",
+	"type": "feature",
+	"long_description": "The Speaker says WELCOME!",
+	"short_description": "No noise comes out of the Speaker.",
+	"location":"elevator level 1"
+}

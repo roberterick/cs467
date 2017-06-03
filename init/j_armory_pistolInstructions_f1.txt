@@ -1,0 +1,7 @@
+{
+	"name": "pistol instructions",
+	"type": "feature",
+	"long_description": "The pistol instructions say to not shoot yourself.",
+	"short_description": "Yea, do not shot yourself.",
+	"location":"armory"
+}

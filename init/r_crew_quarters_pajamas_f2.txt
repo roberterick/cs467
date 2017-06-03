@@ -1,0 +1,7 @@
+{
+	"name": "pajamas",
+	"type": "feature",
+	"long_description": "You try on the pajamas, but they do not fit. They are really soft.",
+	"short_description": "You wish the pajamas fit you.",
+	"location":"crew quarters"
+}

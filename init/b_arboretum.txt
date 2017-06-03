@@ -1,0 +1,7 @@
+{
+	"name": "arboretum",
+	"type": "room",
+	"long_description": "b_arboretum_ld.txt",
+	"short_description": "Arboretum\nWest:Mess Hall",
+	"adjacent_rooms": {"west":"mess hall"}
+}

@@ -1,0 +1,7 @@
+{
+	"name": "cargo deck",
+	"type": "room",
+	"long_description": "b_cargo_deck_ld.txt",
+	"short_description": "Cargo Deck\nWest:Armory",
+	"adjacent_rooms": {"west":"armory"}
+}

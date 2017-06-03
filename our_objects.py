@@ -81,9 +81,9 @@ Your status: %s
     def printInventory(self):
         items=[itm.short_description for itm in self.items]
         #eliminate hidden items
-        for item in item:
+        for item in items:
             obj=self.otherObjects[item]
-            if obj.hidden=True:items.remove[item]
+            if obj.hidden == True:items.remove[item]
         #make the inventory
         inventory='\n'.join(items)
         if inventory=='':inventory="nothing"
@@ -214,13 +214,10 @@ Your status: %s
     def use(self, item, featureName, verb):
         room = self.otherObjects[self.location]
         feature = self.otherObjects[featureName]
-        print item
-        print feature
-        print verb
         if not item in self.items:
             print 'You do not have that item'
             return False  # we don't have the item
-        if not room in feature.location:
+        if not room.name in feature.location:
             print 'Feature is not in this room'
             return False #feature not in this room
         if not verb in feature.verb_use:
@@ -231,6 +228,10 @@ Your status: %s
             return False
         else:
             print '%s' %feature.result_text
+            feature.long_description = feature.description_change
+            rItem = self.otherObjects[feature.result_item]
+            rItem.hidden = 'false'
+            self.getItem(rItem.name)
             return True
 
 

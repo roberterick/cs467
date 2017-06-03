@@ -1,7 +1,0 @@
-{
-	"name": "blue rose",
-	"type": "item",
-	"long_description": "This is a blue rose. Oddly, this might be the first living thing that you've encountered. It reminds you of a person named Lyanna.",
-	"short_description": "This is a blue rose.",
-	"location":"arboretum"
-}

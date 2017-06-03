@@ -79,7 +79,10 @@ Your status: %s
         return thereturn
 
     def printInventory(self):
-        items=[itm.short_description for itm in self.items]
+        #fix for inventory print
+        items=[]
+        for a in self.items:
+            items.append(a)
         #eliminate hidden items
         for item in items:
             obj=self.otherObjects[item]

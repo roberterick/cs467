@@ -106,6 +106,7 @@ Your status: %s
         if not isinstance(self.otherObjects[itemName],Item):return False #not an item
         self.items+=[itemName]#add to our items
         room.items.remove(itemName)#remove from the room
+        print 'You add the %s to your Inventory.'%itemName
         return True
     
     def dropItem(self,itemName):

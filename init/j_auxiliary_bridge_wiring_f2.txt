@@ -1,0 +1,7 @@
+{
+	"name": "wiring",
+	"type": "feature",
+	"long_description": "The Wiring seems dead. Is this why the ship does not work?",
+	"short_description": "Useless Wiring...",
+	"location":"auxiliary bridge"
+}

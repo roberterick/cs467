@@ -1,0 +1,7 @@
+{
+	"name": "transporter",
+	"type": "feature",
+	"long_description": "The Transporter doesn't work because there's not enough power. And you realize you never even had training on how to use it.",
+	"short_description": "Useless Transporter...",
+	"location":"transporter room"
+}

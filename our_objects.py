@@ -150,6 +150,11 @@ Your status: %s
         #remove the lock
         room.lockedDirections.remove(direction)
 
+    def unlockAllDirections(self):
+        #get the room
+        room=self.otherObjects[self.location]
+        room.lockedDirections=[]
+
     def examine(self,itemName):
         if not self.location in self.otherObjects:
             return False
@@ -164,6 +169,10 @@ Your status: %s
         if not isinstance(item,Item):
             print "That is not an item!"
             return False
+
+        if item.canUnlock==True:
+            self.unlockAllDirections()
+            
         
         t=item.type
         t.capitalize()
@@ -174,6 +183,7 @@ Your status: %s
     #or morph examine to handle use as well
     #if feature.canUnhide=True, must unhide all hidden items in the room
     #if item.canUnlock=True, must unlock all locked directions in the room
+
 
     def getNameAndAlternates(self):
         adict={}

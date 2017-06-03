@@ -2,6 +2,6 @@ You are in the Arboretum.  This location houses all non-sentient organic life on
 
 There are various plants and animals present, but the recent ship malfunctions have caused many of the plants to die and the animals are slowly dying as well. 
 
-You notice dying crops and a dying turtle. 
+You notice dying Crops and a dying Turtle. 
 
-To the West is the Mess Hall
+When you're ready, to the West is the Mess Hall.

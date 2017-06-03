@@ -1,7 +1,7 @@
 {
 	"name": "lettuce",
 	"type": "item",
-	"long_description": "This is a part of a head of lettuce. You are not sure how it has stayed so well preserved",
+	"long_description": "This is a part of a head of Lettuce. You are not sure how it has stayed so well preserved. Do you think you want to take it with you?",
 	"short_description": "This is lettuce.",
 	"location":"mess hall"
 }

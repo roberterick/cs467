@@ -195,8 +195,10 @@ class App(object):
         answer=raw_input('Start a new game (y/n)?')
         answer=answer.lower()
         if answer=='y':
+            clearScreen()
             self.initializeFromJSONFiles()
         else:
+            clearScreen()
             self.loadGame()
 
     def initializeFromJSONFiles(self):

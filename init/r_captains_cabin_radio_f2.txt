@@ -1,0 +1,7 @@
+{
+	"name": "radio",
+	"type": "feature",
+	"long_description": "You crank up the volume on the Radio. It blares out Danger! Danger! Danger! Why is it so serious?",
+	"short_description": "Danger! Danger! Danger!.",
+	"location":"captain's cabin"
+}

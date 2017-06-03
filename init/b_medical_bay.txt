@@ -2,6 +2,6 @@
 	"name": "medical bay",
 	"type": "room",
 	"long_description": "b_medical_bay_ld.txt",
-	"short_description": "Medical Bay.\nNorth: Crew Quarters\nWest: Forward Observation Lounge",
+	"short_description": "b_medical_bay_sd.txt",
 	"adjacent_rooms": {"west":"forward observation lounge","north":"crew quarters"}
 }

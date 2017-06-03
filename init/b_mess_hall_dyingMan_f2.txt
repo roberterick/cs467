@@ -1,7 +1,7 @@
 {
 	"name": "dying man",
 	"type": "feature",
-	"long_description": "You approach the dying man and hand gestures to you that HINT TO SOLVING",
-	"short_description": "The HINT TO SOLVING was",
+	"long_description": "You approach the Dying Man and makes a very strange gesture: He acts like he has won the Olympics. Weird! There must be some sort of metal involved...",
+	"short_description": "There must be some sort of metal involved...",
 	"location":"mess hall"
 }

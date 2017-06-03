@@ -1,0 +1,8 @@
+{
+	"name": "elevatorkey2",
+	"alternate_names":["key2"],
+	"type": "item",
+	"long_description": "This is ElevatorKey2. You hope it'll work like ElevatorKey1?",
+	"short_description": "This is ElevatorKey1.",
+	"location":"mess hall"
+}

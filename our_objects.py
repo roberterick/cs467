@@ -75,8 +75,12 @@ Your status: %s
         '''%(desc,self.location,inventory,self.status)
         return thereturn
 
-    def printInventory(self):
-        items=[itm.short_description for itm in self.items]
+    def printInventory(self):  	
+    	#inventory fix by jimmy
+    	items  = []
+    	for a in self.items:
+    		items.append(a)
+        #items=[itm.short_description for itm in self.items]
         inventory='\n'.join(items)
         if inventory=='':inventory="nothing"
         message='''

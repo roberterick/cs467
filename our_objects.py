@@ -183,7 +183,14 @@ Your status: %s
         thephrase='You are teleporting to room %s!  %s\n'%(theroom,random.choice(phrases))
         self.location=theroom
         print thephrase
-        return True        
+        return True
+
+    def use(self, item, feature, verb):
+        print item
+        print feature
+        print verb
+
+        return True
         
 class Room(GameObj):
     def __init__(self,**data):

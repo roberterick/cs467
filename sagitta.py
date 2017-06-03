@@ -129,6 +129,8 @@ class App(object):
                 self.showHelp()
             if inputParseReturn[0] == 'teleport':
                 self.player.teleport()
+            if inputParseReturn[0] == 'use':
+                return self.player.use(inputParseReturn[1],inputParseReturn[2], inputParseReturn[3])
                 #objectItem = inputParseReturn[1]
                 #return self.player.examine(direction)    
 
@@ -145,6 +147,8 @@ class App(object):
         move <direction>: moves the player in a direction
         status: shows your status
         teleport: teleports to (possibly another) room
+        use <item> <feature>: Use an item on a feature
+        feed <item> <feature>:  Feed an item to a feature
         '''
         print h
 ##        print objects1: print known objects

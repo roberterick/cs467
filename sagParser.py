@@ -16,6 +16,7 @@
 from sagDictionary import *
 
 
+
 #special parser that checks whether user input is single string of either
 ## [1] direction (north, east, etc) or [2] adjacent room nap
 def specialSagParser(userInput, roomObject):
@@ -63,7 +64,8 @@ def specialSagParser(userInput, roomObject):
 def sagParser(userInput, roomObject, playerItems):
     #separating the user input by space
     inputList = userInput.split(' ')
-
+    global actualVerb
+    actualVerb = ''
     #remove special characters from strings in inputList
     #based off of:
     #https://stackoverflow.com/questions/3939361/remove-specific-characters-from-a-string-in-python
@@ -257,7 +259,7 @@ def sagParser(userInput, roomObject, playerItems):
                     playerItemCounter = True
                     playerItemToPass = i
 
-        # if player has that item and he wants to drop it, passing up
+        # if player has that item start building the use array
         if playerItemCounter == True:
             parserReturn.append(foundVerb)
             parserReturn.append(playerItemToPass)
@@ -265,6 +267,7 @@ def sagParser(userInput, roomObject, playerItems):
         # else kicking out an error
         if playerItemCounter == False:
             print 'Are you sure you have that item?'
+
 
         #getting list of features in the room and appending to roomFeaturesAndItems List
 
@@ -280,10 +283,11 @@ def sagParser(userInput, roomObject, playerItems):
         #if so, appending to the userinputList
         specialWordFinder(userInput,specialWordsListFeatures,inputList)
 
-        #checking whether there is feature inputlist
-        foundIandF = itemsAndFeaturesFinder(inputList,roomFeaturesAndItems)
-        parserReturn.append(foundVerb)
-        parserReturn.append(foundIandF)
+        #checking whether there is feature in inputlist
+        foundF = featuresFinder(inputList,roomFeatures)
+        parserReturn.append(foundF)
+        if actualVerb == '': actualVerb = foundVerb
+        parserReturn.append(actualVerb)
         return parserReturn
 #checks if there's a possible verb in the command from the possibleVerbs array
 #returns it if found			
@@ -372,6 +376,22 @@ def itemsAndFeaturesFinder(inputList,oAndFList):
     if iAndFCounter == 1:
         return foundIandF
 
+# checks if there's a possible direction in the command from the possibleDirections array	
+# returns it if found					
+def featuresFinder(inputList, fList):
+    fCounter = 0
+    foundF = ''
+    for n in inputList:
+        for k in fList:
+            if n == k:
+                fCounter += 1
+                foundF = n
+    if fCounter > 1:
+        print 'Your input has too many features.'
+    if fCounter < 1:
+        print 'Your input does not have a feature.'
+    if fCounter == 1:
+        return foundF
 ##checks whether a word from specialWordsList is present in the inputList
 ##if so, appends the specialWord to an argument (listToAppend) List
 ## source: https://www.tutorialspoint.com/python/string_find.htm

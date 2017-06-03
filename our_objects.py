@@ -130,20 +130,24 @@ Your status: %s
 ##       if not self.location in self.otherObjects:
 ##            return False
         #get the room
+        ##remove clearScreens() if you don't like how it clears screen after moving to a new space
         room=self.otherObjects[self.location]
         #test for existence of direction in room.adjacent_rooms
         if not room.adjacent_rooms.has_key(direction):#is room in adjacent rooms?
             return False
         if direction in room.adjacent_rooms and direction not in room.lockedDirections:
             self.location = room.adjacent_rooms[direction]
+            clearScreen()
             self.checkWin()
             return True
         elif direction in room.adjacent_rooms.itervalues() and direction not in room.lockedDirections:
             self.location = direction
+            clearScreen()
             self.checkWin()
             return True
         #if bad, exit false
         else:
+            clearScreen()
             self.checkWin()
             return False
 
@@ -322,5 +326,7 @@ Room exits: %s
 %s
         '''%(h,self.name,desc,features,items,exits,h)
         return thereturn
-                    
-        
+
+#clears screen by adding 100 lines               
+def clearScreen():
+    print "\n" * 100

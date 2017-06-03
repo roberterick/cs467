@@ -177,9 +177,9 @@ Your status: %s
 ##            print "That is not an item!"
 ##            return False
 
-        if item.canUnlock==True:
+        if hasattr(item,'canUnlock') and item.canUnlock==True:
             self.unlockAllDirections()
-        if item.canUnhide==True:
+        if hasattr(item,'canUnhide') and item.canUnhide==True:
             self.unhideAll()
             
         

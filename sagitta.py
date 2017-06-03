@@ -67,37 +67,37 @@ class App(object):
         elif commands.has_key(userInput):
             commands[userInput]()
             return True
-        elif splitcommand[0] in ['get','take']:
-            if len(splitcommand)==2:
-                cmd,theitem=splitcommand
-                enteringRoomTracker.pop(0)
-                enteringRoomTracker.append(False)
-                return self.player.getItem(theitem)
-            else:
-                enteringRoomTracker.pop(0)
-                enteringRoomTracker.append(False)
-                return False
-        elif splitcommand[0] in ['drop','throw']:
-            if len(splitcommand)==2:
-                cmd,theitem=splitcommand
-                enteringRoomTracker.pop(0)
-                enteringRoomTracker.append(False)
-                return self.player.dropItem(theitem)
-            else:
-                return False
+##        elif splitcommand[0] in ['get','take']:
+##            if len(splitcommand)==2:
+##                cmd,theitem=splitcommand
+##                enteringRoomTracker.pop(0)
+##                enteringRoomTracker.append(False)
+##                return self.player.getItem(theitem)
+##            else:
+##                enteringRoomTracker.pop(0)
+##                enteringRoomTracker.append(False)
+##                return False
+##       elif splitcommand[0] in ['drop','throw']:
+##            if len(splitcommand)==2:
+##                cmd,theitem=splitcommand
+##                enteringRoomTracker.pop(0)
+##                enteringRoomTracker.append(False)
+##                return self.player.dropItem(theitem)
+##            else:
+##                return False
         ## 'look command per the requirements of the project'
         elif splitcommand[0] in ['look'] and len(splitcommand)==1:
             enteringRoomTracker.pop(0)
             enteringRoomTracker.append(False)
             print self.player.otherObjects[self.player.location].long_description
-        elif splitcommand[0] in ['examine']:
-            if len(splitcommand)>=2:
-                cmd,item=splitcommand
-                enteringRoomTracker.pop(0)
-                enteringRoomTracker.append(False)
-                return self.player.examine(item)
-            else:
-                return False
+##        elif splitcommand[0] in ['examine']:
+##            if len(splitcommand)>=2:
+##                cmd,item=splitcommand
+##                enteringRoomTracker.pop(0)
+##                enteringRoomTracker.append(False)
+##                return self.player.examine(item)
+##            else:
+##                return False
         elif splitcommand[0] in ['teleport']:
             enteringRoomTracker.pop(0)
             enteringRoomTracker.append(True)
@@ -107,7 +107,7 @@ class App(object):
             enteringRoomTracker.append(False)
             print self.player
             return True
-        elif splitcommand[0] in ['inventory']:
+        elif splitcommand[0] in ['inventory'] and len(splitcommand)==1:
             enteringRoomTracker.pop(0)
             enteringRoomTracker.append(False)
             return self.player.printInventory()
@@ -157,17 +157,22 @@ class App(object):
                 enteringRoomTracker.append(False)
                 print "Are you asking for help? If so, here's what the 'help' command brings up:"
                 self.showHelp()
+                return True
             if inputParseReturn[0] == 'teleport':
                 enteringRoomTracker.pop(0)
                 enteringRoomTracker.append(True)
                 self.player.teleport()
+                return True
             if inputParseReturn[0] == 'use':
                 enteringRoomTracker.pop(0)
                 enteringRoomTracker.append(False)
                 return self.player.use(inputParseReturn[1],inputParseReturn[2], inputParseReturn[3])
                 #objectItem = inputParseReturn[1]
-                #return self.player.examine(direction)    
-
+                #return self.player.examine(direction)
+            else:
+                enteringRoomTracker.pop(0)
+                enteringRoomTracker.append(False)
+                return False
     def showHelp(self):
         h='''
         save game: save the current game

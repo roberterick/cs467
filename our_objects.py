@@ -185,12 +185,29 @@ Your status: %s
         print thephrase
         return True
 
-    def use(self, item, feature, verb):
+    def use(self, item, featureName, verb):
+        room = self.otherObjects[self.location]
+        feature = self.otherObjects[featureName]
         print item
         print feature
         print verb
+        if not item in self.items:
+            print 'You do not have that item'
+            return False  # we don't have the item
+        if not room in feature.location:
+            print 'Feature is not in this room'
+            return False #feature not in this room
+        if not verb in feature.verb_use:
+            print 'You cannot %s that'%verb
+            return False
+        if not item in feature.item_use:
+            print 'You cannot use %s on %s' %(item, feature)
+            return False
+        else:
+            print '%s' %feature.result_text
+            return True
 
-        return True
+
         
 class Room(GameObj):
     def __init__(self,**data):

@@ -106,7 +106,7 @@ Your status: %s
         if not isinstance(self.otherObjects[itemName],Item):return False #not an item
         self.items+=[itemName]#add to our items
         room.items.remove(itemName)#remove from the room
-        print 'You add the %s to your Inventory.'%itemName
+        print 'You have added the %s to your inventory.'%itemName
         return True
     
     def dropItem(self,itemName):
@@ -115,6 +115,7 @@ Your status: %s
         room=self.otherObjects[self.location]
         room.items+=[itemName]
         self.items.remove(itemName)
+        print 'You have dropped the %s.'%itemName
         return True
 
     def checkWin(self):
@@ -296,7 +297,8 @@ class Room(GameObj):
         if items=='':items='nothing'
         features=', '.join(self.getList(self.features))
         if features=='':features='nothing'
-        exits=sorted(self.adjacent_rooms.keys())
+        exits=sorted(['%s to %s'%(k,v) for k,v in self.adjacent_rooms.items()])
+##        exits=sorted(self.adjacent_rooms.keys())
         exits=', '.join(exits)
 
 ##        if items:

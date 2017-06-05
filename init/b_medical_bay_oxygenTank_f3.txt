@@ -1,0 +1,14 @@
+{
+	"name": "oxygen tank",
+	"type": "feature",
+	"long_description": "This is an emergency oxygen tank.  In case of ship wide power failure a patient can still receieve oxygen",
+	"short_description": "oxygen tank",
+	"location":"medical bay",
+	"item_use":"depleted vacsuit",
+	"verb_use":["use","fill","refill"],
+	"result_text":"You manage to use the emergency oxygen tank to refill the Depleted VacSuit, now the VacSuit is restored and usable",
+	"result_item":"restored vacsuit",
+	"description_change": "This is the oxygen tank you used to refill the VacSuit"
+	
+	
+}

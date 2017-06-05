@@ -95,7 +95,7 @@ for b in specialTeleportVariants:
 
 # --USE--
 #possible variants of the verb 'use'
-useVariants = ['feed', 'open', 'repair', 'screw', 'unscrew']
+useVariants = ['feed', 'open', 'repair', 'screw', 'unscrew', 'unlock']
 for b in useVariants:
 	possibleVerbs.append(b)
 #insert multi word phrases of USE
@@ -107,7 +107,7 @@ for b in specialUseVariants:
 specialFeatures = ['table of notes', 'alien notes', 'dying alien', 'dying man', 'pistol instructions', 'entertainment terminal']
 
 # list of items that are longer than one word
-specialItems = ['bronze medallion', 'blue rose', 'hibernation pod', 'plastic pass key', 'blaster pistol', 'reactor fuel', 'model ship', 'gold medallion', 'silver medallion', 'security chip']
+specialItems = ['bronze medallion', 'blue rose', 'hibernation pod', 'plastic pass key', 'blaster pistol', 'reactor fuel', 'model ship', 'gold medallion', 'silver medallion', 'security chip', 'auxiliary codes']
 
 # --PREPOSITIONS--
 possiblePrepositions = []

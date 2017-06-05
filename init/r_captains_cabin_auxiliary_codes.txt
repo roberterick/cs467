@@ -1,0 +1,8 @@
+{
+	"name": "auxiliary codes",
+	"type": "item",
+	"long_description": "These are codes that will transfer command of the ship to the auxiliary bridge, you need to enter them in the auxiliary bridge.",
+	"short_description": "auxiliary codes",
+	"location":"captain's cabin",
+	"hidden":"true"
+}

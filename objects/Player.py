@@ -1,0 +1,218 @@
+##class: CS467
+##group: Sagitta
+##members: Robert Erick, James Wong, Brent Nolan
+##date: 4/17/2017
+import random
+from objects.GameObj import GameObj
+from objects.Item import Item
+
+class Player(GameObj):
+    def __init__(self,**data):
+        self.items=[]
+        self.location=''
+        self.seen=False
+        self.status='you are trying to win.'
+        self.__dict__.update(data)
+
+    def __str__(self):
+        items=sorted([self.otherObjects[itm].name for itm in self.items])
+        inventory=', '.join(items)
+        if inventory=='':inventory="nothing"
+        status='Status: %s'%self.status
+        if self.seen:
+            desc=self.short_description
+##            return '%s\n%s\n%s'%(self.short_description,youhave,status)
+        else:
+            desc=self.long_description
+            self.seen=True
+##            return '%s\n%s\n%s'%(self.long_description,youhave,status)
+
+        thereturn='''
+>>>>>>>>>>>>>>>>>STATUS<<<<<<<<<<<<<<
+%s
+Your location: %s
+Your inventory: %s
+Your status: %s
+>>>>>>>>>>>>>END STATUS<<<<<<<<<<<<<<
+        '''%(desc,self.location,inventory,self.status)
+        return thereturn
+
+    def printInventory(self):
+        #fix for inventory print
+        items=[]
+        for a in self.items:
+            items.append(a)
+        #eliminate hidden items
+        for item in items:
+            obj=self.otherObjects[item]
+            if obj.hidden==True:items.remove[item]
+        #make the inventory
+        inventory='\n'.join(items)
+        if inventory=='':inventory="nothing"
+        message='''
+>>>>>>>>>>>>>>>>>INVENTORY<<<<<<<<<<<<<<
+%s
+>>>>>>>>>>>>>END INVENTORY<<<<<<<<<<<<<<
+        '''%(inventory)
+        print message
+        return True
+
+    def getItem(self,itemName):
+        if not self.location in self.otherObjects:return False #location is bad
+        room=self.otherObjects[self.location]
+        if not itemName in room.items:return False #it isn't in the room
+        if not self.otherObjects.has_key(itemName):return False #itemName not valid
+        if not isinstance(self.otherObjects[itemName],Item):return False #not an item
+        self.items+=[itemName]#add to our items
+        room.items.remove(itemName)#remove from the room
+        print 'You have added the %s to your inventory.'%itemName
+        return True
+    
+    def dropItem(self,itemName):
+        if not itemName in self.items:return False #we don't have the item
+        if not self.location in self.otherObjects:return False #room is bad
+        room=self.otherObjects[self.location]
+        room.items+=[itemName]
+        self.items.remove(itemName)
+        print 'You have dropped the %s.'%itemName
+        return True
+
+    def checkWin(self):
+        '''checks to see if the game has been won'''
+        if self.location=='engineering core' \
+        and 'gold medallion' in self.items \
+        and 'silver medallion' in self.items \
+        and 'bronze medallion' in self.items:
+            self.status='you have won the game!'
+            print 'You have arrived at the engineering core with all the medallions.  You have won the game!'
+
+    #clears screen by adding 100 lines               
+    def clearScreen(self):
+        print "\n" * 100
+        
+    def move(self,direction):
+        #test for the room
+##       if not self.location in self.otherObjects:
+##            return False
+        #get the room
+        ##remove clearScreens() if you don't like how it clears screen after moving to a new space
+        room=self.otherObjects[self.location]
+        #test for existence of direction in room.adjacent_rooms
+        if not room.adjacent_rooms.has_key(direction):#is room in adjacent rooms?
+            return False
+        if direction in room.adjacent_rooms and direction not in room.lockedDirections:
+            self.location = room.adjacent_rooms[direction]
+            self.clearScreen()
+            self.checkWin()
+            return True
+        elif direction in room.adjacent_rooms.itervalues() and direction not in room.lockedDirections:
+            self.location = direction
+            self.clearScreen()
+            self.checkWin()
+            return True
+        #if bad, exit false
+        else:
+            self.clearScreen()
+            self.checkWin()
+            return False
+
+##    def unlockDirection(self,direction):
+##        #get the room
+##        room=self.otherObjects[self.location]
+##        #remove the lock
+##        room.lockedDirections.remove(direction)
+##
+##    def unlockAllDirections(self):
+##        #get the room
+##        room=self.otherObjects[self.location]
+##        room.lockedDirections=[]
+##
+##    def unhideAll(self):
+##        #get the room
+##        room=self.otherObjects[self.location]
+##        for item in room.items:
+##            obj=self.otherObjects[item]
+##            obj.hidden=False     
+
+    def examine(self,itemName):
+        if not self.location in self.otherObjects:
+            return False
+
+        adict=self.getNameAndAlternates()
+        if not itemName in adict.keys():
+            print "This room does not have that item or feature!"
+            return False
+
+        realName=adict[itemName]
+        item=self.otherObjects[realName]
+##        if not isinstance(item,Item):
+##            print "That is not an item!"
+##            return False
+
+        if hasattr(item,'canUnlock') and item.canUnlock==True:
+            item.unlockAllDirections()
+        if hasattr(item,'canUnhide') and item.canUnhide==True:
+            item.unhideAll()
+            
+        
+        t=item.type
+        t.capitalize()
+        print item.long_description
+        #print '%s %s: %s'%(t, itemName,item.long_description)
+        return True
+
+    #need to implement use feature similar to examine object
+    #or morph examine to handle use as well
+    #if feature.canUnhide=True, must unhide all hidden items in the room
+    #if item.canUnlock=True, must unlock all locked directions in the room
+
+
+    def getNameAndAlternates(self):
+        adict={}
+        room=self.otherObjects[self.location]
+        #jimmy - added player items to adict
+        for name in room.items+room.features+self.items:
+            obj=self.otherObjects[name]
+            alternateNames=obj.alternate_names
+            for an in alternateNames:
+                adict[an]=name#make alternate->object
+        for name in room.items+room.features+self.items:
+            adict[name]=name#make object->object, for completeness
+        return adict
+
+    def teleport(self):
+        rooms=[]
+        for s in self.otherObjects:
+            if self.otherObjects[s].type=='room':rooms+=[s]
+        theroom=random.choice(rooms)
+        self.clearScreen()
+        phrases=["It feels as if you are swimming in a deep pool of warm water."]
+        phrases+=["There are swirling lights and you are disoriented.  The bile is rising in your throat."]
+        phrases+=["Your body feels as if it is being torn apart."]
+        thephrase='You are teleporting to room %s!  %s\n'%(theroom,random.choice(phrases))
+        self.location=theroom
+        print thephrase
+        return True
+
+    def use(self, item, featureName, verb):
+        room = self.otherObjects[self.location]
+        feature = self.otherObjects[featureName]
+        if not item in self.items:
+            print 'You do not have that item'
+            return False  # we don't have the item
+        if not room.name in feature.location:
+            print 'Feature is not in this room'
+            return False #feature not in this room
+        if not verb in feature.verb_use:
+            print 'You cannot %s that'%verb
+            return False
+        if not item in feature.item_use:
+            print 'You cannot use %s on %s' %(item, feature)
+            return False
+        else:
+            print '%s' %feature.result_text
+            feature.long_description = feature.description_change
+            rItem = self.otherObjects[feature.result_item]
+            rItem.hidden = 'false'
+            self.getItem(rItem.name)
+            return True

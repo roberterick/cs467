@@ -51,8 +51,6 @@ class App(object):
             'help':self.showHelp,
             'save game':self.saveGame,
             'load game':self.loadGame,
-##            'print objects1':self.printObjects1,
-##            'print objects2':self.printObjects2,
           }
 
         print
@@ -196,14 +194,18 @@ class App(object):
     def where(self):
         return os.getcwd()
 
+    #clears screen by adding 100 lines               
+    def clearScreen(self):
+        print "\n" * 100
+        
     def initializeGame(self):
         answer=raw_input('Start a new game (y/n)?')
         answer=answer.lower()
         if answer=='y':
-            clearScreen()
+            self.clearScreen()
             self.initializeFromJSONFiles()
         else:
-            clearScreen()
+            self.clearScreen()
             self.loadGame()
 
     def initializeFromJSONFiles(self):

@@ -107,7 +107,7 @@ for b in specialUseVariants:
 specialFeatures = ['table of notes', 'alien notes', 'dying alien', 'dying man', 'pistol instructions', 'entertainment terminal']
 
 # list of items that are longer than one word
-specialItems = ['bronze medallion', 'blue rose', 'hibernation pod', 'plastic pass key', 'blaster pistol', 'reactor fuel', 'model ship', 'gold medallion', 'silver medallion']
+specialItems = ['bronze medallion', 'blue rose', 'hibernation pod', 'plastic pass key', 'blaster pistol', 'reactor fuel', 'model ship', 'gold medallion', 'silver medallion', 'security chip']
 
 # --PREPOSITIONS--
 possiblePrepositions = []

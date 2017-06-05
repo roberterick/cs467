@@ -3,5 +3,6 @@
 	"type": "room",
 	"long_description": "j_el1_ld.txt",
 	"short_description": "j_el1_sd.txt",
-	"adjacent_rooms": {"down":"elevator level 2","north":"bridge"}
+	"adjacent_rooms": {"down":"elevator level 2","north":"bridge"},
+	"locked_directions":["down"]
 }

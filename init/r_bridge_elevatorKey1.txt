@@ -3,6 +3,7 @@
 	"alternate_names":["key1"],
 	"type": "item",
 	"long_description": "This is ElevatorKey1. Maybe it'll have some use for you later.",
-	"short_description": "This ElevatorKey1.",
-	"location":"bridge"
+	"short_description": "This is ElevatorKey1.",
+	"location":"bridge",
+	"canUnlock":true
 }

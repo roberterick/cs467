@@ -11,3 +11,10 @@ class GameObj(object):
         self.name=''
         self.alternate_names=[]
         self.type=''
+    def getPlayer(self):
+        playerkey=filter(lambda x:self.otherObjects[x].type=='player',self.otherObjects.keys())[0]
+        return self.otherObjects[playerkey]
+
+if __name__=='__main__':
+    go=GameObj()
+    print dir(go)

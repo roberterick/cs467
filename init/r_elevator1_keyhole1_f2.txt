@@ -2,6 +2,10 @@
 	"name": "keyhole1",
 	"type": "feature",
 	"long_description": "This is a keyhole1 that might work with a certain elevatorkey?",
-	"short_description": "No noise comes out of the Speaker.",
-	"location":"elevator level 1"
+	"short_description": "Keyhole1.",
+	"location":"elevator level 1",
+	"verb_use":["use"],
+	"item_use":["elevatorkey1"],
+	"result_text":"You have successfully unlocked the next level on this elevator!",
+	"description_change": "Keyhole1 has been unlocked!"
 }

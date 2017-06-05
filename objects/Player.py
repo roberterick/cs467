@@ -8,6 +8,7 @@ from objects.Item import Item
 
 class Player(GameObj):
     def __init__(self,**data):
+        super(Player,self).__init__()
         self.items=[]
         self.location=''
         self.seen=False
@@ -99,13 +100,18 @@ Your status: %s
         room=self.otherObjects[self.location]
         #test for existence of direction in room.adjacent_rooms
         if not room.adjacent_rooms.has_key(direction):#is room in adjacent rooms?
+            print 'Problem: one way movement in room %s moving %s!'%(room.name,direction)
             return False
-        if direction in room.adjacent_rooms and direction not in room.lockedDirections:
+
+        if direction in room.locked_directions:
+            print 'That way appears to be locked!'
+            return False
+        elif direction in room.adjacent_rooms:
             self.location = room.adjacent_rooms[direction]
             self.clearScreen()
             self.checkWin()
             return True
-        elif direction in room.adjacent_rooms.itervalues() and direction not in room.lockedDirections:
+        elif direction in room.adjacent_rooms.itervalues():
             self.location = direction
             self.clearScreen()
             self.checkWin()
@@ -194,25 +200,32 @@ Your status: %s
         print thephrase
         return True
 
-    def use(self, item, featureName, verb):
+    def use(self, itemName, featureName, verb):
         room = self.otherObjects[self.location]
         feature = self.otherObjects[featureName]
-        if not item in self.items:
+        if not itemName in self.items:
             print 'You do not have that item'
             return False  # we don't have the item
         if not room.name in feature.location:
             print 'Feature is not in this room'
             return False #feature not in this room
         if not verb in feature.verb_use:
-            print 'You cannot %s that'%verb
+            print 'You cannot %s %s!'%(verb,featureName)
             return False
-        if not item in feature.item_use:
-            print 'You cannot use %s on %s' %(item, feature)
+        if not itemName in feature.item_use:
+            print 'You cannot use %s on %s!' %(itemName, featureName)
             return False
         else:
             print '%s' %feature.result_text
             feature.long_description = feature.description_change
-            rItem = self.otherObjects[feature.result_item]
-            rItem.hidden = 'false'
-            self.getItem(rItem.name)
+            if feature.result_item:
+                rItem = self.otherObjects[feature.result_item]
+                rItem.hidden = 'false'
+                self.getItem(rItem.name)
+            item=self.otherObjects[itemName]
+            item.unlockAllDirections()
             return True
+
+if __name__=='__main__':
+    p=Player()
+    print dir(p)

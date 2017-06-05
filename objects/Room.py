@@ -6,11 +6,12 @@ from objects.GameObj import GameObj
 
 class Room(GameObj):
     def __init__(self,**data):
+        super(Room,self).__init__()
         self.items=[]
         self.features=[]
         self.adjacent_rooms={}
         self.visited=False
-        self.lockedDirections=[]
+        self.locked_directions=[]
         self.__dict__.update(data)
 
     def getDescriptions(self,alist):
@@ -79,3 +80,11 @@ Room exits: %s
 %s
         '''%(h,self.name,desc,features,items,exits,h)
         return thereturn
+
+
+
+
+
+if __name__=='__main__':
+    r=Room()
+    print dir(r)

@@ -6,5 +6,13 @@ from objects.FeatureOrItem import FeatureOrItem
 
 class Feature(FeatureOrItem):
     def __init__(self,**data):
-        super(FeatureOrItem,self).__init__()
+        super(Feature,self).__init__()
+        self.verb_use=[]
+        self.item_use=[]
+        self.description_change=''
+        self.result_item=None
         self.__dict__.update(data)
+
+if __name__=='__main__':
+    f=Feature()
+    print dir(f)

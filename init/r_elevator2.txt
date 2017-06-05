@@ -3,5 +3,6 @@
 	"type": "room",
 	"long_description": "j_el2_ld.txt",
 	"short_description": "j_el2_sd.txt",
-	"adjacent_rooms": {"up":"elevator level 1","down":"elevator level 3","east":"crew quarters"}
+	"adjacent_rooms": {"up":"elevator level 1","down":"elevator level 3","east":"crew quarters"},
+	"locked_directions":["down"]
 }

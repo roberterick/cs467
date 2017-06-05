@@ -7,7 +7,8 @@ import os
 import json
 import pickle
 import ply
-from our_objects import *
+##from our_objects import *
+from objects import *
 from sagParser import *
 
 CURRENT_VERSION=1.2

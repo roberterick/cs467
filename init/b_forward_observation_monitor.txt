@@ -1,0 +1,8 @@
+{
+	"name": "monitor",
+	"type": "item",
+	"long_description": "This is a undamaged monitor that can be attached to another terminal.",
+	"short_description": "Monitor.",
+	"location":"forward observation",
+	"hidden":"true"
+}

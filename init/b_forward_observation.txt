@@ -1,5 +1,5 @@
 {
-	"name": "forward observation lounge",
+	"name": "forward observation",
 	"type": "room",
 	"long_description": "j_fol_ld.txt",
 	"short_description": "j_fol_sd.txt",

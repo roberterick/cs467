@@ -1,5 +1,7 @@
-You enter the Forward Observation Lounge and ponder why this room exists when there's already a bridge...
+You enter the Forward Observation Lounge, this used to be a place to relax and view the stars while not on duty.
 
-As you scavenge around, a Table of Notes catches your eye. There's also a Telescope near a window here. Lastly, your eyes gaze on the Silver Medallion.
+The room is only lit by emergency lights.  Power must have been cut off from all non-essential systems. As you look around the room an an entertainmet terminal
 
-You can go East to the Medical Bay after you're done here.
+and a Table of Notes catches your eye. There's also a Telescope near a window here. Lastly, your eyes gaze on the Silver Medallion.
+
+You can go East to the Medical Bay.

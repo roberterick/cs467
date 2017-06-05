@@ -1,0 +1,12 @@
+{
+	"name": "entertainment terminal",
+	"type": "feature",
+	"long_description": "This is an entertainment terminal, if it had power, it would allow you to play games, watch videos, browse the extranet, and many other entertainment functions.  You notice that the monitor is undamaged and it is attached by several screws",
+	"short_description": "Entertainment terminal",
+	"location":"forward observation",
+	"item_use":"multitool",
+	"verb_use":["unscrew","use"],
+	"result_text":"You use the multitool to unscrew the screws holding the monitor.  You then pick up the monitor.",
+	"result_item":"monitor",
+	"description_change": "This entertainment terminal has had its monitor removed, it is no longer useful"
+}

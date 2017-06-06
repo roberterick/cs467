@@ -1,0 +1,7 @@
+{
+	"name": "auxiliary helm",
+	"type": "feature",
+	"long_description": "This is the auxiliary helm, you can control the ship from here, but you must repair the engine core and transfer control from the bridge to the auxiliary bridge.",
+	"short_description": "auxiliary helm",
+	"location":"auxiliary bridge"
+}

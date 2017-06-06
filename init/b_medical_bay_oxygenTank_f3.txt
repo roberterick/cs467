@@ -8,6 +8,7 @@
 	"verb_use":["use","fill","refill"],
 	"result_text":"You manage to use the emergency oxygen tank to refill the Depleted VacSuit, now the VacSuit is restored and usable",
 	"result_item":"restored vacsuit",
+	"destroy_item":"True",
 	"description_change": "This is the oxygen tank you used to refill the VacSuit"
 	
 	

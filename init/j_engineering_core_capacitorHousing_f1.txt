@@ -1,0 +1,13 @@
+{
+	"name": "capacitor housing",
+	"type": "feature",
+	"long_description": "This is the housing for a core capacitor, you don't know what caused the damaged, but you must replace the capacitor to restore power to other parts of the ship.",
+	"short_description": "capacitor housing",
+	"location":"engineering core",
+	"item_use":"core capacitor",
+	"verb_use":["use","replace","repair"],
+	"result_text":"You replace the damaged capacitor with the new core capacitor, restoring power to the auxiliary bridge.",
+	"result_item":"silver medallion",
+	"destroy_item":"True",
+	"description_change": "This is the housing for a core capacitor, it has a new and functioning capacitor in it."
+}

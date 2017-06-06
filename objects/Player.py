@@ -65,7 +65,7 @@ Your status: %s
         if not self.otherObjects.has_key(itemName):return False #itemName not valid
         if not isinstance(self.otherObjects[itemName],Item):return False #not an item
         item=self.otherObjects[itemName]
-        if item.hidden==True:return False #hidden items not takeable
+        if hasattr(item,'hidden') and item.hidden:return False #hidden items not takeable
         self.items+=[itemName]#add to our items
         room.items.remove(itemName)#remove from the room
         print 'You have added the %s to your inventory.'%itemName

@@ -1,7 +1,0 @@
-{
-	"name": "superhint",
-	"type": "feature",
-	"long_description": "The Superhint is that you need to get three Medallions and get to the Engineering Core.",
-	"short_description": "Almost there...",
-	"location":"auxiliary bridge"
-}

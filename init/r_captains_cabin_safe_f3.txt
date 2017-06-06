@@ -6,7 +6,7 @@
 	"location":"captain's cabin",
 	"item_use":"security chip",
 	"verb_use":["use","open","unlock"],
-	"result_text":"You unlock the safe with the security chip and open it. Inside are codes to transfer ship controls to the auxiliary bridge.  You will need these",
+	"result_text":"You unlock the safe with the security chip and open it. Inside are codes to transfer ship controls to the auxiliary bridge.  You will need these to transfer ship controls.",
 	"result_item":"auxiliary codes",
 	"description_change": "The captain's safe is open, but there is nothing else useful inside"
 }

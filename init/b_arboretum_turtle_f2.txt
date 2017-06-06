@@ -6,7 +6,7 @@
 	"location":"arboretum",
 	"item_use":"lettuce",
 	"verb_use":["use","feed"],
-	"result_text":"You feed the turtle, and it is no longer hungry, you take the security chip from inside his shell.  Now you can open the safe in the Captain's Quarters!",
+	"result_text":"You feed the turtle, and it is no longer hungry, you take the security chip from inside his shell.  Now you can open the safe in the Captain's Cabin!",
 	"result_item":"security chip",
 	"description_change": "This is the captain's favorite turtle, Tiziano. He is no longer hungry"
 }

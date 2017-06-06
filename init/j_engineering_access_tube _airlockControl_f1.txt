@@ -1,0 +1,11 @@
+{
+	"name": "airlock control",
+	"type": "feature",
+	"long_description": "This is the airlock control to main engineering.  Due to a hull breach, main engineering lost all atmosphere, and thus the engineering access tube must undergo decompression before the door will open.  Thus you must have a working VacSuit, and use it on the controls to continue",
+	"short_description": "airlock control",
+	"location":"engineering access tube",
+	"verb_use":["use"],
+	"item_use":["restored vacsuit"],
+	"result_text":"You put on your VacSuit, and use the controls to depressurize the engineering access tube, after depressurization completes you open the door and proceed into main engineering.",
+	"description_change": "This is the airlock control to main engineering.  The airlock door is unlocked"
+}

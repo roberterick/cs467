@@ -28,7 +28,7 @@ class Room(GameObj):
         return temp
 
     #returns an array of items (or features) that are available in a room
-    def getList(self,alist):
+    def getList(self,alist,visibleOnly=True):
         temp=[]
         for itmdesc in alist:
             if not self.otherObjects.has_key(itmdesc):
@@ -38,13 +38,16 @@ class Room(GameObj):
             if not hasattr(itemobj,'name'):
                 print 'The item %s is missing a name.'%itmdesc
                 continue
+            if visibleOnly and hasattr(itemobj,'hidden') and itemobj.hidden:
+                continue
             temp+=[itemobj.name]
         return temp
+        
             
     def __str__(self):
-        items=', '.join(self.getList(self.items))
+        items=', '.join(self.getList(self.items,visibleOnly=True))
         if items=='':items='nothing'
-        features=', '.join(self.getList(self.features))
+        features=', '.join(self.getList(self.features,visibleOnly=True))
         if features=='':features='nothing'
         exits=sorted(['%s to %s'%(k,v) for k,v in self.adjacent_rooms.items()])
 ##        exits=sorted(self.adjacent_rooms.keys())

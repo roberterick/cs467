@@ -4,5 +4,5 @@
 	"long_description": "j_eat_ld.txt",
 	"short_description": "engineering access tube",
 	"adjacent_rooms": {"north":"shuttle bay", "south":"main engineering"},
-	"locked_directions":["down"]
+	"locked_directions":["south"]
 }

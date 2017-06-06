@@ -169,7 +169,11 @@ class App(AppBase):
             if inputParseReturn[0] == 'use':
                 enteringRoomTracker.pop(0)
                 enteringRoomTracker.append(False)
-                return self.player.use(inputParseReturn[1],inputParseReturn[2], inputParseReturn[3])
+                if '' in inputParseReturn:
+                    print "You must use one item with one feature"
+                    return False
+                else:return self.player.use(inputParseReturn[1],inputParseReturn[2], inputParseReturn[3])
+
                 #objectItem = inputParseReturn[1]
                 #return self.player.examine(direction)
             else:

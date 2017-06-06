@@ -218,7 +218,7 @@ Your status: %s
             feature.long_description = feature.description_change
             if feature.result_item:
                 rItem = self.otherObjects[feature.result_item]
-                rItem.hidden = 'false'
+                rItem.hidden = False
                 self.getItem(rItem.name)
             item=self.otherObjects[itemName]
             item.unlockAllDirections()

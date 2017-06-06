@@ -274,7 +274,7 @@ def sagParser(userInput, roomObject, playerItems):
         for b in roomObject.features:
             roomFeatures.append(b)
 
-        ##appending the specicalWordsList with both special items AND features
+        ##appending the specicalWordsList with both special features
 
         for d in specialFeatures:
             specialWordsListFeatures.append(d)
@@ -388,8 +388,10 @@ def featuresFinder(inputList, fList):
                 foundF = n
     if fCounter > 1:
         print 'Your input has too many features.'
+        return foundF
     if fCounter < 1:
         print 'Your input does not have a feature.'
+        return foundF
     if fCounter == 1:
         return foundF
 ##checks whether a word from specialWordsList is present in the inputList

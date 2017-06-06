@@ -1,3 +1,3 @@
-Your are in the Engineering Access Tube.  You see the airlock controls to main engineering.  
+Your are in the Engineering Access Tube.  You see the airlock controls that control the entry to main engineering.  
 
 To the North is the Shuttle Bay and to the South is Main Engineering.

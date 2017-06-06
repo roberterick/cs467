@@ -104,7 +104,7 @@ for b in specialUseVariants:
 	specialVerbs.append(b)
 
 # list of features that are longer than one word
-specialFeatures = ['table of notes', 'alien notes', 'dying alien', 'dying man', 'pistol instructions', 'entertainment terminal', 'vacsuit locker']
+specialFeatures = ['table of notes', 'alien notes', 'dying alien', 'dying man', 'pistol instructions', 'entertainment terminal', 'vacsuit locker', 'oxygen tank']
 
 # list of items that are longer than one word
 specialItems = ['bronze medallion', 'blue rose', 'hibernation pod', 'plastic pass key', 'blaster pistol', 'reactor fuel', 'model ship', 'gold medallion', 'silver medallion', 'security chip', 'auxiliary codes', 'depleted vacsuit']

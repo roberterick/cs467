@@ -11,6 +11,7 @@ class Feature(FeatureOrItem):
         self.item_use=[]
         self.description_change=''
         self.result_item=None
+        self.destroy_item=False
         self.__dict__.update(data)
 
 if __name__=='__main__':

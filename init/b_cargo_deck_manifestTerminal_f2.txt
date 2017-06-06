@@ -1,0 +1,13 @@
+{
+	"name": "manifest terminal",
+	"type": "feature",
+	"long_description": "This is the manifest terminal.  You can look up the location of specific items and the codes to unlock the container here.  However, the monitor on the terminal is damaged.  You will have to repair it somehow.",
+	"short_description": "manifest terminal",
+	"location":"cargo deck",
+	"item_use":"monitor",
+	"verb_use":["use","repair","replace"],
+	"result_text":"You repair the terminal, by replacing the monitor.  The screen shows the location and code for a core capacitor, this must have been the last thing that was searched for.  You try other commands but the terminal is unresponsive.  You don't risk restarting the terminal because you aren't sure it will come back on again.  You head to the container and enter the code and pick up the core capacitor",
+	"result_item":"core capacitor",
+	"destroy_item":"True",
+	"description_change": "This is the manifest terminal, it is currently frozen on the location and code for a core capacitor."
+}

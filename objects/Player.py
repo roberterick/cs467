@@ -222,6 +222,10 @@ Your status: %s
                 self.getItem(rItem.name)
             item=self.otherObjects[itemName]
             item.unlockAllDirections()
+            if feature.destroy_item:
+                item.hidden = True
+                room.items += [itemName]
+                self.items.remove(itemName)
             return True
 
     def secretjump(self,roomName):

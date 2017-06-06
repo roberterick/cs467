@@ -1,7 +1,0 @@
-{
-	"name": "packages",
-	"type": "feature",
-	"long_description": "These packages seem like something went through them. Did you do this?",
-	"short_description": "Who touched these disorganized packages?",
-	"location":"cargo deck"
-}

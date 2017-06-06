@@ -5,12 +5,13 @@
 
 import os
 import platform
+from objects import *
+from sagParser import *
+
 ##import json
 ##import pickle
 ##import ply
 ##from our_objects import *
-from objects import *
-from sagParser import *
 ##from objects.AppBase import AppBase
 
 

@@ -101,6 +101,10 @@ class App(object):
             enteringRoomTracker.pop(0)
             enteringRoomTracker.append(True)
             return self.player.teleport()
+        elif splitcommand[0] in ['secretjump']:
+            enteringRoomTracker.pop(0)
+            enteringRoomTracker.append(True)
+            return self.player.secretjump(splitcommand[1])
         elif splitcommand[0] in ['status']:
             enteringRoomTracker.pop(0)
             enteringRoomTracker.append(False)

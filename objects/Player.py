@@ -64,6 +64,8 @@ Your status: %s
         if not itemName in room.items:return False #it isn't in the room
         if not self.otherObjects.has_key(itemName):return False #itemName not valid
         if not isinstance(self.otherObjects[itemName],Item):return False #not an item
+        item=self.otherObjects[itemName]
+        if item.hidden==True:return False #hidden items not takeable
         self.items+=[itemName]#add to our items
         room.items.remove(itemName)#remove from the room
         print 'You have added the %s to your inventory.'%itemName
@@ -225,6 +227,13 @@ Your status: %s
             item=self.otherObjects[itemName]
             item.unlockAllDirections()
             return True
+
+    def secretjump(self,roomName):
+        if roomName not in self.otherObjects:return False
+        if self.otherObjects[roomName].type!='room':return False
+        self.clearScreen()
+        self.location=roomName
+        return True
 
 if __name__=='__main__':
     p=Player()

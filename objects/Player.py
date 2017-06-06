@@ -88,10 +88,6 @@ Your status: %s
         and 'bronze medallion' in self.items:
             self.status='you have won the game!'
             print 'You have arrived at the engineering core with all the medallions.  You have won the game!'
-
-    #clears screen by adding 100 lines               
-    def clearScreen(self):
-        print "\n" * 100
         
     def move(self,direction):
         #test for the room

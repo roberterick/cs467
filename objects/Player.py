@@ -69,6 +69,7 @@ Your status: %s
         self.items+=[itemName]#add to our items
         room.items.remove(itemName)#remove from the room
         print 'You have added the %s to your inventory.'%itemName
+        self.checkWin()
         return True
     
     def dropItem(self,itemName):
@@ -82,9 +83,9 @@ Your status: %s
 
     def checkWin(self):
         '''checks to see if the game has been won'''
-        if self.location=='engineering core' \
-        and 'gold medallion' in self.items \
-        and 'silver medallion' in self.items \
+##        if self.location=='engineering core' \
+##        and 'gold medallion' in self.items \
+        if'silver medallion' in self.items \
         and 'bronze medallion' in self.items:
             self.status='you have won the game!'
             print 'You have arrived at the engineering core with all the medallions.  You have won the game!'
@@ -107,37 +108,19 @@ Your status: %s
         elif direction in room.adjacent_rooms:
             self.location = room.adjacent_rooms[direction]
             self.clearScreen()
-            self.checkWin()
+##            self.checkWin()
             return True
         elif direction in room.adjacent_rooms.itervalues():
             self.location = direction
             self.clearScreen()
-            self.checkWin()
+##            self.checkWin()
             return True
         #if bad, exit false
         else:
             self.clearScreen()
-            self.checkWin()
+##            self.checkWin()
             return False
-
-##    def unlockDirection(self,direction):
-##        #get the room
-##        room=self.otherObjects[self.location]
-##        #remove the lock
-##        room.lockedDirections.remove(direction)
-##
-##    def unlockAllDirections(self):
-##        #get the room
-##        room=self.otherObjects[self.location]
-##        room.lockedDirections=[]
-##
-##    def unhideAll(self):
-##        #get the room
-##        room=self.otherObjects[self.location]
-##        for item in room.items:
-##            obj=self.otherObjects[item]
-##            obj.hidden=False     
-
+        
     def examine(self,itemName):
         if not self.location in self.otherObjects:
             return False

@@ -1,5 +1,9 @@
 You are in a room which appears to be the bridge of a starship. No one else is present. Large video screens cover the walls and show a spectacular view of a two suns and several planets.  There's also a Window that you might want to look through and there's a Notepad by your feet. 
 
-There are numerous consoles with various controls and an empty chair in front of each. In front of you on your desk to notice an ElevatorKey1. Maybe you can try picking it up?
+There are numerous consoles with various controls and an empty chair in front of each. 
+
+A status terminal states that the bridge is inoperable and the engine core needs repair.  You must transfer control to the auxiliary bridge and repair the engine core to survive.
+
+In front of you on your desk to notice an ElevatorKey1. Maybe you can try picking it up? 
 
 To the South there appears to be an Elevator Level 1.

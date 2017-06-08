@@ -29,6 +29,7 @@ class AppBase(object):
     def where(self):return os.getcwd()
 
     def initializeGame(self):
+        print 'Welcome to DEEP SPACE DERELICT'
         answer=raw_input('Start a new game (y/n)?')
         answer=answer.lower()
         if answer=='y':

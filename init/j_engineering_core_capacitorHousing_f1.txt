@@ -7,7 +7,7 @@
 	"item_use":"core capacitor",
 	"verb_use":["use","replace","repair"],
 	"result_text":"You replace the damaged capacitor with the new core capacitor, restoring power to the auxiliary bridge.",
-	"result_item":"silver medallion",
+	"result_item":"core restoration medal",
 	"destroy_item":"True",
 	"description_change": "This is the housing for a core capacitor, it has a new and functioning capacitor in it."
 }

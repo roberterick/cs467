@@ -1,7 +1,7 @@
 {
 	"name": "shuttle bay",
 	"type": "room",
-	"long_description": "You are in the Shuttle Bay. Reminds me of something...\nTo the North is the Elevator.\nTo the East is the Armory (GUNZ!)\nIf you look South, there's an Engineering Access Tube.\nAnd if you look West, there's a Transporter Room.",
+	"long_description": "You are in the Shuttle Bay. This is where the shuttle is normally housed, but it is missing.  \nThe VacSuit locker is opened and empty.  But you see a depleted VacSuit on the ground. \nTo the North is the Elevator.\nTo the East is the Armory (GUNZ!)\nIf you look South, there's an Engineering Access Tube.\nAnd if you look West, there's a Transporter Room.",
 	"short_description": "The Shuttle Bay.\nNorth:Elevator Level 3\nEast:Armory\nSouth:Engineering Access Tube\nWest:Transporter Room",
 	"adjacent_rooms": {"west":"transporter room","east":"armory","south":"engineering access tube","north":"elevator level 3"}
 }

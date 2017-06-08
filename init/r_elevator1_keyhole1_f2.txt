@@ -4,7 +4,7 @@
 	"long_description": "This is a keyhole1 that might work with a certain elevatorkey?",
 	"short_description": "Keyhole1.",
 	"location":"elevator level 1",
-	"verb_use":["use"],
+	"verb_use":["use", "unlock"],
 	"item_use":["elevatorkey1"],
 	"result_text":"You have successfully unlocked the next level on this elevator!",
 	"description_change": "Keyhole1 has been unlocked!"

@@ -1,9 +1,0 @@
-{
-	"name": "bronze medallion",
-	"alternate_names":[],
-	"type": "item",
-	"long_description": "This is a bronze medallion.  It has the inscription: 'haec vincere debes'.  Maybe you should pick it up?",
-	"short_description":  "Bronze medallion.",
-	"location":"auxiliary bridge",
-	"hidden":"true"
-}

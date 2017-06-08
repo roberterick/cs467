@@ -7,6 +7,6 @@
 	"item_use":"auxiliary codes",
 	"verb_use":["use","type"],
 	"result_text":"You type in the codes and transfer control of the ship from the bridge to the auxiliary bridge.",
-	"result_item":"bronze medallion",
+	"result_item":"control transfer medal",
 	"description_change": "These are the auxiliary controls, you have transfered controls to the auxiliary bridge."
 }

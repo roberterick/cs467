@@ -85,8 +85,8 @@ Your status: %s
         '''checks to see if the game has been won'''
 ##        if self.location=='engineering core' \
 ##        and 'gold medallion' in self.items \
-        if'silver medallion' in self.items \
-        and 'bronze medallion' in self.items:
+        if'core restoration medal' in self.items \
+        and 'control transfer medal' in self.items:
             self.status='you have won the game!'
             print 'You have arrived at the engineering core with all the medallions.  You have won the game!'
         

@@ -88,7 +88,8 @@ Your status: %s
         if'core restoration medal' in self.items \
         and 'control transfer medal' in self.items:
             self.status='you have won the game!'
-            print 'You have arrived at the engineering core with all the medallions.  You have won the game!'
+            print 'You have repaired the engine core and transferred control to the auxiliary bridge.  You have won the game!'
+            exit(0)
         
     def move(self,direction):
         #test for the room

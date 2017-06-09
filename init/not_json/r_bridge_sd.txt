@@ -1,3 +1,2 @@
-This is where you started.
-
-To the South is Elevator Level 1.
+This is where you started. You see a window and a 
+notepad.  To the South is Elevator Level 1.

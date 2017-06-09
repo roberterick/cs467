@@ -1,1 +1,4 @@
-As you enter the Crew Quarters again, you remember that this room leads to the Captain's Cabin (North), Mess Hall (East), Medical Bay (South), and Elevator Level 2 (West). Where will you go? What will you do?
+As you enter the Crew Quarters again, you see a diary and 
+pajamas.  You remember that this room leads to the Captain's Cabin 
+(North), Mess Hall (East), Medical Bay (South), and Elevator Level 2 
+(West). Where will you go? What will you do?

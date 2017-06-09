@@ -1,3 +1,7 @@
-Congratulations on gaining access to level 2 of the bridge elevator. As the elevator creeps down, the display slowly switches to 'level 2'. Also, the control panel now has a Keyhole2 and a Directory2. 
+Congratulations on gaining access to level 2 of the 
+bridge elevator. As the elevator creeps down, the display slowly switches
+to 'level 2'. Also, the control panel now has a Keyhole2 and a Directory2. 
 
-You can go Up back to Elevator Level 1 or you can try going East to the Crew Quarters. Finally, you notice that the control panel notes that going Down leads you to Elevator level 3.
+You can go Up back to Elevator Level 1 or you can try going East to the 
+Crew Quarters. Finally, you notice that the control panel notes that 
+going Down leads you to Elevator level 3.

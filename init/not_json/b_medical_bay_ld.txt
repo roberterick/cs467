@@ -1,3 +1,8 @@
-You are in the Medical Bay. This area has all of the ship's medical apparatus and supplies. None of that stuff seems used. You yell, "WHAT HAPPENED HERE?" And a strange Dying Alien telepathically tells you, "Figure it out." Right beside him are Alien Notes.
+You are in the Medical Bay. This area has all of the 
+ship's medical apparatus and supplies. None of that stuff seems used. 
+You yell, "WHAT HAPPENED HERE?" And a strange Dying Alien telepathically 
+tells you, "Figure it out." Right beside him are Alien Notes.  An 
+Android, and an Oxygen Tank catch your eye.
 
-After you make your decision on what to do, you remember you can go back to the Crew Quarters in the North or forge West to the Forward Observation Lounge.
+After you make your decision on what to do, you remember you can go 
+back to the Crew Quarters in the North or head West to Forward Observation.

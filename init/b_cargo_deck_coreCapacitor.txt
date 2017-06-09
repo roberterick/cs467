@@ -1,7 +1,7 @@
 {
 	"name": "core capacitor",
 	"type": "item",
-	"long_description": "This is a core capacitor, it regulates power transfer from the engine core to other systems on the ship.",
+	"long_description": "This is a core capacitor, it regulates power transfer from the engine core \nto other systems on the ship.",
 	"short_description": "This is a core capacitor.",
 	"location":"cargo deck",
 	"hidden":"true"

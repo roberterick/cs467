@@ -1,7 +1,7 @@
 {
 	"name": "depleted vacsuit",
 	"type": "item",
-	"long_description": "This is a VacSuit that can protect you from the harsh environment of space.  It is fully intact with a full battery, but the oxygen supply has been depleted",
+	"long_description": "This is a VacSuit that can protect you from the harsh environment of space.\nIt is structurally intact with a full battery, but the oxygen supply has \nbeen depleted, you will need to find some way to refill it.",
 	"short_description": "depleted vacsuit",
 	"location":"shuttle bay"
 	

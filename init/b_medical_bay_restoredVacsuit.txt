@@ -1,7 +1,7 @@
 {
 	"name": "restored vacsuit",
 	"type": "item",
-	"long_description": "This is a VacSuit that can protect you from the harsh environment of space.  It is fully intact with a full battery and full oxygen supply",
+	"long_description": "This is a VacSuit that can protect you from the harsh environment of space.  \nIt is fully intact with a full battery and full oxygen supply",
 	"short_description": "Restored Vacsuit.",
 	"location":"medical bay",
 	"hidden":"true",

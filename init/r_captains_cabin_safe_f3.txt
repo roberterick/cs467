@@ -1,12 +1,12 @@
 {
 	"name": "safe",
 	"type": "feature",
-	"long_description": "This is the captain's safe, it is locked.  It can only be unlocked with a biometric scan or a special security chip.  You hope the captain hid the chip somewhere you can find it.",
+	"long_description": "This is the captain's safe, it is locked.  It can only be unlocked with a \nbiometric scan or a special Security Chip.  You hope the captain hid the \nchip somewhere you can find it.",
 	"short_description": "Safe",
 	"location":"captain's cabin",
 	"item_use":"security chip",
 	"verb_use":["use","open","unlock"],
-	"result_text":"You unlock the safe with the security chip and open it. Inside are codes to transfer ship controls to the auxiliary bridge.  You will need these to transfer ship controls.",
+	"result_text":"You unlock the safe with the security chip and open it. Inside are codes to \ntransfer ship controls to the auxiliary bridge.  You will need these.",
 	"result_item":"auxiliary codes",
 	"description_change": "The captain's safe is open, but there is nothing else useful inside"
 }

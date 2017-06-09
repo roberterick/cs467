@@ -1,7 +1,7 @@
 {
 	"name": "crops",
 	"type": "feature",
-	"long_description": "These are crops that were growing on the ship. They seem to have all gone bad.",
+	"long_description": "These are crops that were growing on the ship. \n They seem to have all gone bad, but you don't know why.",
 	"short_description": "Those crops really smell.",
 	"location":"arboretum"
 }

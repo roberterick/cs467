@@ -1,7 +1,7 @@
 {
 	"name": "dying alien",
 	"type": "feature",
-	"long_description": "When you approach the dying alien, it looks at you and points at the android.",
+	"long_description": "As you approach the dying alien, it looks at you and points at the android.",
 	"short_description": "The alien is dead.",
 	"location":"medical bay"
 }

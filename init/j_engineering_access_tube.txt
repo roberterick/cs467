@@ -2,7 +2,7 @@
 	"name": "engineering access tube",
 	"type": "room",
 	"long_description": "j_eat_ld.txt",
-	"short_description": "engineering access tube",
+	"short_description": "The engineering access tube, you see the Airlock Controls.\nNorth is the Shuttle Bay and South is Main Engineering. ",
 	"adjacent_rooms": {"north":"shuttle bay", "south":"main engineering"},
 	"locked_directions":["south"]
 }

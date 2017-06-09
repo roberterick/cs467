@@ -1,7 +1,7 @@
 {
 	"name": "multitool",
 	"type": "item",
-	"long_description": "This is a multitool, it has many different screwdriver and wrench sizes among other useful tools.  It can be used for simple jobs involving screws or bolts",
+	"long_description": "This is a multitool, it has many different screwdriver and wrench sizes \namong other useful tools, useful for simple jobs involving screws or bolts",
 	"short_description": "Multitool",
 	"location":"crew quarters"
 }

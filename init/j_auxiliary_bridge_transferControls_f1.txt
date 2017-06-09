@@ -1,12 +1,12 @@
 {
 	"name": "transfer controls",
 	"type": "feature",
-	"long_description": "These are the transfer controls, that transfer control the ship to the auxiliary bridge in case of bridge malfunction.  You must have auxiliary codes to transfer control.",
+	"long_description": "These are the Transfer Controls, that transfer control the ship to the \nAuxiliary Bridge in case of bridge malfunction.  You must use Auxiliary Codes\nto transfer control.",
 	"short_description": "transfer controls",
 	"location":"auxiliary bridge",
 	"item_use":"auxiliary codes",
 	"verb_use":["use","type"],
-	"result_text":"You type in the codes and transfer control of the ship from the bridge to the auxiliary bridge.",
+	"result_text":"You type in the codes and transfer control of the ship from the bridge to \nthe Auxiliary Bridge.",
 	"result_item":"control transfer medal",
 	"description_change": "These are the auxiliary controls, you have transfered controls to the auxiliary bridge."
 }

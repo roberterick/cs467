@@ -1,7 +1,7 @@
 {
 	"name": "painting",
 	"type": "feature",
-	"long_description": "You check out the painting, and it's of Captain Crunch?! When was the last time you had that?",
+	"long_description": "You check out the painting, and it's of Captain Crunch?! When was the last \ntime you had that?",
 	"short_description": "Mmmm...cereal.",
 	"location":"captain's cabin"
 }

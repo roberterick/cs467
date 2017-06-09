@@ -2,6 +2,6 @@
 	"name": "arboretum",
 	"type": "room",
 	"long_description": "b_arboretum_ld.txt",
-	"short_description": "Arboretum\nWest:Mess Hall",
+	"short_description": "Back in the Arboretum.  You see a Turtle and Crops.\n To the West is the Mess Hall",
 	"adjacent_rooms": {"west":"mess hall"}
 }

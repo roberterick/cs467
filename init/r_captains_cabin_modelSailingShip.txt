@@ -1,7 +1,7 @@
 {
 	"name": "model ship",
 	"type": "item",
-	"long_description": "This is a model of the ship (model ship) you're on. It must have been the captain's. It seems like a really good model of you're ship.",
+	"long_description": "This is a model of the ship (model ship) you're on. It must have been the \ncaptain's. It seems like a really good model of you're ship.",
 	"short_description": "This is a model of the ship you're on.",
 	"location":"captain's cabin"
 }

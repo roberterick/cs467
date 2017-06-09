@@ -1,7 +1,7 @@
 {
 	"name": "cargo containers",
 	"type": "feature",
-	"long_description": "There are many cargo containers in the cargo deck.  Each container is labeled with with an alphanumeric code.  For added security each container is locked, most crew know the codes for the containers they need to access, but you don't remeber the code for engineering parts.  The codes can be accessed from the manifest terminal",
+	"long_description": "There are many cargo containers in the cargo deck.  Each container is \nlabeled with with an alphanumeric code.  For added security each container \nis locked, most crew know the codes for the containers they need to access, \nbut you don't remeber the code for engineering parts.  The codes can be accessed \nfrom the Manifest Terminal",
 	"short_description": "Locked cargo containers",
 	"location":"cargo deck"
 }

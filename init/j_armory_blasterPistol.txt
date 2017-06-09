@@ -1,7 +1,7 @@
 {
 	"name": "blaster pistol",
 	"type": "item",
-	"long_description": "What you have here is a blaster pistol. It is at full energy, so maybe you can use it somewhere.",
+	"long_description": "What you have here is a blaster pistol. It is at full energy, so maybe you \ncan use it somewhere.",
 	"short_description": "This is a blaster pistol.",
 	"location":"armory"
 }

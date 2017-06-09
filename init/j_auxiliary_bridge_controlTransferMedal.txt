@@ -2,7 +2,7 @@
 	"name": "control transfer medal",
 	"alternate_names":[],
 	"type": "item",
-	"long_description": "This is the Control Transfer Medal, awarded for transfering control to the auxiliary bridge.  Do not drop!",
+	"long_description": "This is the Control Transfer Medal, awarded for transfering control to the \nAuxiliary Bridge.  Do not drop!",
 	"short_description":  "core transfer medal.",
 	"location":"auxiliary bridge",
 	"hidden":"true"

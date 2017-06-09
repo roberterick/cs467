@@ -2,7 +2,7 @@
 	"name": "core restoration medal",
 	"alternate_names":[],
 	"type": "item",
-	"long_description": "This is the Core Restoration Medal.  This is awarded for repairing the engine core.  Do not drop!",
+	"long_description": "This is the Core Restoration Medal.  This is awarded for repairing the \nEngine Core.  Do not drop!",
 	"short_description":  "Core Restoration Medal",
 	"location":"engineering core",
 	"hidden":"true"

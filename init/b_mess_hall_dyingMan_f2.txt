@@ -1,7 +1,7 @@
 {
 	"name": "dying man",
 	"type": "feature",
-	"long_description": "You approach the Dying Man and makes a very strange gesture: He acts like he has won the Olympics. Weird! There must be some sort of metal involved...",
-	"short_description": "There must be some sort of metal involved...",
+	"long_description": "You approach the Dying Man and makes a very strange gesture: He acts like \nhe has won the Olympics. Weird!",
+	"short_description": "There is something strange about the Dying man...",
 	"location":"mess hall"
 }

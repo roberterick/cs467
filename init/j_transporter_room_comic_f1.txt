@@ -1,7 +1,7 @@
 {
 	"name": "comic",
 	"type": "feature",
-	"long_description": "You read the Comic, and it gives you a hearty laugh. It was from the New York Post. What a great newspaper that was...",
+	"long_description": "You read the Comic, and it gives you a hearty laugh. It was from the \nNew York Post. What a great newspaper that was...",
 	"short_description": "The jokes in the Comic are not funny anymore.",
 	"location":"transporter room"
 }

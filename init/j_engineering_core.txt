@@ -1,7 +1,7 @@
 {
 	"name": "engineering core",
 	"type": "room",
-	"long_description": "It's really hot here in the Engineering Core.\nIf you want to escape the heat, the only place you can go is West to Main Engineering.",
+	"long_description": "This is the Engineering Core which provides power for all ship systems.  \nYou see the Capacitor Housing.  The only exit is West to Main Engineering.",
 	"short_description": "engineering_core",
 	"adjacent_rooms": {"west":"main engineering"}
 }

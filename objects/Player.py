@@ -22,11 +22,9 @@ class Player(GameObj):
         status='Status: %s'%self.status
         if self.seen:
             desc=self.short_description
-##            return '%s\n%s\n%s'%(self.short_description,youhave,status)
         else:
             desc=self.long_description
             self.seen=True
-##            return '%s\n%s\n%s'%(self.long_description,youhave,status)
 
         thereturn='''
 >>>>>>>>>>>>>>>>>STATUS<<<<<<<<<<<<<<
@@ -83,8 +81,6 @@ Your status: %s
 
     def checkWin(self):
         '''checks to see if the game has been won'''
-##        if self.location=='engineering core' \
-##        and 'gold medallion' in self.items \
         if'core restoration medal' in self.items \
         and 'control transfer medal' in self.items:
             self.status='you have won the game!'
@@ -133,9 +129,6 @@ Your status: %s
 
         realName=adict[itemName]
         item=self.otherObjects[realName]
-##        if not isinstance(item,Item):
-##            print "That is not an item!"
-##            return False
 
         if hasattr(item,'canUnlock') and item.canUnlock==True:
             item.unlockAllDirections()
@@ -146,14 +139,7 @@ Your status: %s
         t=item.type
         t.capitalize()
         print item.long_description
-        #print '%s %s: %s'%(t, itemName,item.long_description)
         return True
-
-    #need to implement use feature similar to examine object
-    #or morph examine to handle use as well
-    #if feature.canUnhide=True, must unhide all hidden items in the room
-    #if item.canUnlock=True, must unlock all locked directions in the room
-
 
     def getNameAndAlternates(self):
         adict={}

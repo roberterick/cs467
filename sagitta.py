@@ -8,13 +8,6 @@ import platform
 from objects import *
 from sagParser import *
 
-##import json
-##import pickle
-##import ply
-##from our_objects import *
-##from objects.AppBase import AppBase
-
-
 
 class App(AppBase):
     def __init__(self):
@@ -198,8 +191,6 @@ use <item> <feature>: Use an item on a feature
 feed <item> <feature>:  Feed an item to a feature
         '''
         print h
-##        print objects1: print known objects
-##        print objects2: print known objects
 
     def normalizeDirection(self,direction):
         aMap={

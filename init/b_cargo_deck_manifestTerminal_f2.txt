@@ -6,7 +6,7 @@
 	"location":"cargo deck",
 	"item_use":"monitor",
 	"verb_use":["use","repair","replace"],
-	"result_text":"You repair the terminal, by replacing the monitor.  The screen shows the \nlocation and code for a core capacitor, this must have been the last thing \nthat was searched for.  You try other commands but the terminal is \nunresponsive.  You don't risk restarting the terminal because you aren't sure it will come \nback on again.  You head to the container and enter the code and pick up \nthe Core Capacitor",
+	"result_text":"You repair the terminal, by replacing the monitor.  The screen shows the \nlocation and code for a core capacitor, this must have been the last thing \nthat was searched for.  You try other commands but the terminal is \nunresponsive.  You don't risk restarting the terminal because you aren't \nsure it will come back on again.  You head to the container and enter the \ncode and pick up the Core Capacitor",
 	"result_item":"core capacitor",
 	"destroy_item":"True",
 	"description_change": "This is the Manifest Terminal, it is currently frozen on the location \nand code for a core capacitor."
